@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://ofbiz.apache.org/Widget-Screen" xsi:schemaLocation="http://ofbiz.apache.org/Widget-Screen http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="main">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/EcommerceSetup.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/Main.groovy"/>
+                <!--<script location="component://fisico/src/main/groovy/ecommerce/Category.groovy"/>-->
+                <script location="component://fisico/src/main/groovy/ecommerce/ShowCart.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                        <platform-specific>
+                            <html><html-template location="component://fisico/template/pages/index.ftl"/></html>
+                        </platform-specific>
+                    <!--</decorator-section>
+                </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="login">
+        <section>
+            <actions>
+                <script location="component://fisico/src/main/groovy/ecommerce/EcommerceSetup.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/Login.groovy"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/login.ftl"/></html>
+                </platform-specific>
+                <!-- <include-screen name="ListThirdPartyLogins" location="component://passport/widget/PassportScreens.xml"/> -->
+                <!--<platform-specific>
+                    <html><html-template location="component://fisico/template/pages/startAnonCheckout.ftl"/></html>
+                </platform-specific>-->
+            </widgets>
+        </section>
+    </screen>
+
+    <!-- Start footer screens -->
+
+    <!-- Start Customer services screens -->
+    <screen name="shipping">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <property-map resource="ShippingUiLabels" map-name="ShippingLabelMap" global="true"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/footer/shipping.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="returns">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <property-map resource="ReturnsUiLabels" map-name="ReturnsLabelMap" global="true"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/footer/returns.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="sizeguide">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/footer/sizeguide.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="contacts">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/footer/contacts.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="faq">
+        <section>
+            <actions>
+                <set field="templatename" value="faq" />
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <property-map resource="FaqUiLabels" map-name="FaqLabelMap" global="true"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/footer/faq.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+    <!-- End Customer services screens -->
+
+    <!-- Start legal area screens -->
+    <screen name="salesconditions">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <property-map resource="SalesConditionsUiLabels" map-name="SalesConditionsLabelMap" global="true"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/footer/salesconditions.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="privacy">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <property-map resource="PrivacyUiLabels" map-name="PrivacyLabelMap" global="true"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/footer/privacy.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="cookie">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <property-map resource="CookieUiLabels" map-name="CookieLabelMap" global="true"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/footer/cookie.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+    <!-- End legal area screens -->
+
+    <!-- Start corporate screens -->
+    <screen name="history">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <property-map resource="HistoryUiLabels" map-name="HistoryLabelMap" global="true"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/history.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="campaign">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/campaign.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="stores">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <property-map resource="StoresUiLabels" map-name="StoresLabelMap" global="true"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+                <!--property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://order/src/main/groovy/org/apache/ofbiz/order/entry/catalog/SideDeepCategory.groovy"/-->
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/stores.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+    <!-- End corporate screens -->
+
+    <!-- Start campaign screens -->
+    <screen name="fisicoadv25">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/campaign/fisicoadv25.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="fisicoadv24">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/campaign/fisicoadv24.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="fisicoadv23">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/campaign/fisicoadv23.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="fisicoadv22">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/campaign/fisicoadv22.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="fisicoadv21">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/campaign/fisicoadv21.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="fisicoadv20">
+        <section>
+            <actions>
+                <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+            </actions>
+            <widgets>
+                <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">-->
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/campaign/fisicoadv20.ftl"/></html>
+                </platform-specific>
+                <!--</decorator-section>
+            </decorator-screen>-->
+            </widgets>
+        </section>
+    </screen>
+    <!-- End campaign screens -->
+
+    <!-- End footer screens -->
+
+    <!-- Category Screens -->
+    <screen name="productCategoryList">
+        <section>
+            <!--condition>
+                <if-empty field="parameters.mainSubmitted"/>
+            </condition-->
+            <actions>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://order/src/main/groovy/org/apache/ofbiz/order/entry/catalog/Category.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+               <!--
+                <set field="fromSetSessionLocale" value="${groovy: return request.getAttribute('fromSetSessionLocale');}"/>
+                <set field="visualThemeId" from-field="productStore.visualThemeId" default-value="EC_DEFAULT"/>
+                <set field="visualTheme" value="${groovy: org.apache.ofbiz.widget.model.ThemeFactory.getVisualThemeFromId(visualThemeId)}"/>
+                <set field="modelTheme" value="${groovy: visualTheme.getModelTheme()}"/>
+                <set field="layoutSettings" value="${groovy: modelTheme.getThemeResources()}"/-->
+            </actions>
+            <widgets>
+                <section>
+                    <!--condition>
+                        <if-compare operator="equals" value="true" field="fromSetSessionLocale"/>
+                    </condition-->
+                    <widgets>
+                        <include-screen name="category"/>
+                    </widgets>
+                    <!--fail-widgets>
+                        <section>
+                            <condition>
+                                <if-empty field="category_id"/>
+                            </condition>
+                            <widgets>
+                                <include-screen name="newbreadcrumbs" share-scope="true"/>
+                            </widgets>
+                            <fail-widgets>
+                                <include-screen name="breadcrumbs" share-scope="true"/>
+                            </fail-widgets>
+                        </section>
+                        <include-screen name="category-include" share-scope="true"/>
+                    </fail-widgets-->
+                </section>
+            </widgets>
+            <fail-widgets>
+                <section>
+                    <widgets>
+                        <include-screen name="category"/>
+                    </widgets>
+                </section>
+            </fail-widgets>
+        </section>
+    </screen>
+
+    <screen name="category">
+        <section>
+            <actions>
+                <!--<set field="MainColumnStyle" value="center"/>-->
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <!--<set field="titleProperty" value="PageTitleCategoryPage"/>-->
+                <script location="component://fisico/src/main/groovy/ecommerce/Category.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+                <!-- Open this commented section for the demo of Layered Navigation, navigate through Gizmo and Widgets categories to see it in action.
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/catalog/LayeredNavigation.groovy"/>
+                <set field="detailScreen" value="LayeredCategoryDetail"/>
+                -->
+                <!--<set field="tabButtonItem" value="LookupProductCategories"/>-->
+            </actions>
+            <widgets>
+                <!--decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}"-->
+                    <!--decorator-section name="left-column">
+                        <include-screen name="leftbar" location="component://ecommerce/widget/CommonScreens.xml"/>
+                    </decorator-section-->
+                    <!--decorator-section name="body">
+                        <include-screen name="breadcrumbs"/-->
+                        <!--include-screen name="category-include"/>-->
+                <include-screen name="${detailScreen}"/>
+                    <!--/decorator-section-->
+                    <!--decorator-section name="right-column">
+                        <include-screen name="rightbar" location="component://ecommerce/widget/CommonScreens.xml"/>
+                    </decorator-section-->
+                <!--/decorator-screen-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="category-include">
+        <section>
+            <widgets>
+                <section>
+                    <condition>
+                        <not><if-empty field="productCategory"/></not>
+                    </condition>
+                    <widgets>
+                        <include-screen name="${detailScreen}"/>
+                    </widgets>
+                    <fail-widgets>
+                        <label style="head2">${uiLabelMap.ProductCategoryNotFoundForCategoryID} ${productCategoryId}!</label>
+                    </fail-widgets>
+                </section>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="categorydetail">
+        <section>
+            <actions>
+                <set field="templatename" value="categorydetail" />
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <set field="productsummaryScreen" value="component://fisico/widget/FisicoScreens.xml#productsummary"/>
+                <!--set field="productCategoryLinkScreen" value="component://ecommerce/widget/CatalogScreens.xml#ProductCategoryLink"/-->
+                <script location="component://fisico/src/main/groovy/ecommerce/CategoryDetail.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+
+                <!--entity-and entity-name="ProductCategoryLink" list="productCategoryLinks" use-cache="true" filter-by-date="true">
+                    <field-map field-name="productCategoryId" from-field="productCategoryId"/>
+                    <order-by field-name="sequenceNum"/>
+                </entity-and>
+                <set field="paginateEcommerceStyle" value="Y"/-->
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template  location="component://fisico/template/pages/listing.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="productsummary">
+        <section>
+            <actions>
+                <set field="templatename" value="productsummary" />
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/ProductSummary.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://fisico/template/pages/productSummary.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="product">
+        <section>
+            <actions>
+                <!--set field="MainColumnStyle" value="center"/>
+                <set field="titleProperty" value="PageTitleProductPage"/-->
+                <set field="layoutSettings.javaScripts[]" value="/ecommerce/images/productAdditionalView.js" global="true"/>
+                <!--set field="configproductdetailScreen" value="component://ecommerce/widget/CatalogScreens.xml#configproductdetail"/-->
+                <script location="component://fisico/src/main/groovy/ecommerce/Product.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="left-column">
+                        <include-screen name="leftbar" location="component://ecommerce/widget/CommonScreens.xml"/>
+                    </decorator-section>
+                    <decorator-section name="body">
+                        <section>
+                            <condition>
+                                <not><if-empty field="product"/></not>
+                            </condition>
+                            <widgets>
+                                <include-screen name="${detailScreen}"/>
+                            </widgets>
+                            <fail-widgets>
+                                <label style="head2">${uiLabelMap.ProductProductNotFound} ${productId}!</label>
+                            </fail-widgets>
+                        </section>
+                    </decorator-section>
+                    <decorator-section name="right-column">
+                        <include-screen name="rightbar" location="component://ecommerce/widget/CommonScreens.xml"/>
+                    </decorator-section>
+                </decorator-screen-->
+                <include-screen name="${detailScreen}"/>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="productdetail">
+        <section>
+            <actions>
+                <set field="templatename" value="productdetail" />
+                <set field="productsummaryScreen" value="component://fisico/widget/FisicoScreens.xml#productsummary"/>
+                <set field="productAssocsummaryScreen" value="component://fisico/widget/FisicoScreens.xml#productAssocColorSummary"/>
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/ProductDetail.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--include-screen name="breadcrumbs"/-->
+                <platform-specific><html><html-template location="component://fisico/template/pages/productDetail.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+
+    <screen name="newCustomer">
+        <section>
+            <actions>
+                <set field="templatename" value="newCustomer" />
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/customer/NewCustomer.groovy"/>
+
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+
+            </actions>
+            <widgets>
+
+                        <platform-specific>
+                            <html>
+                                <html-template location="component://fisico/template/pages/newCustomer.ftl"/>
+                            </html>
+                        </platform-specific>
+
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="miniCart">
+        <section>
+            <actions>
+                <!--set field="hidetoplinks" value="Y"/>
+                <set field="hidebottomlinks" value="N"/-->
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://fisico/template/pages/miniCart.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="showCart">
+        <section>
+            <actions>
+                <!--set field="MainColumnStyle" value="center"/-->
+                <!--set field="MainColumnStyle" value="leftonly"/-->
+
+                <!--set field="titleProperty" value="PageTitleShoppingCart"/>
+                <set field="headerItem" value="Shopping Cart"/-->
+                <!--property-to-field resource="order" property="orderPreference.giftEnable" field="giftEnable" default="Y"/-->
+                <set field="templatename" value="showCart" />
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
+            </actions>
+            <widgets>
+                <!--decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="left-column">
+                        <include-screen name="leftbar" location="component://ecommerce/widget/CommonScreens.xml"/>
+                    </decorator-section>
+                    <decorator-section name="body"-->
+                        <platform-specific><html><html-template location="component://fisico/template/pages/showCart.ftl"/></html></platform-specific>
+                    <!--/decorator-section>
+                </decorator-screen-->
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="checkoutShippingAddress">
+        <section>
+            <actions>
+                <set field="templatename" value="showcart" />
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+                <script location="component://order/src/main/groovy/org/apache/ofbiz/order/entry/CheckoutShippingAddress.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://ecommerce/template/order/CheckoutShippingAddress.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+</screens>

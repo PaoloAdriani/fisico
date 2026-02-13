@@ -1,0 +1,27 @@
+<!-- Font Imports -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Core Style -->
+<link rel="stylesheet" href="<@ofbizContentUrl>/fi_it/assets/canvas/style.css</@ofbizContentUrl>"/>
+
+<!-- Font Icons -->
+<link rel="stylesheet" href="<@ofbizContentUrl>/fi_it/assets/canvas/css/font-icons.css</@ofbizContentUrl>">
+
+<!-- Plugins/Components CSS -->
+<link rel="stylesheet" href="<@ofbizContentUrl>/fi_it/assets/canvas/css/components/ion.rangeslider.css</@ofbizContentUrl>">
+
+<!-- Plugins/Components CSS -->
+<link rel="stylesheet" href="<@ofbizContentUrl>/fi_it/assets/canvas/css/swiper.css</@ofbizContentUrl>">
+
+<!-- Niche Demos -->
+<link rel="stylesheet" href="<@ofbizContentUrl>/fi_it/assets/store/store.css</@ofbizContentUrl>">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="<@ofbizContentUrl>/fi_it/assets/canvas/css/custom.css</@ofbizContentUrl>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" href="<@ofbizContentUrl>/fi_it/assets/images/favicon.ico</@ofbizContentUrl>" data-cmp-info="10">
+
+<script src="<@ofbizContentUrl>/fi_it/assets/canvas/js/jquery.js</@ofbizContentUrl>"></script>

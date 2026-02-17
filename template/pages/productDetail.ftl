@@ -359,9 +359,9 @@
                                                         </div>
                                                     </div><#-- end Select Size -->
 
+                                                    <#--
                                                     <div class="col-sm-6 mt-5">
-                                                        <!-- Button trigger modal -->
-                                                    	<!-- Centered modal -->
+
                                                         <a class="btn btn-dark me-2" data-bs-toggle="modal" data-bs-target=".bs-example-modal-centered">Guida alle taglie</a>
 
                                                         <div class="modal fade text-start bs-example-modal-centered" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
@@ -378,6 +378,45 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    -->
+
+                                                    <!-- Centered modal -->
+                                                    <div class="col-sm-6 mt-5">
+                                                    <a class="btn btn-dark me-2"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target=".bs-example-modal-centered">
+                                                        Guida alle taglie
+                                                    </a>
+
+                                                    <div class="modal fade text-start bs-example-modal-centered"
+                                                         tabindex="-1"
+                                                         role="dialog"
+                                                         aria-labelledby="centerModalLabel"
+                                                         aria-hidden="true">
+
+                                                        <div class="modal-dialog modal-dialog-centered modal-xl">
+                                                            <div class="modal-content">
+
+                                                                <div class="modal-header">
+
+                                                                    <button type="button"
+                                                                            class="btn-close btn-sm"
+                                                                            data-bs-dismiss="modal">
+                                                                    </button>
+                                                                </div>
+
+                                                                <div class="modal-body text-center p-0">
+                                                                    <img src="<@ofbizContentUrl>/fi_it/assets/images/tabella-taglie_ITA.jpg</@ofbizContentUrl>"
+                                                                         class="img-fluid"
+                                                                         style="max-height: 80vh;"
+                                                                         alt="Immagine grande">
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+
 
                                                     <div class="alert alert-warning">
                                                         <i class="bi-exclamation-diamond-fill"></i><strong>Attenzione: </strong> Selezionare una taglia.
@@ -402,25 +441,42 @@
                                                         </#if>
                                                     </div>
 
-                                                    <div class="col-sm-6 mt-5">
-                                                        <!-- Button trigger modal -->
-                                                        <!-- Centered modal -->
-                                                        <a class="btn btn-dark me-2" data-bs-toggle="modal" data-bs-target=".bs-example-modal-centered">Guida alle taglie</a>
+                                                     <!-- Centered modal -->
+                                                                                                        <div class="col-sm-6 mt-5">
+                                                                                                        <a class="btn btn-dark me-2"
+                                                                                                                data-bs-toggle="modal"
+                                                                                                                data-bs-target=".bs-example-modal-centered">
+                                                                                                            Guida alle taglie
+                                                                                                        </a>
 
-                                                        <div class="modal fade text-start bs-example-modal-centered" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
+                                                                                                        <div class="modal fade text-start bs-example-modal-centered"
+                                                                                                             tabindex="-1"
+                                                                                                             role="dialog"
+                                                                                                             aria-labelledby="centerModalLabel"
+                                                                                                             aria-hidden="true">
 
-                                                                        <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-hidden="true"></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <img src="<@ofbizContentUrl>/fi_it/assets/images/sizeguide_desk_it.jpg</@ofbizContentUrl>"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                                                                            <div class="modal-dialog modal-dialog-centered modal-xl">
+                                                                                                                <div class="modal-content">
+
+                                                                                                                    <div class="modal-header">
+
+                                                                                                                        <button type="button"
+                                                                                                                                class="btn-close btn-sm"
+                                                                                                                                data-bs-dismiss="modal">
+                                                                                                                        </button>
+                                                                                                                    </div>
+
+                                                                                                                    <div class="modal-body text-center p-0">
+                                                                                                                        <img src="<@ofbizContentUrl>/fi_it/assets/images/tabella-taglie_ITA.jpg</@ofbizContentUrl>"
+                                                                                                                             class="img-fluid"
+                                                                                                                             style="max-height: 80vh;"
+                                                                                                                             alt="Immagine grande">
+                                                                                                                    </div>
+
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        </div>
 
                                                     <div class="quantity mt-3">
                                                         <input type="button" value="-" class="minus">

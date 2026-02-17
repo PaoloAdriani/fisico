@@ -77,6 +77,7 @@ under the License.
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
                 <property-map resource="ShippingUiLabels" map-name="ShippingLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
             </actions>
@@ -98,6 +99,7 @@ under the License.
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
                 <property-map resource="ReturnsUiLabels" map-name="ReturnsLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
             </actions>
@@ -118,6 +120,7 @@ under the License.
             <actions>
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
             </actions>
@@ -138,6 +141,7 @@ under the License.
             <actions>
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
             </actions>
@@ -159,6 +163,7 @@ under the License.
                 <set field="templatename" value="faq" />
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
                 <property-map resource="FaqUiLabels" map-name="FaqLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
             </actions>
@@ -181,6 +186,7 @@ under the License.
             <actions>
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <property-map resource="SalesConditionsUiLabels" map-name="SalesConditionsLabelMap" global="true"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
@@ -203,6 +209,7 @@ under the License.
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
                 <property-map resource="PrivacyUiLabels" map-name="PrivacyLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
             </actions>
@@ -224,6 +231,7 @@ under the License.
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
                 <property-map resource="CookieUiLabels" map-name="CookieLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
             </actions>
@@ -247,6 +255,7 @@ under the License.
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
                 <property-map resource="HistoryUiLabels" map-name="HistoryLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
             </actions>
@@ -267,6 +276,7 @@ under the License.
             <actions>
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
             </actions>
@@ -288,6 +298,7 @@ under the License.
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
                 <property-map resource="StoresUiLabels" map-name="StoresLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
                 <!--property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
@@ -312,6 +323,7 @@ under the License.
             <actions>
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
             </actions>
@@ -332,6 +344,7 @@ under the License.
             <actions>
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
             </actions>
@@ -352,6 +365,7 @@ under the License.
             <actions>
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
             </actions>
             <widgets>
                 <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
@@ -370,6 +384,7 @@ under the License.
             <actions>
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
             </actions>
             <widgets>
                 <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
@@ -388,6 +403,7 @@ under the License.
             <actions>
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
             </actions>
             <widgets>
                 <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
@@ -406,6 +422,7 @@ under the License.
             <actions>
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
             </actions>
             <widgets>
                 <!--<decorator-screen name="FisicoCommonDecorator" location="${parameters.mainDecoratorLocation}">
@@ -431,6 +448,7 @@ under the License.
             <actions>
                 <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
                 <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://order/src/main/groovy/org/apache/ofbiz/order/entry/catalog/Category.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
@@ -482,6 +500,7 @@ under the License.
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
                 <!--<set field="titleProperty" value="PageTitleCategoryPage"/>-->
                 <script location="component://fisico/src/main/groovy/ecommerce/Category.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
                 <!-- Open this commented section for the demo of Layered Navigation, navigate through Gizmo and Widgets categories to see it in action.
@@ -533,6 +552,7 @@ under the License.
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
                 <set field="productsummaryScreen" value="component://fisico/widget/FisicoScreens.xml#productsummary"/>
                 <!--set field="productCategoryLinkScreen" value="component://ecommerce/widget/CatalogScreens.xml#ProductCategoryLink"/-->
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/CategoryDetail.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
@@ -557,6 +577,7 @@ under the License.
                 <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
                 <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/ProductSummary.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
@@ -574,6 +595,7 @@ under the License.
                 <set field="titleProperty" value="PageTitleProductPage"/-->
                 <set field="layoutSettings.javaScripts[]" value="/ecommerce/images/productAdditionalView.js" global="true"/>
                 <!--set field="configproductdetailScreen" value="component://ecommerce/widget/CatalogScreens.xml#configproductdetail"/-->
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/Product.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
@@ -613,6 +635,7 @@ under the License.
                 <set field="productAssocsummaryScreen" value="component://fisico/widget/FisicoScreens.xml#productAssocColorSummary"/>
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
                 <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/ProductDetail.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
@@ -629,6 +652,7 @@ under the License.
         <section>
             <actions>
                 <set field="templatename" value="newCustomer" />
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/customer/NewCustomer.groovy"/>
 
                 <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
@@ -651,6 +675,183 @@ under the License.
         </section>
     </screen>
 
+    <screen name="viewprofile">
+        <section>
+            <actions>
+
+                <set field="partyId" from-field="userLogin.partyId"/>
+                <entity-one entity-name="Party" value-field="party"/>
+                <entity-one entity-name="Person" value-field="person"/>
+                <entity-one entity-name="PartyGroup" value-field="partyGroup"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/customer/ViewProfile.groovy"/>
+            </actions>
+            <widgets>
+                        <platform-specific><html><html-template location="component://fisico/template/pages/ViewProfile.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="editperson">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <get-related-one value-field="userLogin" relation-name="Person" to-value-field="person"/>
+                <set field="donePage" from-field="parameters.DONE_PAGE" default-value="viewprofile"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/customer/EditPerson.groovy"/>
+            </actions>
+            <widgets>
+
+                        <platform-specific><html><html-template location="component://fisico/template/pages/EditPerson.ftl"/></html></platform-specific>
+
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="editcontactmech">
+        <section>
+            <actions>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/customer/EditContactMech.groovy"/>
+                <set field="reqName" from-field="requestName" />
+
+
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html>
+
+                                <html-template location="component://fisico/template/pages/EditContactMech.ftl"/>
+                            </html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="ListRequests">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+
+                <!--<set field="headerItem" value="Shopping List"/>-->
+                <entity-condition entity-name="CustRequest" list="requestList">
+                    <condition-list combine="and">
+                        <condition-expr field-name="fromPartyId" from-field="userLogin.partyId"/>
+                        <!--<condition-expr field-name="statusId" operator="not-equals" value="QUO_CREATED"/>-->
+                    </condition-list>
+                    <order-by field-name="-custRequestDate"/>
+                </entity-condition>
+            </actions>
+            <widgets>
+
+                        <platform-specific>
+                            <html><html-template location="component://fisico/template/pages/RequestList.ftl"/></html>
+                        </platform-specific>
+
+            </widgets>
+        </section>
+    </screen>
+    <screen name="ViewRequest">
+        <section>
+            <actions>
+                <set field="MainColumnStyle" value="rightonly"/>
+
+                <set field="titleProperty" value="PageTitleViewRequest"/>
+                <!--<set field="headerItem" value="Shopping List"/>-->
+                <set field="custRequestId" from-field="parameters.custRequestId"/>
+                <entity-one entity-name="CustRequest" value-field="custRequest"/>
+                <get-related-one value-field="custRequest" relation-name="CustRequestType" to-value-field="custRequestType"/>
+                <get-related-one value-field="custRequest" relation-name="StatusItem" to-value-field="statusItem"/>
+                <get-related-one value-field="custRequest" relation-name="CurrencyUom" to-value-field="currency"/>
+                <get-related-one value-field="custRequest" relation-name="ProductStore" to-value-field="store"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+                <get-related value-field="custRequest" relation-name="CustRequestItem" list="requestItems"/>
+                <get-related value-field="custRequest" relation-name="CustRequestParty" list="requestParties"/>
+
+            </actions>
+            <widgets>
+                <decorator-screen name="CommonRequestDecorator">
+                    <decorator-section name="body">
+                        <section>
+                            <condition>
+                                <if-compare-field field="custRequest.fromPartyId" operator="equals" to-field="userLogin.partyId"></if-compare-field>
+                            </condition>
+                            <widgets>
+                                <container style="lefthalf">
+                                    <platform-specific>
+                                        <html><html-template location="component://ecommerce/template/request/RequestInfo.ftl"/></html>
+                                    </platform-specific>
+                                    <platform-specific>
+                                        <html><html-template location="component://ecommerce/template/request/ViewRequestItemInfo.ftl"/></html>
+                                    </platform-specific>
+                                </container>
+                                <container style="righthalf">
+                                    <platform-specific>
+                                        <html><html-template location="component://ecommerce/template/request/RequestDate.ftl"/></html>
+                                    </platform-specific>
+                                    <platform-specific>
+                                        <html><html-template location="component://ecommerce/template/request/RequestContactMech.ftl"/></html>
+                                    </platform-specific>
+                                    <platform-specific>
+                                        <html><html-template location="component://ecommerce/template/request/RequestRoles.ftl"/></html>
+                                    </platform-specific>
+                                </container>
+                            </widgets>
+                            <fail-widgets>
+                                <label style="h3">${uiLabelMap.OrderNoRequestFound}</label>
+                            </fail-widgets>
+                        </section>
+                    </decorator-section>
+                    <decorator-section name="right-column">
+                        <include-screen name="rightbar" location="component://ecommerce/widget/CommonScreens.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="orderhistory">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/order/OrderHistory.groovy"/>
+            </actions>
+            <widgets>
+
+                        <platform-specific><html><html-template location="component://fisico/template/pages/OrderHistory.ftl"/></html></platform-specific>
+
+            </widgets>
+        </section>
+    </screen>
+
     <screen name="miniCart">
         <section>
             <actions>
@@ -661,6 +862,8 @@ under the License.
                 <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
                 <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
                 <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
             </actions>
@@ -686,6 +889,7 @@ under the License.
                 <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
                 <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/cart/ShowPromoText.groovy"/>
             </actions>
@@ -716,7 +920,76 @@ under the License.
                 <script location="component://order/src/main/groovy/org/apache/ofbiz/order/entry/CheckoutShippingAddress.groovy"/>
             </actions>
             <widgets>
-                <platform-specific><html><html-template location="component://ecommerce/template/order/CheckoutShippingAddress.ftl"/></html></platform-specific>
+                <platform-specific><html><html-template location="component://fisico/template/pages/CheckoutShippingAddress.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="checkoutshippingoptions">
+        <section>
+            <actions>
+
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/order/CheckoutShippingOptions.groovy"/>
+            </actions>
+            <widgets>
+                        <platform-specific><html><html-template location="component://fisico/template/pages/CheckoutShippingOptions.ftl"/></html></platform-specific>
+
+
+
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="checkoutpayment">
+        <section>
+            <actions>
+
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+                <script location="component://order/src/main/groovy/org/apache/ofbiz/order/entry/CheckoutPayment.groovy"/>
+                <script location="component://order/src/main/groovy/org/apache/ofbiz/order/entry/StorePaymentOptions.groovy"/>
+            </actions>
+            <widgets>
+
+                        <platform-specific><html><html-template location="component://fisico/template/pages/CheckoutPayment.ftl"/></html></platform-specific>
+
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="checkoutreview">
+        <section>
+            <actions>
+
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+
+                <set field="parameters.formNameValue" value="orderreview" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/order/CheckoutReview.groovy"/>
+            </actions>
+            <widgets>
+
+                        <platform-specific><html><html-template  location="component://fisico/template/pages/CheckoutReview.ftl"/></html></platform-specific>
+
             </widgets>
         </section>
     </screen>

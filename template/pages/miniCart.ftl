@@ -62,9 +62,13 @@
 
     <#else>
 
-        <a href="#" id="top-cart-trigger" class="position-relative">
-            <i class="bi-bag"></i>
-            <span class="top-cart-number">0</span>
+        <a href="#" id="top-cart-trigger" class="position-relative" style="text-transform: uppercase;letter-spacing: 0;font-weight: 600;font-size: 13px;text-shadow: none;"
+
+
+
+                                                                               >
+            <#--<i class="bi-bag"></i>-->
+            <#--<span class="top-cart-number">0</span>-->Carrello
         </a>
 
         <div class="top-cart-content">

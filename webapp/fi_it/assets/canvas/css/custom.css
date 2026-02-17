@@ -4,4 +4,20 @@
 	Add all your Custom Styled CSS here for New Styles or
 	Overwriting Default Theme Styles for Better Handling Updates
 -----------------------------------------------------------------*/
+:root {
+	--cnvs-body-font: "Sequel100Black-45", sans-serif;
+	--cnvs-primary-font: "Sequel100Black-45", sans-serif;
+	--cnvs-secondary-font: "Sequel100Black-45", serif;
+}
 
+/* DESKTOP 16:9 */
+.slide-1 {
+    background-image: url('<@ofbizContentUrl>/fi_it/assets/images/homepage/1.jpg</@ofbizContentUrl>');
+}
+
+/* MOBILE 4:3 */
+@media (max-width: 768px) {
+    .slide-1 {
+        background-image: url('<@ofbizContentUrl>/fi_it/assets/images/homepage/1_mobile.jpg</@ofbizContentUrl>');
+    }
+}

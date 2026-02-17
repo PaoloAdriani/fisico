@@ -1,7 +1,8 @@
 <!-- Font Imports -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://db.onlinewebfonts.com/c/ab80d41fb980ff40273bb0028779b41e?family=Sequel100Black-45" rel="stylesheet">
+<!--<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">-->
 
 <!-- Core Style -->
 <link rel="stylesheet" href="<@ofbizContentUrl>/fi_it/assets/canvas/style.css</@ofbizContentUrl>"/>

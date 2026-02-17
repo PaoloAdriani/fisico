@@ -21,8 +21,8 @@
 						============================================= -->
 						<div id="logo" class="me-lg-auto me-0 order-lg-2 col-lg-auto">
 							<a href="<@ofbizUrl>main</@ofbizUrl>">
-								<img class="logo-default" srcset="<@ofbizContentUrl>/fi_it/assets/images/logo.png</@ofbizContentUrl>, <@ofbizContentUrl>/fi_it/assets/images/logo.png</@ofbizContentUrl> 2x" src="<@ofbizContentUrl>/fi_it/assets/images/logo.png</@ofbizContentUrl>" alt="Canvas Logo">
-								<img class="logo-mobile" srcset="<@ofbizContentUrl>/fi_it/assets/images/logo.png</@ofbizContentUrl>, <@ofbizContentUrl>/fi_it/assets/images/logo.png</@ofbizContentUrl> 2x" src="<@ofbizContentUrl>/fi_it/assets/images/logo.png</@ofbizContentUrl>" alt="Canvas Logo">
+								<img class="logo-default" srcset="<@ofbizContentUrl>/fi_it/assets/images/logo_FISICO_Trasparente_200.png</@ofbizContentUrl>, <@ofbizContentUrl>/fi_it/assets/images/logo_FISICO_Trasparente_200.png</@ofbizContentUrl> 2x" src="<@ofbizContentUrl>/fi_it/assets/images/logo_FISICO_Trasparente_200.png</@ofbizContentUrl>" alt="Fisico Logo">
+								<img class="logo-mobile" srcset="<@ofbizContentUrl>/fi_it/assets/images/logo.png</@ofbizContentUrl>, <@ofbizContentUrl>/fi_it/assets/images/logo.png</@ofbizContentUrl> 2x" src="<@ofbizContentUrl>/fi_it/assets/images/logo.png</@ofbizContentUrl>" alt="Fisico Logo">
 							</a>
 						</div><!-- #logo end -->
 
@@ -41,7 +41,12 @@
 
 						</nav><!-- #primary-menu end -->
 
-						<div class="header-misc col-lg-auto order-lg-4 ms-auto ms-lg-0 justify-content-lg-end ">
+						<div class="header-misc col-lg-auto order-lg-4 ms-auto ms-lg-0 justify-content">
+
+
+                            <div id="miniCartContainer">
+                                <#include "miniCart.ftl" />
+                            </div>
 
 							<!-- Top Login
 							============================================= -->
@@ -61,13 +66,11 @@
                                 </div>
                             <#else>
                                 <div id="top-account" class="header-misc-icon px-3">
-                                	<a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>"><i class="bi-people"></i></a>
+                                	<a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>">Account</a>
                                 </div><!-- #top-search end -->
                             </#if>
 
-                            <div id="miniCartContainer">
-							    <#include "miniCart.ftl" />
-							</div>
+
 						</div>
 
 						<div class="primary-menu-trigger">
@@ -82,7 +85,6 @@
 
 							<!-- Menu Left -->
 							<ul class="menu-container">
-								<li class="menu-item"><a class="menu-link" href="<@ofbizUrl>main</@ofbizUrl>"><div>Home</div></a></li>
                                 <li class="menu-item mega-menu mega-menu-small"><a class="menu-link" href="#"><div>Shop</div></a>
                                     <div class="mega-menu-content mega-menu-style-2">
                                         <div class="container">
@@ -104,10 +106,10 @@
                                     </div>
                                 </li>
 
-								<#--
-								<li class="menu-item"><a class="menu-link" href="#"><div>New Arrivals</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="#"><div>Offers</div></a></li>
-								-->
+								<li class="menu-item"><a class="menu-link" href="<@ofbizUrl>campaign</@ofbizUrl>"><div>Campaign</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="<@ofbizUrl>stores</@ofbizUrl>"><div>Stores</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="#"><div><#include "footer/language.ftl" /></div></a></li>
+
 							</ul>
 
 						</nav><!-- #primary-menu end -->

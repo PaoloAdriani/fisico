@@ -30,7 +30,7 @@ under the License.
           <option lang="${langAttr}" dir="${langDir}"
               value="${availableLocale.toString()}"<#if locale.toString() = availableLocale.toString()>
               selected="selected"</#if>>
-            ${availableLocale.getDisplayName(availableLocale)}
+            ${availableLocale.getDisplayName(availableLocale)?substring(0, 2)}
           </option>
           </#if>
     </#list>

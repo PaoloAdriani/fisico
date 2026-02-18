@@ -10,7 +10,7 @@
                             <h2 data-animate="fadeInUp">Reggiseni</h2></a>
                         </div>
                     </div>
-                   <div class="swiper-slide-bg slide-1" style="background-image: url('<@ofbizContentUrl>/fi_it/assets/images/homepage/1.jpg</@ofbizContentUrl>');"></div>
+                   <div class="swiper-slide-bg slide-1" style="background-image: url('<@ofbizContentUrl>/fi_it/assets/images/homepage/bikini_top_18022026.jpg</@ofbizContentUrl>');"></div>
                 </div>
             </div>
         </div>

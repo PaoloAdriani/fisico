@@ -10,14 +10,16 @@
 	--cnvs-secondary-font: "Sequel100Black-45", serif;
 }
 
-/* DESKTOP 16:9 */
-.slide-1 {
-    background-image: url('<@ofbizContentUrl>/fi_it/assets/images/homepage/1.jpg</@ofbizContentUrl>');
-}
 
-/* MOBILE 4:3 */
-@media (max-width: 768px) {
-    .slide-1 {
-        background-image: url('<@ofbizContentUrl>/fi_it/assets/images/homepage/1_mobile.jpg</@ofbizContentUrl>');
-    }
+#footer select.form-select,
+select[name="newLocale"] {
+    font-family: var(--cnvs-primary-font);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid #DDD;
+    padding: 3px 22px;
+    background-color: transparent;
+    color: inherit;
 }

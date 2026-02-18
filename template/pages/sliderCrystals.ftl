@@ -10,7 +10,7 @@
                             <h2 data-animate="fadeInUp">Crystals</h2></a>
                         </div>
                     </div>
-                    <div class="swiper-slide-bg" style="background-image: url('<@ofbizContentUrl>/fi_it/assets/images/homepage/crystals_12022026.jpg</@ofbizContentUrl>');"></div>
+                    <div class="swiper-slide-bg" style="background-image: url('<@ofbizContentUrl>/fi_it/assets/images/homepage/crystals_18022026.jpg</@ofbizContentUrl>');"></div>
                 </div>
 
             </div>

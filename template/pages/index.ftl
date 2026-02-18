@@ -12,9 +12,9 @@
 
     <style type="text/css">
 
-        .swiper-slide {
+         .swiper-slide {
             position: relative;
-        }
+         }
 
         .slide-link {
             position: absolute;
@@ -23,17 +23,12 @@
         }
 
         .swiper-slide-bg {
-            /*
+
             position: absolute;
             inset: 0;
             background-size: cover;
             background-position: center;
             z-index: 1;
-            */
-            background-position: center center; /* Centra l'immagine */
-                background-size: contain;           /* L'immagine sarà interamente visibile */
-                background-repeat: no-repeat;       /* Evita ripetizioni se l'area è più grande */
-                background-color: #000;             /* Opzionale: sfondo nero per i "bordi" se l'immagine non copre tutto */
         }
 
         .slider-caption {
@@ -42,11 +37,7 @@
             pointer-events: none;
         }
 
-
-
-
     </style>
-
 
 
 <#macro page_body>

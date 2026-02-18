@@ -10,7 +10,7 @@
                             <h2 data-animate="fadeInUp">Interi</h2></a>
                         </div>
                     </div>
-                    <div class="swiper-slide-bg" style="background-image: url('<@ofbizContentUrl>/fi_it/assets/images/homepage/swimsuit_12022026.jpg</@ofbizContentUrl>');"></div>
+                    <div class="swiper-slide-bg" style="background-image: url('<@ofbizContentUrl>/fi_it/assets/images/homepage/swimsuit_18022026.jpg</@ofbizContentUrl>');"></div>
                 </div>
 
             </div>

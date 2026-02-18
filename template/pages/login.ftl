@@ -36,7 +36,7 @@
 
                             <div class="col-12 mt-4">
                                 <!--<button class="button w-100 m-0" id="login-form-submit" name="login-form-submit" value="login">Login</button>-->
-                                <input type="submit" class="btn btn-primary btn-block"  value="Login"/>
+                                <input type="submit" class="button w-100 m-0"  value="Login"/>
                             </div>
                         </form>
                     </div>

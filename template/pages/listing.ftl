@@ -87,49 +87,89 @@
           z-index: 10;
         }
 
+.product {
+  position: relative;
+}
 
-        .product-colors {
-          height: 20px;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          gap: 10px;
-          margin-bottom: 15px;
-          margin-top: 2px;
-        }
+.product-image {
+  position: relative;
+  overflow: hidden;
+}
 
-        .color-swatch img {
-          width: 45px;
-          height: 20px;
-          border-radius: 50%;
-          border: 2px solid #ddd;
-          transition: 0.2s;
-          cursor: pointer;
-        }
+/* Overlay sempre dentro l'immagine */
+.cart-overlay {
+  position: absolute;
+  inset: 0; /* top:0 right:0 bottom:0 left:0 */
 
-        .color-swatch img:hover {
-          border-color: #000;
-          transform: scale(1.08);
-        }
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* lo attacchiamo in basso */
+  align-items: center;
 
-        .product-sizes {
-          display: flex;
-          justify-content: center;
-          gap: 8px;
-        }
+  padding: 15px 10px;
 
-        .size-btn {
-          padding: 1px 5px;
-          border: 1px solid #ccc;
-          text-decoration: none;
-          color: #333;
-          transition: 0.2s;
-        }
+  background: rgba(255,255,255,0.0);
+  backdrop-filter: blur(0px);
 
-        .size-btn:hover {
-          background: #000;
-          color: #fff;
-        }
+  opacity: 0;
+  transition: opacity .25s ease, background .25s ease, backdrop-filter .25s ease;
+}
+
+/* Hover */
+.product:hover .cart-overlay {
+  opacity: 1;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(6px);
+}
+
+
+
+
+          .product-colors {
+                          height: 20px;
+                          display: flex;
+                          flex-direction: row;
+                          justify-content: center;
+                          gap: 10px;
+                          margin-bottom: 15px;
+                          margin-top: 2px;
+                        }
+
+                        .color-swatch img {
+                          width: 45px;
+                          height: 20px;
+                          border-radius: 50%;
+                          border: 2px solid #ddd;
+                          transition: 0.2s;
+                          cursor: pointer;
+                        }
+
+                        .color-swatch img:hover {
+                          border-color: #000;
+                          transform: scale(1.08);
+                        }
+
+                        .product-sizes {
+                          display: flex;
+                          justify-content: center;
+                          gap: 8px;
+                        }
+
+                        .size-btn {
+                          padding: 1px 5px;
+                          border: 1px solid #ccc;
+                          text-decoration: none;
+                          color: #333;
+                          transition: 0.2s;
+                        }
+
+                        .size-btn:hover {
+                          background: #000;
+                          color: #fff;
+                        }
+                .cart-overlay {
+                  backdrop-filter: blur(6px);
+                }
 
 
     </style>

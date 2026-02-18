@@ -258,7 +258,7 @@ JS_LIB_.categoryDetail = function() {
 
                success: function(html){
 
-                    console.log("html: "+html);
+                   console.log("html: "+html);
 
                    $("#miniCartContainer").html(html);
 
@@ -287,9 +287,14 @@ JS_LIB_.faq = function() {
 
 	var faq_obj = this;
 
+	let util;
+
+	util = new JS_LIB_.util();
+
 	this.init = function(){
 
 	    faq_obj.activeVoices();
+
 	}
 
 	this.activeVoices = function () {
@@ -411,6 +416,51 @@ JS_LIB_.product = function() {
 }; //end product class
 
 
+
+JS_LIB_.homepage = function() {
+
+	var homepage_obj = this;
+
+	let util;
+
+	this.init = function() {
+
+		util = new JS_LIB_.util();
+
+		homepage_obj.adaptiveHeader();
+
+	};
+
+	this.adaptiveHeader = function(){
+
+        // Monitora lo scroll per mantenere l'header trasparente sulla homepage
+        var header = document.getElementById('header');
+        var headerWrap = document.getElementById('header-wrap');
+
+        if (header && headerWrap) {
+            // Usa MutationObserver per intercettare quando viene aggiunta la classe sticky-header
+            var observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.attributeName === 'class') {
+                        if (header.classList.contains('sticky-header')) {
+                            // Mantieni lo sfondo trasparente anche quando sticky
+                            headerWrap.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                            header.querySelector('.container-fluid').style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                        }
+                    }
+                });
+            });
+
+            observer.observe(header, {
+                attributes: true,
+                attributeFilter: ['class']
+            });
+        }
+
+	}
+}
+
+
 /*
  * INIT GENERIC EVENT
  * */
@@ -451,6 +501,15 @@ JS_LIB_.util = function() {
             );
     }
 
+    this.removeClassById = function(id){
+
+
+
+            $("#"+id).removeClass("transparent-header");
+
+            console.log()
+    }
+
 };
 
 
@@ -480,7 +539,14 @@ JS_LIB_.pageController = function() {
 
 		switch (util.getPage()) {
 
-			/*home page*/
+            case 'homepage':
+
+                var homepage = new JS_LIB_.homepage();
+                homepage.init();
+
+            	break;
+
+
 			case 'faq':
 
                 var faq = new JS_LIB_.faq();

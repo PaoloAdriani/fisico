@@ -439,3 +439,18 @@ body.modal-open { overflow-y: auto; }
 	}
 
 }
+
+/* Header bianco solido su tutte le pagine tranne homepage */
+#header:not(.transparent-header) #header-wrap {
+    background-color: #FFF !important;
+}
+
+#header:not(.transparent-header) .container-fluid {
+    background-color: #FFF !important;
+}
+
+/* Assicura che lo sticky header sia sempre bianco */
+#header.sticky-header #header-wrap,
+#header.sticky-header .container-fluid {
+    background-color: #FFF !important;
+}

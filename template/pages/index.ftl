@@ -8,7 +8,7 @@
 
 </#macro>
 
-
+<#macro add_page_head_after_head_tag>
 
     <style type="text/css">
 
@@ -38,7 +38,7 @@
         }
 
     </style>
-
+</#macro>
 
 <#macro page_body>
 

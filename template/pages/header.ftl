@@ -12,7 +12,7 @@
         -->
 		<!-- Header
 		============================================= -->
-		<header id="header" class="header-size-md transparent-header" data-sticky-shrink="false" data-sticky-class="">
+		<header id="header" class="header-size-md transparent-header">
 			<div id="header-wrap" style="border-bottom: none;">
 				<div class="container-fluid">
 					<div class="header-row justify-content-lg-between">
@@ -21,7 +21,7 @@
 						============================================= -->
 						<div id="logo" class="me-lg-auto me-0 order-lg-2 col-lg-auto">
 							<a href="<@ofbizUrl>main</@ofbizUrl>">
-								<img class="logo-default" srcset="<@ofbizContentUrl>/fi_it/assets/images/logo_FISICO_Trasparente_200.png</@ofbizContentUrl>, <@ofbizContentUrl>/fi_it/assets/images/logo_FISICO_Trasparente_200.png</@ofbizContentUrl> 2x" src="<@ofbizContentUrl>/fi_it/assets/images/logo_FISICO_Trasparente_200.png</@ofbizContentUrl>" alt="Fisico Logo">
+								<img class="logo-default" srcset="<@ofbizContentUrl>/fi_it/assets/images/logo.png</@ofbizContentUrl>, <@ofbizContentUrl>/fi_it/assets/images/logo.png</@ofbizContentUrl> 2x" src="<@ofbizContentUrl>/fi_it/assets/images/logo.png</@ofbizContentUrl>" alt="Fisico Logo">
 								<img class="logo-mobile" srcset="<@ofbizContentUrl>/fi_it/assets/images/logo.png</@ofbizContentUrl>, <@ofbizContentUrl>/fi_it/assets/images/logo.png</@ofbizContentUrl> 2x" src="<@ofbizContentUrl>/fi_it/assets/images/logo.png</@ofbizContentUrl>" alt="Fisico Logo">
 							</a>
 						</div><!-- #logo end -->

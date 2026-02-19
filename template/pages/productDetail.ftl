@@ -196,6 +196,8 @@
                             ============================================= -->
                             <strong><p>${productName}</p></strong>
 
+                            <p>${product.productId!}</p>
+
                             <div class="d-flex align-items-center justify-content-between mb-2">
                                 <!-- Product Single - Price
                                 ============================================= -->
@@ -203,25 +205,300 @@
                                 <div class="product-price">
                                      <#if price.specialPromoPrice??>
                                         <#if price.specialPromoPrice?? && price.listPrice?? && price.specialPromoPrice?double < price.listPrice?double>
-                                            <div>${uiLabelMap.ProductListPrice}:&nbsp;<del><ins><@ofbizCurrency amount=price.listPrice isoCode=price.currencyUsed/></ins></del></div>
+                                            <div><del><ins><@ofbizCurrency amount=price.listPrice isoCode=price.currencyUsed/></ins></del></div>
                                         </#if>
                                      <#else>
                                         <#if price.listPrice??>
-                                            <div>${uiLabelMap.ProductListPrice}:&nbsp;<ins><@ofbizCurrency amount=price.listPrice isoCode=price.currencyUsed/></ins></div>
+                                            <div><ins><@ofbizCurrency amount=price.listPrice isoCode=price.currencyUsed/></ins></div>
                                         </#if>
                                      </#if>
 
                                     <#if price.specialPromoPrice??>
-                                        <div>${uiLabelMap.ProductSpecialPromoPrice}:&nbsp;
+                                        <div>
                                             <ins><@ofbizCurrency amount=price.specialPromoPrice isoCode=price.currencyUsed /></ins>
                                         </div>
                                     </#if>
                                 </div><!-- Product Single - Price End -->
                             </div>
 
-                            <p>${productContentWrapper.get("DESCRIPTION", "html")!}</p>
-                            <p>${productContentWrapper.get("INGREDIENTS", "html")!}</p>
-                            <p>${product.productId!}</p>
+                            <br>
+
+                            <h5 class="fw-medium mb-3">Colore:<span class="product-color-value ms-1 fw-semibold"></span></h5>
+                            <div id="color-dots">
+                                <#assign colorImg = productContentWrapper.get("ADDITIONAL_IMAGE_1", "url")! />
+                                <#assign colorName = productContentWrapper.get("COMMENTS", "html")! />
+
+                                <a href="<@ofbizCatalogAltUrl productId=product.productId productCategoryId=categoryId! />"
+                                   class="color-dot active"
+                                   title="${colorName}">
+                                   <img src="<@ofbizContentUrl>/fi_it/assets${colorImg!blankCrop}</@ofbizContentUrl>" onerror="this.onerror=null;this.src='${blankCropUrl}';"/>
+                                </a>
+
+                                <#list upSellProducts as upSell>
+                                    <#assign prodIdTo = delegator.findOne("Product", {"productId": upSell.productIdTo}, false)>
+                                    <#assign pcw = Static["org.apache.ofbiz.product.product.ProductContentWrapper"].makeProductContentWrapper(prodIdTo, request) />
+
+                                    <#assign colorImg = pcw.get("ADDITIONAL_IMAGE_1", "url")! />
+                                    <#assign colorName = pcw.get("COMMENTS", "html")! />
+
+                                    <#assign url>
+                                        <@ofbizCatalogAltUrl productId=prodIdTo.productId productCategoryId=categoryId! />
+                                    </#assign>
+
+                                    <a href="${url}"
+                                       class="color-dot" data-bs-toggle="tooltip" data-bs-placement="bottom" title="${colorName}"
+                                       title="${colorName}">
+                                       <img src="<@ofbizContentUrl>/fi_it/assets${colorImg!blankCrop}</@ofbizContentUrl>" onerror="this.onerror=null;this.src='${blankCropUrl}';"/>
+                                    </a>
+
+                                </#list>
+                            </div>
+
+                             <div id="addItemForm">
+                                                            <form method="post" action="<@ofbizUrl>addItem</@ofbizUrl>" name="addform" style="margin: 0;">
+                                                                <#assign inStock = true />
+
+                                                                <#-- Variant Selection -->
+                                                                <#if "Y" == product.isVirtual!?upper_case>
+                                                                    <#if !product.virtualVariantMethodEnum?? || "VV_VARIANTTREE" == product.virtualVariantMethodEnum>
+                                                                        <#if variantTree?? && (variantTree.size() &gt; 0)>
+                                                                            <div class="col-sm-6 mt-5">
+                                                                                <h5 class="fw-medium mb-3">Select Size:</h5>
+                                                                                    <div role="group">
+                                                                                        <#if sizeProductFeatureAndAppls?has_content>
+                                                                                            <div>
+                                                                                                <#list sizeProductFeatureAndAppls as sizeProductFeatureAndAppl>
+                                                                                                    <#assign sizeId = sizeProductFeatureAndAppl.productFeatureId>
+                                                                                                    <#assign prodVars = variantTree[sizeId]![]>
+                                                                                                    <#if prodVars?? && prodVars?size gt 0>
+                                                                                                        <#assign prodVar = prodVars[0]/>
+                                                                                                        <input class="btn-check" type="radio" name="bag-size" id="bag-size-${sizeProductFeatureAndAppl.productFeatureId}" autocomplete="off" value="${sizeProductFeatureAndAppl.productFeatureId}" data-product-variant="${prodVar}">
+                                                                                                        <label for="bag-size-${sizeProductFeatureAndAppl.productFeatureId}" class="btn btn-sm btn-outline-secondary fw-normal ls-0 text-transform-none">${sizeId}</label>
+                                                                                                        &nbsp;
+                                                                                                    <#else>
+                                                                                                        <#if unavailableVariants??>
+                                                                                                            <#list unavailableVariants as prod>
+                                                                                                                <#assign features = prod.getRelated("ProductFeatureAppl", null, null, false)/>
+                                                                                                                <#list features as feature>
+                                                                                                                    <#assign featureSize = feature.getRelatedOne("ProductFeature", false).description>
+                                                                                                                    <#if sizeId == featureSize>
+                                                                                                                        <input class="btn-check" type="radio" name="bag-size" id="bag-size-${featureSize}" autocomplete="off" value="${featureSize}" data-productVariant="${prod.productId}">
+                                                                                                                        <label for="bag-size-${featureSize}" class="btn btn-sm btn-outline-secondary fw-normal ls-0 text-transform-none disabled" disabled="disabled"><del>${featureSize}</del></label>
+                                                                                                                        &nbsp;
+                                                                                                                    </#if>
+                                                                                                                </#list>
+                                                                                                            </#list>
+                                                                                                        </#if>
+                                                                                                    </#if>
+                                                                                                </#list>
+                                                                                            </div>
+                                                                                        </#if>
+                                                                                    </div>
+                                                                                </div><#-- end Select Size -->
+
+
+                                                                                <!-- Centered modal -->
+                                                                                <div class="col-sm-6 mt-5">
+                                                                                <a class="me-2"
+                                                                                        data-bs-toggle="modal"
+                                                                                        data-bs-target=".bs-example-modal-centered" style="cursor: pointer;">
+                                                                                    Guida alle taglie
+                                                                                </a>
+
+                                                                                <div class="modal fade text-start bs-example-modal-centered"
+                                                                                     tabindex="-1"
+                                                                                     role="dialog"
+                                                                                     aria-labelledby="centerModalLabel"
+                                                                                     aria-hidden="true">
+
+                                                                                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                                                                                        <div class="modal-content">
+
+                                                                                            <div class="modal-header">
+
+                                                                                                <button type="button"
+                                                                                                        class="btn-close btn-sm"
+                                                                                                        data-bs-dismiss="modal">
+                                                                                                </button>
+                                                                                            </div>
+
+                                                                                            <div class="modal-body text-center p-0">
+                                                                                                <img src="<@ofbizContentUrl>/fi_it/assets/images/tabella-taglie_ITA.jpg</@ofbizContentUrl>"
+                                                                                                     class="img-fluid"
+                                                                                                     style="max-height: 80vh;"
+                                                                                                     alt="Immagine grande">
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                </div>
+
+
+                                                                                <div class="alert alert-warning">
+                                                                                    <i class="bi-exclamation-diamond-fill"></i><strong>Attenzione: </strong> Selezionare una taglia.
+                                                                                </div>
+
+                                                                                <input type="hidden" name="product_id" value="${product.productId}"/>
+                                                                                <input type="hidden" name="add_product_id" id="add_product_id" value="NULL"/>
+
+                                                                        <#else>
+                                                                                <div class="col-sm-6 mt-3">
+                                                                                    <h5 class="fw-medium mb-3">Select Size:</h5>
+                                                                                    <#if unavailableVariants??>
+                                                                                        <#list unavailableVariants as prod>
+                                                                                            <#assign features = prod.getRelated("ProductFeatureAndAppl", Static["org.apache.ofbiz.base.util.UtilMisc"].toMap("productFeatureTypeId","SIZE"), null, false)/>
+                                                                                            <#list features as feature>
+                                                                                                <#assign featureSize = feature.getRelatedOne("ProductFeature", false).description>
+                                                                                                <input class="btn-check" type="radio" name="bag-size" id="bag-size-${featureSize}" autocomplete="off" value="${featureSize}" data-productVariant="${prod.productId}">
+                                                                                                <label for="bag-size-${featureSize}" class="btn btn-sm btn-outline-secondary fw-normal ls-0 text-transform-none disabled" disabled="disabled"><del>${featureSize}</del></label>
+                                                                                                &nbsp;
+                                                                                            </#list>
+                                                                                        </#list>
+                                                                                    </#if>
+                                                                                </div>
+
+                                                                                 <!-- Centered modal -->
+                                                                                                                                    <div class="col-sm-6 mt-5">
+                                                                                                                                    <a class="btn btn-dark me-2"
+                                                                                                                                            data-bs-toggle="modal"
+                                                                                                                                            data-bs-target=".bs-example-modal-centered">
+                                                                                                                                        Guida alle taglie
+                                                                                                                                    </a>
+
+                                                                                                                                    <div class="modal fade text-start bs-example-modal-centered"
+                                                                                                                                         tabindex="-1"
+                                                                                                                                         role="dialog"
+                                                                                                                                         aria-labelledby="centerModalLabel"
+                                                                                                                                         aria-hidden="true">
+
+                                                                                                                                        <div class="modal-dialog modal-dialog-centered modal-xl">
+                                                                                                                                            <div class="modal-content">
+
+                                                                                                                                                <div class="modal-header">
+
+                                                                                                                                                    <button type="button"
+                                                                                                                                                            class="btn-close btn-sm"
+                                                                                                                                                            data-bs-dismiss="modal">
+                                                                                                                                                    </button>
+                                                                                                                                                </div>
+
+                                                                                                                                                <div class="modal-body text-center p-0">
+                                                                                                                                                    <img src="<@ofbizContentUrl>/fi_it/assets/images/tabella-taglie_ITA.jpg</@ofbizContentUrl>"
+                                                                                                                                                         class="img-fluid"
+                                                                                                                                                         style="max-height: 80vh;"
+                                                                                                                                                         alt="Immagine grande">
+                                                                                                                                                </div>
+
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                    </div>
+
+                                                                                <div class="quantity mt-3">
+                                                                                    <input type="button" value="-" class="minus">
+                                                                                    <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="qty" disabled="disabled">
+                                                                                    <input type="button" value="+" class="plus">
+                                                                                </div>
+
+                                                                                <a name="addToCartDisabled" class="add-to-cart button m-0" disabled="disabled">${uiLabelMap.OrderAddToCart}</a>
+
+                                                                                <div class="quantity mt-3 mr-5">
+                                                                                    <a name="addToCartDisabled" class="add-to-cart button m-0" style="background-color: red;" disabled="disabled">Out of stock</a>
+                                                                                </div>
+
+                                                                                <#assign inStock = false />
+                                                                        </#if><#-- end variantTree?? && (variantTree.size() &gt; 0 -->
+                                                                    </#if><#-- end !product.virtualVariantMethodEnum?? || "VV_VARIANTTREE" == product.virtualVariantMethodEnum -->
+                                                                </#if><#-- end "Y" == product.isVirtual!?upper_case -->
+                                                        </div><#-- end id="addItemForm" -->
+
+                                                        <#-- check to see if the product requires inventory check and has inventory -->
+                                                        <#if product.virtualVariantMethodEnum! != "VV_FEATURETREE">
+                                                            <#if inStock>
+                                                                <#if "ASSET_USAGE" == product.productTypeId! || "ASSET_USAGE_OUT_IN" == product.productTypeId!>
+
+                                                                <#else>
+
+                                                                    <div class="form-group mt-5">
+
+                                                                        <div class="input-group">
+                                                                            <span class="input-group-btn">
+                                                                                <div class="quantity">
+                                                                                    <input type="button" value="-" class="minus">
+                                                                                    <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="qty">
+                                                                                    <input type="button" value="+" class="plus">
+                                                                                </div>
+                                                                                <a href="javascript:addItem()" id="addToCart" name="addToCart" class="add-to-cart button m-0">${uiLabelMap.OrderAddToCart}</a>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </#if>
+                                                            <#else>
+                                                                <#if productStore??>
+                                                                    <#if productStore.requireInventory?? && "N" == productStore.requireInventory>
+                                                                        <div class="input-group">
+                                                                            <input name="quantity" class="form-control" id="quantity" value="1" size="4" maxLength="4" type="text"
+                                                                                <#if "Y" == product.isVirtual!?upper_case>disabled="disabled"</#if>/>
+                                                                                    <a href="javascript:addItem()" id="addToCart" name="addToCart" class="btn btn-outline-secondary">${uiLabelMap.OrderAddToCart}</a>
+                                                                        </div>
+                                                                        <@showUnavailableVarients/>
+                                                                    <#else>
+                                                                        <#--
+                                                                        <div class="input-group">
+                                                                            <input name="quantity" class="form-control" id="quantity" value="1" size="4" maxLength="4" type="text" disabled="disabled"/>
+                                                                                <a href="javascript:void(0);" disabled="disabled" class="btn btn-outline-secondary">
+                                                                                    ${uiLabelMap.OrderAddToCart}
+                                                                                </a>
+                                                                        </div>
+                                                                        <br/>
+                                                                        <span>${uiLabelMap.ProductItemOutOfStock}<#if product.inventoryMessage??>&mdash; ${product.inventoryMessage}</#if></span>
+                                                                        -->
+                                                                    </#if>
+                                                                </#if>
+                                                            </#if><#-- end inStock -->
+                                                        </#if><#-- end if product.virtualVariantMethodEnum! != "VV_FEATURETREE -->
+                                                            </form>
+
+
+
+
+<br>
+                            <div class="line my-3 mt-16"></div>
+
+                            <div class="toggle mb-3">
+                                                                                        <div class="toggle-header">
+                                                                                            <div class="toggle-icon">
+                                                                                                <i class="toggle-closed uil uil-plus"></i>
+                                                                                                <i class="toggle-open uil uil-minus"></i>
+                                                                                            </div>
+                                                                                            <div class="toggle-title">
+                                                                                                Info Articolo
+                                                                                            </div>
+                                                                                        </div>
+                                                                                       	<div class="toggle-content toggle-content-padding">
+                                                                                            <p>${productContentWrapper.get("DESCRIPTION", "html")!}</p>
+                                                                                                                        <p>${productContentWrapper.get("INGREDIENTS", "html")!}</p>
+                                                                               	        </div>
+                                                                                    </div>
+
+
+                            <div class="toggle mb-3">
+                                                            <div class="toggle-header">
+                                                                <div class="toggle-icon">
+                                                                    <i class="toggle-closed uil uil-plus"></i>
+                                                                    <i class="toggle-open uil uil-minus"></i>
+                                                                </div>
+                                                                <div class="toggle-title">
+                                                                    Info Modella
+                                                                </div>
+                                                            </div>
+                                                           	<div class="toggle-content toggle-content-padding">
+                                                                <p>La modella indossa una taglia small</p>
+                                                   	        </div>
+                                                        </div>
+
 
                             <div class="toggle mt-3 mb-3">
                                 <div class="toggle-header">
@@ -268,281 +545,14 @@
                                 </div>
                             </div>
 
-                            <div class="toggle mb-3">
-                                <div class="toggle-header">
-                                    <div class="toggle-icon">
-                                        <i class="toggle-closed uil uil-plus"></i>
-                                        <i class="toggle-open uil uil-minus"></i>
-                                    </div>
-                                    <div class="toggle-title">
-                                        Info
-                                    </div>
-                                </div>
-                               	<div class="toggle-content toggle-content-padding">
-                                    <p>La modella indossa una taglia small</p>
-                       	        </div>
-                            </div>
+
+
+
 
                             <div class="line my-3"></div>
 
 
-                            <h5 class="fw-medium mb-3">Select Color:<span class="product-color-value ms-1 fw-semibold"></span></h5>
-                            <div id="color-dots">
-                                <#assign colorImg = productContentWrapper.get("ADDITIONAL_IMAGE_1", "url")! />
-                                <#assign colorName = productContentWrapper.get("COMMENTS", "html")! />
 
-                                <a href="<@ofbizCatalogAltUrl productId=product.productId productCategoryId=categoryId! />"
-                                   class="color-dot active"
-                                   title="${colorName}">
-                                   <img src="<@ofbizContentUrl>/fi_it/assets${colorImg!blankCrop}</@ofbizContentUrl>" onerror="this.onerror=null;this.src='${blankCropUrl}';"/>
-                                </a>
-
-                                <#list upSellProducts as upSell>
-                                    <#assign prodIdTo = delegator.findOne("Product", {"productId": upSell.productIdTo}, false)>
-                                    <#assign pcw = Static["org.apache.ofbiz.product.product.ProductContentWrapper"].makeProductContentWrapper(prodIdTo, request) />
-
-                                    <#assign colorImg = pcw.get("ADDITIONAL_IMAGE_1", "url")! />
-                                    <#assign colorName = pcw.get("COMMENTS", "html")! />
-
-                                    <#assign url>
-                                        <@ofbizCatalogAltUrl productId=prodIdTo.productId productCategoryId=categoryId! />
-                                    </#assign>
-
-                                    <a href="${url}"
-                                       class="color-dot" data-bs-toggle="tooltip" data-bs-placement="bottom" title="${colorName}"
-                                       title="${colorName}">
-                                       <img src="<@ofbizContentUrl>/fi_it/assets${colorImg!blankCrop}</@ofbizContentUrl>" onerror="this.onerror=null;this.src='${blankCropUrl}';"/>
-                                    </a>
-
-                                </#list>
-                            </div>
-
-                            <div id="addItemForm">
-                                <form method="post" action="<@ofbizUrl>addItem</@ofbizUrl>" name="addform" style="margin: 0;">
-                                    <#assign inStock = true />
-
-                                    <#-- Variant Selection -->
-                                    <#if "Y" == product.isVirtual!?upper_case>
-                                        <#if !product.virtualVariantMethodEnum?? || "VV_VARIANTTREE" == product.virtualVariantMethodEnum>
-                                            <#if variantTree?? && (variantTree.size() &gt; 0)>
-                                                <div class="col-sm-6 mt-5">
-                                                    <h5 class="fw-medium mb-3">Select Size:</h5>
-                                                        <div role="group">
-                                                            <#if sizeProductFeatureAndAppls?has_content>
-                                                                <div>
-                                                                    <#list sizeProductFeatureAndAppls as sizeProductFeatureAndAppl>
-                                                                        <#assign sizeId = sizeProductFeatureAndAppl.productFeatureId>
-                                                                        <#assign prodVars = variantTree[sizeId]![]>
-                                                                        <#if prodVars?? && prodVars?size gt 0>
-                                                                            <#assign prodVar = prodVars[0]/>
-                                                                            <input class="btn-check" type="radio" name="bag-size" id="bag-size-${sizeProductFeatureAndAppl.productFeatureId}" autocomplete="off" value="${sizeProductFeatureAndAppl.productFeatureId}" data-product-variant="${prodVar}">
-                                                                            <label for="bag-size-${sizeProductFeatureAndAppl.productFeatureId}" class="btn btn-sm btn-outline-secondary fw-normal ls-0 text-transform-none">${sizeId}</label>
-                                                                            &nbsp;
-                                                                        <#else>
-                                                                            <#if unavailableVariants??>
-                                                                                <#list unavailableVariants as prod>
-                                                                                    <#assign features = prod.getRelated("ProductFeatureAppl", null, null, false)/>
-                                                                                    <#list features as feature>
-                                                                                        <#assign featureSize = feature.getRelatedOne("ProductFeature", false).description>
-                                                                                        <#if sizeId == featureSize>
-                                                                                            <input class="btn-check" type="radio" name="bag-size" id="bag-size-${featureSize}" autocomplete="off" value="${featureSize}" data-productVariant="${prod.productId}">
-                                                                                            <label for="bag-size-${featureSize}" class="btn btn-sm btn-outline-secondary fw-normal ls-0 text-transform-none disabled" disabled="disabled"><del>${featureSize}</del></label>
-                                                                                            &nbsp;
-                                                                                        </#if>
-                                                                                    </#list>
-                                                                                </#list>
-                                                                            </#if>
-                                                                        </#if>
-                                                                    </#list>
-                                                                </div>
-                                                            </#if>
-                                                        </div>
-                                                    </div><#-- end Select Size -->
-
-                                                    <#--
-                                                    <div class="col-sm-6 mt-5">
-
-                                                        <a class="btn btn-dark me-2" data-bs-toggle="modal" data-bs-target=".bs-example-modal-centered">Guida alle taglie</a>
-
-                                                        <div class="modal fade text-start bs-example-modal-centered" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-
-                                                                        <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-hidden="true"></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <img src="<@ofbizContentUrl>/fi_it/assets/images/tabella-taglie_ITA.jpg</@ofbizContentUrl>"/>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    -->
-
-                                                    <!-- Centered modal -->
-                                                    <div class="col-sm-6 mt-5">
-                                                    <a class="btn btn-dark me-2"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target=".bs-example-modal-centered">
-                                                        Guida alle taglie
-                                                    </a>
-
-                                                    <div class="modal fade text-start bs-example-modal-centered"
-                                                         tabindex="-1"
-                                                         role="dialog"
-                                                         aria-labelledby="centerModalLabel"
-                                                         aria-hidden="true">
-
-                                                        <div class="modal-dialog modal-dialog-centered modal-xl">
-                                                            <div class="modal-content">
-
-                                                                <div class="modal-header">
-
-                                                                    <button type="button"
-                                                                            class="btn-close btn-sm"
-                                                                            data-bs-dismiss="modal">
-                                                                    </button>
-                                                                </div>
-
-                                                                <div class="modal-body text-center p-0">
-                                                                    <img src="<@ofbizContentUrl>/fi_it/assets/images/tabella-taglie_ITA.jpg</@ofbizContentUrl>"
-                                                                         class="img-fluid"
-                                                                         style="max-height: 80vh;"
-                                                                         alt="Immagine grande">
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    </div>
-
-
-                                                    <div class="alert alert-warning">
-                                                        <i class="bi-exclamation-diamond-fill"></i><strong>Attenzione: </strong> Selezionare una taglia.
-                                                    </div>
-
-                                                    <input type="hidden" name="product_id" value="${product.productId}"/>
-                                                    <input type="hidden" name="add_product_id" id="add_product_id" value="NULL"/>
-
-                                            <#else>
-                                                    <div class="col-sm-6 mt-3">
-                                                        <h5 class="fw-medium mb-3">Select Size:</h5>
-                                                        <#if unavailableVariants??>
-                                                            <#list unavailableVariants as prod>
-                                                                <#assign features = prod.getRelated("ProductFeatureAndAppl", Static["org.apache.ofbiz.base.util.UtilMisc"].toMap("productFeatureTypeId","SIZE"), null, false)/>
-                                                                <#list features as feature>
-                                                                    <#assign featureSize = feature.getRelatedOne("ProductFeature", false).description>
-                                                                    <input class="btn-check" type="radio" name="bag-size" id="bag-size-${featureSize}" autocomplete="off" value="${featureSize}" data-productVariant="${prod.productId}">
-                                                                    <label for="bag-size-${featureSize}" class="btn btn-sm btn-outline-secondary fw-normal ls-0 text-transform-none disabled" disabled="disabled"><del>${featureSize}</del></label>
-                                                                    &nbsp;
-                                                                </#list>
-                                                            </#list>
-                                                        </#if>
-                                                    </div>
-
-                                                     <!-- Centered modal -->
-                                                                                                        <div class="col-sm-6 mt-5">
-                                                                                                        <a class="btn btn-dark me-2"
-                                                                                                                data-bs-toggle="modal"
-                                                                                                                data-bs-target=".bs-example-modal-centered">
-                                                                                                            Guida alle taglie
-                                                                                                        </a>
-
-                                                                                                        <div class="modal fade text-start bs-example-modal-centered"
-                                                                                                             tabindex="-1"
-                                                                                                             role="dialog"
-                                                                                                             aria-labelledby="centerModalLabel"
-                                                                                                             aria-hidden="true">
-
-                                                                                                            <div class="modal-dialog modal-dialog-centered modal-xl">
-                                                                                                                <div class="modal-content">
-
-                                                                                                                    <div class="modal-header">
-
-                                                                                                                        <button type="button"
-                                                                                                                                class="btn-close btn-sm"
-                                                                                                                                data-bs-dismiss="modal">
-                                                                                                                        </button>
-                                                                                                                    </div>
-
-                                                                                                                    <div class="modal-body text-center p-0">
-                                                                                                                        <img src="<@ofbizContentUrl>/fi_it/assets/images/tabella-taglie_ITA.jpg</@ofbizContentUrl>"
-                                                                                                                             class="img-fluid"
-                                                                                                                             style="max-height: 80vh;"
-                                                                                                                             alt="Immagine grande">
-                                                                                                                    </div>
-
-                                                                                                                </div>
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        </div>
-
-                                                    <div class="quantity mt-3">
-                                                        <input type="button" value="-" class="minus">
-                                                        <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="qty" disabled="disabled">
-                                                        <input type="button" value="+" class="plus">
-                                                    </div>
-
-                                                    <a name="addToCartDisabled" class="add-to-cart button m-0" disabled="disabled">${uiLabelMap.OrderAddToCart}</a>
-
-                                                    <div class="quantity mt-3 mr-5">
-                                                        <a name="addToCartDisabled" class="add-to-cart button m-0" style="background-color: red;" disabled="disabled">Out of stock</a>
-                                                    </div>
-
-                                                    <#assign inStock = false />
-                                            </#if><#-- end variantTree?? && (variantTree.size() &gt; 0 -->
-                                        </#if><#-- end !product.virtualVariantMethodEnum?? || "VV_VARIANTTREE" == product.virtualVariantMethodEnum -->
-                                    </#if><#-- end "Y" == product.isVirtual!?upper_case -->
-                            </div><#-- end id="addItemForm" -->
-
-                            <#-- check to see if the product requires inventory check and has inventory -->
-                            <#if product.virtualVariantMethodEnum! != "VV_FEATURETREE">
-                                <#if inStock>
-                                    <#if "ASSET_USAGE" == product.productTypeId! || "ASSET_USAGE_OUT_IN" == product.productTypeId!>
-
-                                    <#else>
-
-                                        <div class="form-group mt-5">
-                                            <label>${uiLabelMap.CommonQuantity}:</label>
-                                            <div class="input-group">
-                                                <span class="input-group-btn">
-                                                    <div class="quantity">
-                                                        <input type="button" value="-" class="minus">
-                                                        <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="qty">
-                                                        <input type="button" value="+" class="plus">
-                                                    </div>
-                                                    <a href="javascript:addItem()" id="addToCart" name="addToCart" class="add-to-cart button m-0">${uiLabelMap.OrderAddToCart}</a>
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                    </#if>
-                                <#else>
-                                    <#if productStore??>
-                                        <#if productStore.requireInventory?? && "N" == productStore.requireInventory>
-                                            <div class="input-group">
-                                                <input name="quantity" class="form-control" id="quantity" value="1" size="4" maxLength="4" type="text"
-                                                    <#if "Y" == product.isVirtual!?upper_case>disabled="disabled"</#if>/>
-                                                        <a href="javascript:addItem()" id="addToCart" name="addToCart" class="btn btn-outline-secondary">${uiLabelMap.OrderAddToCart}</a>
-                                            </div>
-                                            <@showUnavailableVarients/>
-                                        <#else>
-                                            <#--
-                                            <div class="input-group">
-                                                <input name="quantity" class="form-control" id="quantity" value="1" size="4" maxLength="4" type="text" disabled="disabled"/>
-                                                    <a href="javascript:void(0);" disabled="disabled" class="btn btn-outline-secondary">
-                                                        ${uiLabelMap.OrderAddToCart}
-                                                    </a>
-                                            </div>
-                                            <br/>
-                                            <span>${uiLabelMap.ProductItemOutOfStock}<#if product.inventoryMessage??>&mdash; ${product.inventoryMessage}</#if></span>
-                                            -->
-                                        </#if>
-                                    </#if>
-                                </#if><#-- end inStock -->
-                            </#if><#-- end if product.virtualVariantMethodEnum! != "VV_FEATURETREE -->
-                                </form>
 
                                 <#if alsoBoughtProducts?? && alsoBoughtProducts.size() gt 0>
                                     <div class="section mb-0">
@@ -581,6 +591,23 @@
 
 </section>
 
+</#macro>
+
+<#macro js_script_after_footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Gestisci errori di caricamento nelle thumbnails
+    var thumbs = document.querySelectorAll('.flex-control-nav.flex-control-thumbs img');
+    var blankSkuUrl = '/fi_it/assets/images/blank_sku.jpg';
+
+    thumbs.forEach(function(thumb) {
+        thumb.addEventListener('error', function() {
+            this.onerror = null; // Previeni loop infinito
+            this.src = blankSkuUrl;
+        });
+    });
+});
+</script>
 </#macro>
 
 <@display_page/>

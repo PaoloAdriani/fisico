@@ -24,6 +24,7 @@ under the License.
     <screen name="main">
         <section>
             <actions>
+                <set field="templatename" value="homepage" />
                 <!--<set field="headerItem" value="main"/>--><!-- this highlights the selected menu-item with name "main" -->
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/EcommerceSetup.groovy"/>

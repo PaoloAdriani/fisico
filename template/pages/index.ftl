@@ -26,8 +26,6 @@
 
             position: absolute;
             inset: 0;
-            background-size: cover;
-            background-position: center;
             z-index: 1;
         }
 
@@ -37,17 +35,23 @@
             pointer-events: none;
         }
 
+        .swiper-slide-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
     </style>
 </#macro>
 
 <#macro page_body>
 
-    <#include "sliderTopBikini.ftl" />
-    <#include "sliderSlipBikini.ftl" />
-    <#include "sliderSwimsuit.ftl" />
-    <#include "sliderBeachwear.ftl" />
-    <#include "sliderCrystals.ftl" />
-    <#include "sliderFitness.ftl" />
+    <#include "homepage/sliderTopBikini.ftl" />
+    <#include "homepage/sliderSlipBikini.ftl" />
+    <#include "homepage/sliderSwimsuit.ftl" />
+    <#include "homepage/sliderBeachwear.ftl" />
+    <#include "homepage/sliderCrystals.ftl" />
+    <#include "homepage/sliderFitness.ftl" />
 
 </#macro>
 

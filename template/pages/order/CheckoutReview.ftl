@@ -17,7 +17,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-<#include "base.ftl"/>
+<#include "../base.ftl"/>
 
 <#macro page_head_title>
 
@@ -55,9 +55,9 @@ under the License.
 </#if>
 
 <#if cart?? && 0 < cart.size()>
-  ${screens.render("component://ecommerce/widget/OrderScreens.xml#orderheader")}
+  ${screens.render("component://fisico/widget/FisicoScreens.xml#orderheader")}
   <br/>
-  ${screens.render("component://ecommerce/widget/OrderScreens.xml#orderitems")}
+  ${screens.render("component://fisico/widget/FisicoScreens.xml#orderitems")}
   <div class="row">
     <div class="col-auto ml-auto">
       <form method="post" action="<@ofbizUrl>processorder</@ofbizUrl>" name="${parameters.formNameValue}">

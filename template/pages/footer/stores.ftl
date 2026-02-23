@@ -1,4 +1,4 @@
-<#include "base.ftl" />
+<#include "../base.ftl" />
 
 <#macro page_head_title>
 
@@ -9,47 +9,6 @@
 </#macro>
 
 <#macro page_body>
-
-    <!-- Page Title
-    ============================================= -->
-    <section class="page-title page-title-parallax parallax scroll-detect dark page-title-center include-header bg-overlay-mask" style="padding: 170px 0 100px;">
-    	<img src="<@ofbizContentUrl>/fi_it/assets/images/fisico_boutique.jpg</@ofbizContentUrl>" class="parallax-bg">
-    	<div class="container">
-    		<div class="page-title-row">
-    			<div class="page-title-content">
-    				<h1 class="text-uppercase">Get in Touch</h1>
-    				<span>Contact Us</span>
-    			</div>
-    			<nav aria-label="breadcrumb">
-    				<ol class="breadcrumb">
-    					<li class="breadcrumb-item">
-    					    <#--<a href="#">Home</a>-->
-    					     <a href="<@ofbizUrl>main</@ofbizUrl>" class="linktext">${uiLabelMap.CommonMain}</a>
-    					 </li>
-    					  <#if session.getAttribute("_BREAD_CRUMB_TRAIL_")??>
-                             <#assign crumbs = Static["org.apache.ofbiz.product.category.CategoryWorker"].getTrail(request)/>
-                             <#list crumbs as crumb>
-                                  <#if catContentWrappers?? && catContentWrappers[crumb]??>
-                                    <li class="breadcrumb-item active" aria-current="page">
-                                        <a href="<@ofbizCatalogUrl currentCategoryId=crumb previousCategoryId=previousCategoryId!""/>" class="<#if crumb_has_next>linktext<#else>buttontextdisabled</#if>">
-                                            <#if catContentWrappers[crumb].get("CATEGORY_NAME", "html")??>
-                                                ${catContentWrappers[crumb].get("CATEGORY_NAME", "html")}
-                                            <#elseif catContentWrappers[crumb].get("DESCRIPTION", "html")??>
-                                                ${catContentWrappers[crumb].get("DESCRIPTION", "html")}
-                                            <#else>
-                                                ${crumb}
-                                            </#if>
-                                        </a>
-                                        <#if crumb_has_next> &gt;</#if>
-    					            </li>
-    					          </#if>
-    					     </#list>
-    					  </#if>
-    				</ol>
-    			</nav>
-    		</div>
-    </section><!-- .page-title end -->
-
 
     <section id="content">
     	<div class="content-wrap pb-0">

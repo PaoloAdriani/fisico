@@ -4,13 +4,13 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide dark">
-                    <a href="<@ofbizCatalogAltUrl productCategoryId="S5-002"/>" class="slide-link"></a>
+                    <a href="<@ofbizCatalogAltUrl productCategoryId="S6-004"/>" class="slide-link"></a>
                     <div class="container">
                         <div class="slider-caption">
-                            <h2 data-animate="fadeInUp">Slip</h2></a>
+                            <h2 data-animate="fadeInUp" style="text-transform: uppercase;">${SystemLabelMap.Crystals}</h2></a>
                         </div>
                     </div>
-                    <div class="swiper-slide-bg" style="background-image: url('<@ofbizContentUrl>/fi_it/assets/images/homepage/slip_bikini_18022026.jpg</@ofbizContentUrl>');"></div>
+                    <div class="swiper-slide-bg" style="background-image: url('<@ofbizContentUrl>/fi_it/assets/images/homepage/crystals_18022026.jpg</@ofbizContentUrl>');"></div>
                 </div>
 
             </div>

@@ -17,7 +17,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-<#include "base.ftl"/>
+<#include "../base.ftl"/>
 
 <#macro page_head_title>
 
@@ -117,6 +117,8 @@ function submitForm(form, mode, value) {
                   <label for="checkOutPaymentId_PAYPAL">${uiLabelMap.AccountingPayWithPayPal}</label>
               </div>
               </#if>
+
+              <#--
               <hr>
               <#if !paymentMethodList?has_content>
               <div>
@@ -176,8 +178,10 @@ function submitForm(form, mode, value) {
                 </#if>
               </#list>
             </#if>
+            -->
 
             <#-- special billing account functionality to allow use w/ a payment method -->
+            <#--
             <#if productStorePaymentMethodTypeIdMap.EXT_BILLACT??>
               <#if billingAccountList?has_content>
                 <div class="form-group">
@@ -197,8 +201,9 @@ function submitForm(form, mode, value) {
                 </div>
               </#if>
             </#if>
+            -->
             <#-- end of special billing account functionality -->
-
+            <#--
             <#if productStorePaymentMethodTypeIdMap.GIFT_CARD??>
               <div class="form-check">
                   <input class="form-check-input" type="checkbox" id="addGiftCard" name="addGiftCard" value="Y" />
@@ -226,6 +231,7 @@ function submitForm(form, mode, value) {
                     <#if productStorePaymentMethodTypeIdMap.GIFT_CARD??><a href="<@ofbizUrl>setBilling?paymentMethodType=GC&amp;singleUsePayment=Y</@ofbizUrl>" class="button">${uiLabelMap.AccountingSingleUseGiftCard}</a></#if>
                     <#if productStorePaymentMethodTypeIdMap.EFT_ACCOUNT??><a href="<@ofbizUrl>setBilling?paymentMethodType=EFT&amp;singleUsePayment=Y</@ofbizUrl>" class="button">${uiLabelMap.AccountingSingleUseEFTAccount}</a></#if>
               </div>
+              -->
             <#-- End Payment Method Selection -->
         </div>
     </div>

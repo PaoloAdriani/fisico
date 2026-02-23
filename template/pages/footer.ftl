@@ -28,11 +28,11 @@
 					<div class="widget">
 						<h4 class="ls-0 mb-3 text-transform-none">Servizio clienti</h4>
 						<ul class="list-unstyled iconlist ms-0">
-							<li><a href="<@ofbizUrl>shipping</@ofbizUrl>">${SystemLabelMap.Shipping}</a></li>
-							<li><a href="<@ofbizUrl>returns</@ofbizUrl>">${SystemLabelMap.Returns}</a></li>
-							<li><a href="<@ofbizUrl>sizeguide</@ofbizUrl>">${SystemLabelMap.SizeGuide}</a></li>
-							<li><a href="<@ofbizUrl>contacts</@ofbizUrl>">${SystemLabelMap.Contacts}</a></li>
-							<li><a href="<@ofbizUrl>faq</@ofbizUrl>">Domande frequenti/FAQ</a></li>
+							<li><a href="<@ofbizUrl>shipping</@ofbizUrl>" class="upper">${SystemLabelMap.Shipping}</a></li>
+							<li><a href="<@ofbizUrl>returns</@ofbizUrl>" class="upper">${SystemLabelMap.Returns}</a></li>
+							<li><a href="<@ofbizUrl>sizeguide</@ofbizUrl>" class="upper">${SystemLabelMap.SizeGuide}</a></li>
+							<li><a href="<@ofbizUrl>contacts</@ofbizUrl>" class="upper">${SystemLabelMap.Contacts}</a></li>
+							<li><a href="<@ofbizUrl>faq</@ofbizUrl>" class="upper">${SystemLabelMap.Faq}</a></li>
 						</ul>
 					</div>
 				</div>
@@ -40,9 +40,9 @@
 					<div class="widget">
 						<h4 class="ls-0 mb-3 text-transform-none">Area Legale</h4>
 						<ul class="list-unstyled iconlist ms-0">
-							<li><a href="<@ofbizUrl>salesconditions</@ofbizUrl>">${SystemLabelMap.SalesConditions}</a></li>
-							<li><a href="<@ofbizUrl>privacy</@ofbizUrl>">Privacy policy</a></li>
-							<li><a href="<@ofbizUrl>cookie</@ofbizUrl>">Gestione cookie</a></li>
+							<li><a href="<@ofbizUrl>salesconditions</@ofbizUrl>" class="upper">${SystemLabelMap.SalesConditions}</a></li>
+							<li><a href="<@ofbizUrl>privacy</@ofbizUrl>" class="upper">${SystemLabelMap.PrivacyPolicy}</a></li>
+							<li><a href="<@ofbizUrl>cookie</@ofbizUrl>" class="upper">${SystemLabelMap.CookieManagement}</a></li>
 						</ul>
 					</div>
 				</div>
@@ -50,9 +50,9 @@
 					<div class="widget">
 						<h4 class="ls-0 mb-3 text-transform-none">Corporate</h4>
 						<ul class="list-unstyled iconlist ms-0">
-							<li><a href="<@ofbizUrl>history</@ofbizUrl>">History</a></li>
-							<li><a href="<@ofbizUrl>campaign</@ofbizUrl>">Campaign</a></li>
-							<li><a href="<@ofbizUrl>stores</@ofbizUrl>">Stores</a></li>
+							<li><a href="<@ofbizUrl>history</@ofbizUrl>" class="upper">${SystemLabelMap.History}</a></li>
+							<li><a href="<@ofbizUrl>campaign</@ofbizUrl>" class="upper">${SystemLabelMap.Campaign}</a></li>
+							<li><a href="<@ofbizUrl>stores</@ofbizUrl>" class="upper">${SystemLabelMap.Stores}</a></li>
 						</ul>
 					</div>
 				</div>

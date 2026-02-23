@@ -16,7 +16,7 @@ KIND, either express or implied.  See the License for the
 specific language governing permissions and limitations
 under the License.
 -->
-<#include "base.ftl"/>
+<#include "../base.ftl"/>
 
 <#macro page_head_title>
 
@@ -106,6 +106,8 @@ under the License.
           <label class="form-check-label" for="shipping_method">${uiLabelMap.OrderUseDefault}.</label>
           </div>
         </#if>
+
+        <#--
         <hr>
         <h4>${uiLabelMap.OrderShipAllAtOnce}?</h4>
         <div class="form-check">
@@ -117,14 +119,20 @@ under the License.
         <label for="may_split_yes" class="form-check-label">${uiLabelMap.OrderPleaseShipItemsBecomeAvailable}.</label>
         </div>
         <hr>
+        -->
+        <#--
         <h4>${uiLabelMap.OrderSpecialInstructions}</h4>
         <textarea class="form-control" name="shipping_instructions">${shoppingCart.getShippingInstructions()!}</textarea>
         <hr>
+        -->
+        <#--
         <h4>${uiLabelMap.OrderPoNumber}</h4>
           <#if shoppingCart.getPoNumber()?? && shoppingCart.getPoNumber() != "(none)">
             <#assign currentPoNumber = shoppingCart.getPoNumber()>
           </#if>
         <input type="text" class="form-control" name="correspondingPoId" value="${currentPoNumber!}"/>
+        -->
+        <#--
         <#if productStore.showCheckoutGiftOptions! != "N">
         <hr>
         <h4>${uiLabelMap.OrderIsThisGift}</h4>
@@ -135,12 +143,16 @@ under the License.
           <input type="radio" class="form-check-input"<#if "Y" != shoppingCart.getIsGift()?default("N")>checked="checked"</#if> name="is_gift" id="is_gift_false" value="false"/><label class="form-check-label" for="is_gift_false">${uiLabelMap.CommonNo}</label>
         </div>
         <hr>
+        -->
+        <#--
         <h4>${uiLabelMap.OrderGiftMessage}</h4>
         <textarea class="textAreaBox" cols="30" rows="3" wrap="hard" name="gift_message">${shoppingCart.getGiftMessage()!}</textarea>
         <#else>
           <input type="hidden" name="is_gift" value="fcheckpoutalse"/>
         </#if>
         <hr>
+        -->
+        <#--
         <h4>${uiLabelMap.PartyEmailAddresses}</h4>
         <div>${uiLabelMap.OrderEmailSentToFollowingAddresses}:</div>
           <strong>
@@ -157,7 +169,8 @@ under the License.
           <hr>
           <label for="order_additional_emails">${uiLabelMap.OrderCommaSeperatedEmailAddresses}:</label>
           <input type="text" class="form-control" name="order_additional_emails" id="order_additional_emails" value="${shoppingCart.getOrderAdditionalEmails()!}"/>
-     </div>
+        </div>
+        -->
     </div>
   </fieldset>
 </form>

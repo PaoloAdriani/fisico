@@ -62,32 +62,27 @@
 
     <#else>
 
-        <a href="#" id="top-cart-trigger" class="position-relative" style="text-transform: uppercase;letter-spacing: 0;font-weight: 600;font-size: 13px;text-shadow: none;"
-
-
-
-                                                                               >
-            <#--<i class="bi-bag"></i>-->
-            <#--<span class="top-cart-number">0</span>-->Carrello
+        <a href="#" id="top-cart-trigger" class="position-relative" style="text-transform: uppercase;letter-spacing: 0;font-weight: 600;font-size: 13px;text-shadow: none;">
+            <i class="uil uil-shopping-bag"></i>
         </a>
 
         <div class="top-cart-content">
 
             <div class="top-cart-title">
-                <h4>Shopping Cart</h4>
+                <h4>${SystemLabelMap.ShoppingCart}</h4>
             </div>
 
             <div class="top-cart-items">
 
-                <p style="text-align: center;">Shopping cart is empty</p>
+                <p style="text-align: center;">${SystemLabelMap.ShoppingCartEmpty}</p>
 
             </div>
 
             <div class="top-cart-action">
 
-                <span class="top-checkout-price fw-semibold text-dark">Totale: <@ofbizCurrency amount=shoppingCart.getDisplaySubTotal() isoCode=shoppingCart.getCurrency()/></span>
+                <span class="top-checkout-price fw-semibold text-dark">${SystemLabelMap.TotalPrice}: <@ofbizCurrency amount=shoppingCart.getDisplaySubTotal() isoCode=shoppingCart.getCurrency()/></span>
 
-                <a href="<@ofbizUrl>view/showCart</@ofbizUrl>" class="button button-dark button-small m-0">Show cart</a>
+                <a href="<@ofbizUrl>view/showCart</@ofbizUrl>" class="button button-dark button-small m-0">${SystemLabelMap.ShowCart}</a>
             </div>
 
         </div>

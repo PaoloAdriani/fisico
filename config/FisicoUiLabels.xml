@@ -66,7 +66,7 @@ under the License.
         <value xml:lang="en">Bikini Slip</value>
     </property>
 
-    <property key="Swinsuit">
+    <property key="Swimsuit">
         <value xml:lang="it">Interi</value>
         <value xml:lang="en">Swimsuit</value>
     </property>
@@ -126,9 +126,55 @@ under the License.
     </property>
 
     <property key="SalesConditions">
-    <value xml:lang="it">Condizioni di vendita</value>
-    <value xml:lang="en">Sales conditions</value>
-</property>
+        <value xml:lang="it">Condizioni di vendita</value>
+        <value xml:lang="en">Sales conditions</value>
+    </property>
 
+    <property key="Faq">
+        <value xml:lang="it">Domande frequenti&#47;FAQ</value>
+        <value xml:lang="en">FAQ</value>
+    </property>
+
+    <property key="PrivacyPolicy">
+        <value xml:lang="it">Privacy policy</value>
+        <value xml:lang="en">Privacy policy</value>
+    </property>
+
+    <property key="CookieManagement">
+        <value xml:lang="it">Gestione cookie</value>
+        <value xml:lang="en">Cookie management</value>
+    </property>
+
+    <property key="History">
+        <value xml:lang="it">History</value>
+        <value xml:lang="en">History</value>
+    </property>
+
+    <property key="Campaign">
+        <value xml:lang="it">Campaign</value>
+        <value xml:lang="en">Campaign</value>
+    </property>
+
+    <property key="Stores">
+        <value xml:lang="it">Stores</value>
+        <value xml:lang="en">Stores</value>
+    </property>
+
+    <!-- Product Detail Labels -->
+
+    <property key="Color">
+        <value xml:lang="it">Colore</value>
+        <value xml:lang="en">Color</value>
+    </property>
+
+    <property key="Size">
+        <value xml:lang="it">Taglia</value>
+        <value xml:lang="en">Size</value>
+    </property>
+
+    <property key="SizeGuide">
+        <value xml:lang="it">Guida alle taglie</value>
+        <value xml:lang="en">Size guide</value>
+    </property>
 
 </resource>

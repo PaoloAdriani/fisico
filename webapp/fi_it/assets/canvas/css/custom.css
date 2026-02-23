@@ -23,3 +23,17 @@ select[name="newLocale"] {
     background-color: transparent;
     color: inherit;
 }
+
+.upper{
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+ @media (max-width: 768px) {
+    .upper{
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+ }

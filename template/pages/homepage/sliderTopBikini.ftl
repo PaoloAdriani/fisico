@@ -4,15 +4,14 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide dark">
-                    <a href="<@ofbizCatalogAltUrl productCategoryId="S5-004"/>" class="slide-link"></a>
+                    <a href="<@ofbizCatalogAltUrl productCategoryId="S5-001"/>" class="slide-link"></a>
                     <div class="container">
                         <div class="slider-caption">
-                            <h2 data-animate="fadeInUp">Beachwear</h2></a>
+                            <h2 data-animate="fadeInUp" style="text-transform: uppercase">${SystemLabelMap.TopBikini}</h2>
                         </div>
                     </div>
-                    <div class="swiper-slide-bg" style="background-image: url('<@ofbizContentUrl>/fi_it/assets/images/homepage/beachwear_12022026.jpg</@ofbizContentUrl>');"></div>
+                   <div class="swiper-slide-bg slide-1" style="background-image: url('<@ofbizContentUrl>/fi_it/assets/images/homepage/bikini_top_18022026.jpg</@ofbizContentUrl>');"></div>
                 </div>
-
             </div>
         </div>
     </div>

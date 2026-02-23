@@ -427,37 +427,22 @@ JS_LIB_.homepage = function() {
 
 		util = new JS_LIB_.util();
 
-		homepage_obj.adaptiveHeader();
+		homepage_obj.chooseLanguage();
 
 	};
 
-	this.adaptiveHeader = function(){
+	this.chooseLanguage = function(){
 
-        // Monitora lo scroll per mantenere l'header trasparente sulla homepage
-        var header = document.getElementById('header');
-        var headerWrap = document.getElementById('header-wrap');
-
-        if (header && headerWrap) {
-            // Usa MutationObserver per intercettare quando viene aggiunta la classe sticky-header
-            var observer = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
-                    if (mutation.attributeName === 'class') {
-                        if (header.classList.contains('sticky-header')) {
-                            // Mantieni lo sfondo trasparente anche quando sticky
-                            headerWrap.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                            header.querySelector('.container-fluid').style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                        }
-                    }
-                });
+	    document.querySelectorAll('[data-locale]').forEach(function(el) {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('newLocaleInput').value = this.dataset.locale;
+                document.getElementById('chooseLanguageForm').submit();
             });
+        });
 
-            observer.observe(header, {
-                attributes: true,
-                attributeFilter: ['class']
-            });
-        }
+    }
 
-	}
 }
 
 

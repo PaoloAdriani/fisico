@@ -208,7 +208,28 @@
             border-color: #000;
         }
 
+       @media (max-width: 768px) {
 
+           .product-overlay-variants {
+               position: static;
+               opacity: 1 !important;
+               transform: none !important;
+               pointer-events: auto !important;
+               background: #fff;
+               padding: 10px 0 0 0;
+           }
+
+           .product-image {
+               padding-bottom: 0;
+           }
+
+           .product-overlay-variants .color-swatch img {
+
+                       height: 20px;
+
+                   }
+
+       }
 
     </style>
 
@@ -280,7 +301,6 @@
 			    <div class="container-fluid mt-5">
                     <div class="row">
                         <div class="col-md-12 portfolio-container">
-
                                 <div id="portfolio" class="row shop grid-container" data-layout="fitRows">
                                     <#if productCategoryMembers?has_content>
                                         <#list productCategoryMembers as productCategoryMember>
@@ -296,8 +316,6 @@
                                         </div>
                                     </#if>
                                 </div>
-
-
                             <div class="pagination-container mt-5">
                                 <@paginationControlsNoAjax />
                             </div>

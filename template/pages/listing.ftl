@@ -225,7 +225,7 @@
 
            .product-overlay-variants .color-swatch img {
 
-                       height: 20px;
+                       height: 15px;
 
                    }
 

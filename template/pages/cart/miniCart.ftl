@@ -10,7 +10,7 @@
     <#if (shoppingCartSize > 0)>
 
         <a href="#" id="top-cart-trigger" class="position-relative">
-            <i class="bi-bag"></i>
+            <i class="bi-bag" style="font-size: 20px;"></i>
             <span class="top-cart-number">${shoppingCart.getTotalQuantity()}</span>
         </a>
 
@@ -24,21 +24,21 @@
 
                 <#list shoppingCart.items() as cartLine>
 
-                    <#assign product = cartLine.getParentProduct()!cartLine.getProduct()!>
+                    <#assign cartProduct = cartLine.getParentProduct()!cartLine.getProduct()!>
 
-                    <#assign smallImageUrl = Static["org.apache.ofbiz.product.product.ProductContentWrapper"].getProductContentAsText(product, "SMALL_IMAGE_URL", locale, dispatcher, "")!"" />
+                    <#assign cartSmallImageUrl = Static["org.apache.ofbiz.product.product.ProductContentWrapper"].getProductContentAsText(cartProduct, "SMALL_IMAGE_URL", locale, dispatcher, "")!"" />
 
                     <div class="top-cart-item">
 
                         <div class="top-cart-item-image">
-                            <a href="<@ofbizCatalogAltUrl productId=product.productId/>">
-                                <img src="<@ofbizContentUrl>/fi_it/assets${smallImageUrl!'/images/defaultImage.png'}</@ofbizContentUrl>">
+                            <a href="<@ofbizCatalogAltUrl productId=cartProduct.productId/>">
+                                <img src="<@ofbizContentUrl>/fi_it/assets${cartSmallImageUrl!'/images/defaultImage.png'}</@ofbizContentUrl>">
                             </a>
                         </div>
 
                         <div class="top-cart-item-desc">
                             <div class="top-cart-item-desc-title">
-                                <a href="<@ofbizCatalogAltUrl productId=product.productId/>" class="fw-normal">${cartLine.getName(dispatcher)}</a>
+                                <a href="<@ofbizCatalogAltUrl productId=cartProduct.productId/>" class="fw-normal">${cartLine.getName(dispatcher)}</a>
                                 <span class="top-cart-item-price d-block"><@ofbizCurrency amount=cartLine.getDisplayItemSubTotal() isoCode=shoppingCart.getCurrency()/></span>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
     <#else>
 
         <a href="#" id="top-cart-trigger" class="position-relative" style="text-transform: uppercase;letter-spacing: 0;font-weight: 600;font-size: 13px;text-shadow: none;">
-            <i class="uil uil-shopping-bag"></i>
+            <i class="bi-bag" style="font-size: 20px;"></i>
         </a>
 
         <div class="top-cart-content">

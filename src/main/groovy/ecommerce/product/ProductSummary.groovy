@@ -34,10 +34,7 @@ import org.apache.ofbiz.base.util.UtilMisc
 import org.apache.ofbiz.base.util.UtilProperties
 import org.apache.ofbiz.entity.GenericValue
 import org.apache.ofbiz.entity.util.EntityQuery
-import org.apache.ofbiz.base.util.UtilValidate
 import org.apache.ofbiz.entity.util.EntityUtilProperties
-import org.apache.ofbiz.entity.util.EntityUtil
-import org.apache.ofbiz.minilang.method.entityops.EntityAnd
 import org.apache.ofbiz.product.product.ProductContentWrapper
 import org.apache.ofbiz.product.config.ProductConfigWorker
 import org.apache.ofbiz.product.catalog.CatalogWorker
@@ -368,12 +365,7 @@ for (String variantId : variantIds) {
     String size  = feature?.getString("description");
 
 
-    boolean available = true;//checkInventory(dispatcher, variantId, productStoreId);
-
-    if(size == "XS" || size == "M")
-    {
-        available = false;
-    }
+    boolean available = checkInventory(dispatcher, variantId, productStoreId);
 
     sizeMap.put(size, variantId);
 
@@ -386,13 +378,13 @@ for (String variantId : variantIds) {
 
 private static boolean checkInventory(LocalDispatcher dispatcher, String productId, String productStoreId) {
     try {
-        Map<String, Object> ctx = UtilMisc.toMap("productId", productId, "productStoreId", productStoreId);
-
-        Map<String, Object> result = dispatcher.runSync("isStoreInventoryAvailableOrNot", ctx);
-        return "Y".equals(result.get("available"));
-
+        Map<String, Object> ctx = UtilMisc.toMap("productId", productId, "productStoreId", productStoreId, "quantity", new BigDecimal("1"));
+        Map<String, Object> result = dispatcher.runSync("isStoreInventoryAvailable", ctx);
+        boolean available = "Y".equals(result.get("available"));
+        Debug.logInfo("Inventory check for " + productId + ": " + available, "ProductSummary");
+        return available;
     } catch (Exception e) {
-        Debug.logError(e, "Inventory check failed", getModule());
+        Debug.logError(e, "Inventory check failed");
         return false;
     }
 }

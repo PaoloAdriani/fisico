@@ -7,7 +7,7 @@
                     <a href="<@ofbizCatalogAltUrl productCategoryId="S6-004"/>" class="slide-link"></a>
                     <div class="container">
                         <div class="slider-caption">
-                            <h2 data-animate="fadeInUp" style="text-transform: uppercase;">${SystemLabelMap.Fitness}</h2></a>
+                            <h2 data-animate="fadeInUp">${SystemLabelMap.Fitness}</h2></a>
                         </div>
                     </div>
                     <div class="swiper-slide-bg" style="background-image: url('<@ofbizContentUrl>/fi_it/assets/images/homepage/fitness_18022026.jpg</@ofbizContentUrl>');"></div>

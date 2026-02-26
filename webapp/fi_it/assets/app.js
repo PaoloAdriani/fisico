@@ -202,9 +202,6 @@ JS_LIB_.newCustomer = function() {
 };
 
 
-
-
-
 JS_LIB_.categoryDetail = function() {
 
     var category_obj = this;
@@ -215,7 +212,6 @@ JS_LIB_.categoryDetail = function() {
         category_obj.initMiniCart();
 
     }
-
 
     this.addItemFromCategory = function(){
 
@@ -257,8 +253,6 @@ JS_LIB_.categoryDetail = function() {
                type: "GET",
 
                success: function(html){
-
-                   console.log("html: "+html);
 
                    $("#miniCartContainer").html(html);
 
@@ -365,7 +359,7 @@ JS_LIB_.showCart = function() {
 };
 
 
-JS_LIB_.product = function() {
+JS_LIB_.productDetail = function() {
 
 	var product_obj = this;
 
@@ -379,11 +373,14 @@ JS_LIB_.product = function() {
 
 		product_obj.addItem();
 
+		product_obj.setupThumbs();
+
 	};
 
 
     this.addItem = function() {
 
+            /*
          $("#addToCart").click(function (e) {
 
                 let checkRadio = document.querySelector('input[name="bag-size"]:checked');
@@ -394,13 +391,53 @@ JS_LIB_.product = function() {
                     return;
                 }
 
-                console.log(checkRadio.dataset);
-
                 const productVariant = checkRadio.dataset.productVariant;
 
                 $('#add_product_id').val(productVariant);
 
                 document.addform.submit();
+
+         });
+         */
+
+
+         $("#addToCart").click(function (e) {
+
+             let checkRadio = document.querySelector('input[name="bag-size"]:checked');
+
+             if (checkRadio === null) {
+                 e.preventDefault();
+                 util.showProductDetailPageAlert();
+                 return;
+             }
+
+             const productVariant = checkRadio.dataset.productVariant;
+
+             $('#add_product_id').val(productVariant);
+
+             var form = $(this).closest("form");
+
+             var action = form.attr("action");
+
+             var data = form.serialize();
+
+             console.log("form: "+form);
+             console.log("action: "+action);
+             console.log("data: "+data);
+
+            $.ajax({
+                    url: action,
+                    type: "POST",
+                    data: data,
+
+                    success: function(){
+                        product_obj.refreshMiniCart();
+                    },
+
+                    error: function(data){
+                        console.log(data);
+                    }
+            });
 
          });
 
@@ -412,6 +449,36 @@ JS_LIB_.product = function() {
         });
 
     };
+
+    this.setupThumbs = function(){
+
+        var thumbs = document.querySelectorAll('.flex-control-nav.flex-control-thumbs img');
+        var blankSkuUrl = '/fi_it/assets/images/blank_sku.jpg';
+
+        thumbs.forEach(function(thumb) {
+            thumb.addEventListener('error', function() {
+                this.onerror = null; // Previeni loop infinito
+                this.src = blankSkuUrl;
+            });
+        });
+
+    }
+
+    this.refreshMiniCart = function(){
+
+           $.ajax({
+
+               url: "/fi_it/control/ajaxMiniCart",
+               type: "GET",
+
+               success: function(html){
+
+                   $("#miniCartContainer").html(html);
+
+                   $("#top-cart").addClass("top-cart-open");
+               }
+           });
+       }
 
 }; //end product class
 
@@ -486,15 +553,6 @@ JS_LIB_.util = function() {
             );
     }
 
-    this.removeClassById = function(id){
-
-
-
-            $("#"+id).removeClass("transparent-header");
-
-            console.log()
-    }
-
 };
 
 
@@ -537,14 +595,13 @@ JS_LIB_.pageController = function() {
                 var faq = new JS_LIB_.faq();
                 faq.init();
 
-				break;
+				break;/*product page*/
 
 
-			/*product page*/
 			case 'productdetail':
 
-				var product = new JS_LIB_.product();
-				product.init();
+				var productDetail = new JS_LIB_.productDetail();
+				productDetail.init();
 
 				break;
 

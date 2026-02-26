@@ -20,8 +20,11 @@ select[name="newLocale"] {
     letter-spacing: 1px;
     border: 1px solid #DDD;
     padding: 3px 22px;
-    background-color: transparent;
     color: inherit;
+}
+
+.slider-caption h2{
+    text-transform: uppercase;
 }
 
 .upper{
@@ -30,10 +33,61 @@ select[name="newLocale"] {
     text-transform: uppercase;
 }
 
+
  @media (max-width: 768px) {
+
+    .slider-caption h2{
+        font-size: 2.85rem;
+        text-transform: uppercase;
+    }
+
+
     .upper{
         font-size: 12px;
         font-weight: 800;
         text-transform: uppercase;
     }
+
+    #header-wrap #logo img{
+        height: 60px;
+    }
+
+    #miniCartContainer{
+        margin-right: 3px;
+    }
+
+ }
+
+ /* Forza il colore nero per tutti i menu link */
+ .menu-link {
+     color: #000 !important;
+ }
+
+ /* Forza il colore nero anche in hover */
+ .menu-item:hover > .menu-link,
+ .menu-item.current > .menu-link {
+     color: #000 !important;
+ }
+
+ /* Rimuovi l'effetto di schiarimento delle voci non in hover */
+ .menu-container:hover > .menu-item:not(:hover):not(.active) > .menu-link {
+     color: #000 !important;
+ }
+
+ /* Sovrascrivi gli stili dark */
+ .dark .menu-item:hover > .menu-link,
+ .dark .menu-item.current > .menu-link {
+     color: #000 !important;
+ }
+
+/*
+ #header.transparent-header #header-wrap {
+     background-color: rgba(255, 255, 255, 0.95) !important;
+ }
+ */
+
+ .flex-control-nav.flex-control-thumbs li,
+ .flex-control-nav.flex-control-thumbs li img {
+     width: auto !important;
+     height: 125px !important;  /* Aumenta da 110px a 150px */
  }

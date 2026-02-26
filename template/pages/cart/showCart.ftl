@@ -16,9 +16,7 @@
     <div class="content-wrap">
 	    <div class="container">
 
-
 		        <#if (shoppingCartSize > 0)>
-
                         <table class="table cart mb-5">
                             <thead>
                                 <tr>
@@ -47,7 +45,7 @@
                                                 <#assign parentProductId = cartLine.getProductId() />
                                             </#if>
 
-                                             <#assign productUrl><@ofbizCatalogAltUrl productId=product.productId/></#assign>
+                                            <#assign productUrl><@ofbizCatalogAltUrl productId=cartProduct.productId/></#assign>
 
                                             <#assign smallImageUrl = Static["org.apache.ofbiz.product.product.ProductContentWrapper"].getProductContentAsText(cartLine.getProduct(), "SMALL_IMAGE_URL", locale, dispatcher, "html")! />
 
@@ -158,43 +156,36 @@
                                 </form>
                             </div>
                             <div class="col-lg-5">
-
-                                    <div class="align-items-center">
-                                      <form method="post" action="<@ofbizUrl>addPromoCode<#if requestAttributes._CURRENT_VIEW_?has_content>/${requestAttributes._CURRENT_VIEW_}</#if></@ofbizUrl>" name="addpromocodeform">
-                                        <div class="input-group">
-                                          <input type="text" class="form-control text-center text-md-start" name="productPromoCodeId" value="" placeholder="Enter Coupon Code.."/>
-                                           &nbsp;&nbsp;&nbsp;
-                                           <span class="input-group-btn">
-                                             <input type="submit" class="button button-small button-3d button-black m-0" value="${uiLabelMap.OrderAddCode}" />
-                                           </span>
-                                        </div>
-                                          <#assign productPromoCodeIds = (shoppingCart.getProductPromoCodesEntered())! />
-                                          <#if productPromoCodeIds?has_content>
-                                            Applicati i promocodes:
-                                            <ul>
-                                              <#list productPromoCodeIds as productPromoCodeId>
-                                                <li>${productPromoCodeId}</li>
-                                              </#list>
-                                            </ul>
-                                          </#if>
-                                      </form>
+                                <div class="align-items-center">
+                                  <form method="post" action="<@ofbizUrl>addPromoCode<#if requestAttributes._CURRENT_VIEW_?has_content>/${requestAttributes._CURRENT_VIEW_}</#if></@ofbizUrl>" name="addpromocodeform">
+                                    <div class="input-group">
+                                      <input type="text" class="form-control text-center text-md-start" name="productPromoCodeId" value="" placeholder="Enter Coupon Code.."/>
+                                       &nbsp;&nbsp;&nbsp;
+                                       <span class="input-group-btn">
+                                         <input type="submit" class="button button-small button-3d button-black m-0" value="${uiLabelMap.OrderAddCode}" />
+                                       </span>
                                     </div>
-
+                                      <#assign productPromoCodeIds = (shoppingCart.getProductPromoCodesEntered())! />
+                                      <#if productPromoCodeIds?has_content>
+                                        Applicati i promocodes:
+                                        <ul>
+                                          <#list productPromoCodeIds as productPromoCodeId>
+                                            <li>${productPromoCodeId}</li>
+                                          </#list>
+                                        </ul>
+                                      </#if>
+                                  </form>
+                                </div>
                             </div>
                         </div>
-
                 <#else>
                     <div>
-                        Shopping cart is empty
+                        <p style="text-align: center;">${SystemLabelMap.ShoppingCartEmpty}</p>
                     </div>
                 </#if>
-
-
 		</div>
 	</div>
 </section><!-- #content end -->
-
-
 
 </#macro>
 

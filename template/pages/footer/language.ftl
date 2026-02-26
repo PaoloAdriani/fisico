@@ -17,7 +17,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-<form method="post" name="chooseLanguage" action="<@ofbizUrl>setSessionLocale</@ofbizUrl>">
+<form method="post" name="chooseLanguage" action="<@ofbizUrl>setSessionLocale</@ofbizUrl>" style="width: 100px;">
   <select name="newLocale" class="form-select" onchange="submit()">
     <#assign availableLocales = Static["org.apache.ofbiz.base.util.UtilMisc"].availableLocales()/>
     <#list availableLocales as availableLocale>

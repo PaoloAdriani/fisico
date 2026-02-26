@@ -160,7 +160,7 @@ under the License.
         <value xml:lang="en">Stores</value>
     </property>
 
-    <!-- Product Detail Labels -->
+    <!-- START Product Detail Labels -->
 
     <property key="Color">
         <value xml:lang="it">Colore</value>
@@ -176,5 +176,162 @@ under the License.
         <value xml:lang="it">Guida alle taglie</value>
         <value xml:lang="en">Size guide</value>
     </property>
+
+    <property key="OutOfStock">
+        <value xml:lang="it">Out of stock</value>
+        <value xml:lang="en">Out of stock</value>
+    </property>
+
+    <property key="SizeTableImage">
+        <value xml:lang="it">tabella-taglie_ITA.jpg</value>
+        <value xml:lang="en">tabella-taglie_ENG.jpg</value>
+    </property>
+
+    <property key="AttentionMessage">
+        <value xml:lang="it">Attenzione</value>
+        <value xml:lang="en">Attention</value>
+    </property>
+
+    <property key="AttentionMessageSize">
+        <value xml:lang="it">Selezionare una taglia.</value>
+        <value xml:lang="en">Select a size</value>
+    </property>
+
+    <property key="AttentionMessageSize">
+        <value xml:lang="it">Selezionare una taglia.</value>
+        <value xml:lang="en">Select a size</value>
+    </property>
+
+    <property key="ArticleInfo">
+        <value xml:lang="it">Info articolo</value>
+        <value xml:lang="en">Article information</value>
+    </property>
+
+    <property key="ModelInfo">
+        <value xml:lang="it">Info modella</value>
+        <value xml:lang="en">Model information</value>
+    </property>
+
+    <property key="ModelInfoDescription">
+        <value xml:lang="it">La modella indossa una taglia small</value>
+        <value xml:lang="en">The model is wearing a size small</value>
+    </property>
+
+    <property key="ProductCare">
+        <value xml:lang="it">Cura del prodotto</value>
+        <value xml:lang="en">Product care</value>
+    </property>
+
+    <property key="ProductCareOne">
+        <value xml:lang="it">SCIACQUATELO SEMPRE DOPO L’USO</value>
+        <value xml:lang="en">ALWAYS RINSE IT AFTER USE</value>
+    </property>
+
+    <property key="ProductCareOneDescription">
+        <value xml:lang="it">Immergere il costume in acqua fredda, strizzatelo bene e rimuovete tutto il sale e il cloro, perché altrimenti, con il tempo, il tessuto si scolorisce.</value>
+        <value xml:lang="en">Soak the swimsuit in cold water, wring it out well, and remove all the salt and chlorine, otherwise the fabric will fade over time.</value>
+    </property>
+
+    <property key="ProductCareTwo">
+        <value xml:lang="it">LAVATELO IN ACQUA FREDDA</value>
+        <value xml:lang="en">WASH IT IN COLD WATER</value>
+    </property>
+
+    <property key="ProductCareTwoDescription">
+        <value xml:lang="it">L’acqua molto calda danneggia il tessuto e può causare sbiadimento e stiramento. Il lavaggio in acqua fredda è il migliore per mantenere il colore. E’ consigliato lavarlo sempre a mano. Non mettetelo mai in asciugatrice!</value>
+        <value xml:lang="en">Very hot water damages the fabric and can cause fading and stretching. Washing in cold water is best for maintaining color. It's recommended to always hand wash. Never tumble dry!</value>
+    </property>
+
+    <property key="ProductCareThree">
+        <value xml:lang="it">ASCIUGATELO SENZA ESPORLO ALLA LUCE DEL SOLE PER MOLTE ORE</value>
+        <value xml:lang="en">DRY IT WITHOUT EXPOSING IT TO SUNLIGHT FOR MANY HOURS</value>
+    </property>
+
+    <property key="ProductCareThreeDescription">
+        <value xml:lang="it">Se lo esponete al sole per troppe ore, il vostro costume finirà per bruciarsi. Mettetelo ad asciugare in un luogo dove non riceve la luce diretta del sole, soprattutto nelle ore più calde della giornata. In questo modo eviterete che gli elastici si brucino e che il colore perda intensità.</value>
+        <value xml:lang="en">If you expose it to the sun for too long, your swimsuit will eventually burn. Dry it somewhere out of direct sunlight, especially during the hottest hours of the day. This will prevent the elastic from burning and the color from fading.</value>
+    </property>
+
+    <property key="ProductCareFour">
+        <value xml:lang="it">NON CONSERVARE MAI IN UN SACCHETTO DI PLASTICA, SOPRATTUTTO SE BAGNATO</value>
+        <value xml:lang="en">NEVER STORE IN A PLASTIC BAG, ESPECIALLY IF WET</value>
+    </property>
+
+    <property key="ProductCareFourDescription">
+        <value xml:lang="it">Se non volete che il vostro costume abbia un odore di muffa, conservatelo in un sacchetto completamente asciutto, preferibilmente di tessuto.</value>
+        <value xml:lang="en">If you don't want your costume to smell musty, store it in a completely dry bag, preferably a fabric one.</value>
+    </property>
+
+    <property key="ProductCareFive">
+        <value xml:lang="it">QUANDO L’ESTATE E’ FINITA, CONSERVATELO IN UNA BORSA DI STOFFA PER L’ANNO PROSSIMO</value>
+        <value xml:lang="en">WHEN SUMMER IS OVER, KEEP IT IN A CLOTH BAG FOR NEXT YEAR</value>
+    </property>
+
+    <property key="ProductCareFiveDescription">
+        <value xml:lang="it">Alla fine della stagione, prima di riporre il costume, lavatelo senza ammorbidente. Lasciatelo asciugare accuratamente e riponetelo in un sacchetto di tessuto. Riponetelo se possibile, singolarmente per evitare che i tessuti si attacchino l’uno all’altro, soprattutto se si vive in una zona calda.</value>
+        <value xml:lang="en">At the end of the season, before storing your swimsuit, wash it without fabric softener. Let it dry thoroughly and store it in a fabric bag. If possible, store it individually to prevent the fabrics from sticking together, especially if you live in a warm area.</value>
+    </property>
+
+    <property key="ShippingReturns">
+        <value xml:lang="it">Spedizioni e resi</value>
+        <value xml:lang="en">Shipping and returns</value>
+    </property>
+
+    <property key="ShippingReturnsOneDescription">
+        <value xml:lang="it">Spedizione gratuita per ordini superiori a 150€ in Italia ed Europa - Diritto di reso entro 15 giorni lavorativi.</value>
+        <value xml:lang="en">Free shipping on orders over €150 in Italy and Europe - 15-day return policy.</value>
+    </property>
+
+    <property key="ShippingReturnsTwoDescription">
+        <value xml:lang="it">Italia: Spedizione 5€. Consegna stimata in 5 giorni lavorativi (7 giorni lavorativi per isole e zone remote).</value>
+        <value xml:lang="en">Italy: Shipping €5. Estimated delivery time: 5 business days (7 business days for islands and remote areas).</value>
+    </property>
+
+    <property key="ShippingReturnsThreeDescription">
+        <value xml:lang="it">Europa (22 Paesi eurozona): Spedizione 9€. Consegna stimata in 5 giorni lavorativi.</value>
+        <value xml:lang="en">Europe (22 Eurozone countries): Shipping €9. Estimated delivery time: 5 business days.</value>
+    </property>
+
+    <property key="AlsoBought">
+        <value xml:lang="it">Spesso acquistati insieme</value>
+        <value xml:lang="en">Also bought together</value>
+    </property>
+
+    <property key="CrossSell">
+        <value xml:lang="it">Potrebbero piacerti anche</value>
+        <value xml:lang="en">You may also like</value>
+    </property>
+
+    <property key="ProductItemOutOfStock">
+        <value xml:lang="it">Questo articolo non è in giacenza</value>
+        <value xml:lang="en">This item is out of stock</value>
+    </property>
+
+    <property key="AddToCart">
+        <value xml:lang="it">Aggiungi al carrello</value>
+        <value xml:lang="en">Add to cart</value>
+    </property>
+
+    <property key="ShoppingCart">
+        <value xml:lang="it">Carrello</value>
+        <value xml:lang="en">Shopping cart</value>
+    </property>
+
+    <property key="ShoppingCartEmpty">
+        <value xml:lang="it">Il Carrello &grave; vuoto</value>
+        <value xml:lang="en">Shopping cart is empty</value>
+    </property>
+
+    <property key="TotalPrice">
+        <value xml:lang="it">Totale</value>
+        <value xml:lang="en">Total price</value>
+    </property>
+
+    <property key="ShowCart">
+        <value xml:lang="it">Vis.carrello</value>
+        <value xml:lang="en">Show cart</value>
+    </property>
+
+
 
 </resource>

@@ -67,6 +67,7 @@ if(shoppingCartItems) {
             } else {
                 parentProductId = shoppingCartItem.getProductId()
             }
+
             context.parentProductId = parentProductId
         }
         productCategoryMembers = from("ProductCategoryMember").where("productId", parentProductId).queryList()

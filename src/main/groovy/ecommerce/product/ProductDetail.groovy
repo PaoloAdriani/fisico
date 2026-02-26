@@ -105,6 +105,9 @@ context.contentPathPrefix = contentPathPrefix
 if (product) {
     productId = product.productId
     context.product_id = productId
+
+    println "productId ${productId}"
+
     productTypeId = product.productTypeId
 
     boolean isMarketingPackage = EntityTypeUtil.hasParentType(delegator, 'ProductType',

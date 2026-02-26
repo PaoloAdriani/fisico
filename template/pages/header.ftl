@@ -1,9 +1,9 @@
 <!-- Header
 		============================================= -->
-<header id="header" class="header-size-md dark transparent-header" data-sticky-shrink="false" data-sticky-class="not-dark">
+<header id="header" class="header-size-md" data-sticky-shrink="false" data-sticky-class="not-dark">
     <div id="header-wrap" style="border-bottom: none">
         <div class="container-fluid">
-            <div class="header-row justify-content-lg-between">
+            <div class="header-row justify-content-lg-center">
 
                 <!-- Logo
                 ============================================= -->
@@ -74,7 +74,7 @@
                     <!-- Top Login
                     ============================================= -->
                     <div id="top-account" class="header-misc-icon px-3">
-                        <a href="#"><i class="bi-people"></i></a>
+                        <a href="#"><i class="bi-people" style="font-size: 20px;"></i></a>
                     </div><!-- #top-search end -->
 
                     <div id="miniCartContainer">

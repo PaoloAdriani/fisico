@@ -30,8 +30,6 @@ import org.apache.ofbiz.product.product.ProductWorker
 contentPathPrefix = CatalogWorker.getContentPathPrefix(request)
 catalogName = CatalogWorker.getCatalogName(request)
 
-println "****************************** catalogName ${catalogName} : "
-
 currentCatalogId = CatalogWorker.getCurrentCatalogId(request)
 requestParams = UtilHttp.getParameterMap(request)
 

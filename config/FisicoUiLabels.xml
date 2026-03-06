@@ -333,5 +333,135 @@ under the License.
     </property>
 
 
+    <!-- START CHECKOUT LABELS -->
 
+    <property key="PartyAddNewAddress">
+        <value xml:lang="it">Nuovo Indirizzo</value>
+        <value xml:lang="en">New Address</value>
+    </property>
+
+    <property key="CommonUpdateAddress">
+        <value xml:lang="it">Aggiorna Indirizzo</value>
+        <value xml:lang="en">Update Address</value>
+    </property>
+
+    <property key="CommonNext">
+        <value xml:lang="it">Successivo</value>
+        <value xml:lang="en">Next</value>
+    </property>
+
+    <property key="OrderBacktoShoppingCart">
+        <value xml:lang="it">Torna al carrello</value>
+        <value xml:lang="en">Back to Shopping Cart</value>
+    </property>
+
+    <property key="OrderWhereShallWeShipIt">
+        <value xml:lang="it">Dove vuoi spedire</value>
+        <value xml:lang="en">Where shall we ship it</value>
+    </property>
+
+    <property key="PartyEditContactInfo">
+        <value xml:lang="it">Aggiornare informazioni contatto</value>
+        <value xml:lang="en">Edit Contact Information</value>
+    </property>
+
+    <property key="PartyCreateNewContactInfo">
+        <value xml:lang="it">Crea nuova informazione contatto</value>
+        <value xml:lang="en">Create New Contact Information</value>
+    </property>
+
+    <property key="PartyToName">
+        <value xml:lang="it">Nome e Cognome</value>
+        <value xml:lang="en">Name and Surname</value>
+    </property>
+
+    <property key="PartyAddressLine1">
+        <value xml:lang="it">Indirizzo</value>
+        <value xml:lang="en">Address</value>
+    </property>
+
+    <property key="PartyCity">
+        <value xml:lang="it">Città</value>
+        <value xml:lang="en">City</value>
+    </property>
+
+    <property key="PartyState">
+        <value xml:lang="it">Stato/Provincia</value>
+        <value xml:lang="en">State/Province</value>
+    </property>
+
+    <property key="PartyZipCode">
+        <value xml:lang="it">CAP</value>
+        <value xml:lang="en">Zip/Postal Code</value>
+    </property>
+
+    <property key="CommonCountry">
+        <value xml:lang="it">Paese</value>
+        <value xml:lang="en">Country</value>
+    </property>
+
+    <property key="PartyPhoneNumber">
+        <value xml:lang="it">Numero di telefono</value>
+        <value xml:lang="en">Phone Number</value>
+    </property>
+
+    <property key="PartyEmailAddress">
+        <value xml:lang="it">Indirizzo email</value>
+        <value xml:lang="en">E-Mail Address</value>
+    </property>
+
+    <property key="OrderHowShallWeShipIt">
+        <value xml:lang="it">Come verrà spedito</value>
+        <value xml:lang="en">How shall we ship it</value>
+    </property>
+
+    <property key="OrderCalculatedOffline">
+        <value xml:lang="it">Calcolate Offline</value>
+        <value xml:lang="en">Calculated Offline</value>
+    </property>
+
+    <property key="OrderUseDefault">
+        <value xml:lang="it">Usare default: nessun altro metodo di spedizione disponibile</value>
+        <value xml:lang="en">Use Default: No other shipping methods available</value>
+    </property>
+
+    <property key="CommonTo">
+        <value xml:lang="it">A</value>
+        <value xml:lang="en">To</value>
+    </property>
+
+    <property key="PartyAddrAttnName">
+        <value xml:lang="it">Attenzione</value>
+        <value xml:lang="en">Attn</value>
+    </property>
+
+    <property key="OrderHowShallYouPay">
+        <value xml:lang="it">Come verrà pagato</value>
+        <value xml:lang="en">How shall you pay</value>
+    </property>
+
+    <property key="AccountingPayWithUnicredit">
+        <value xml:lang="it">Paga con Unicredit</value>
+        <value xml:lang="en">Pay With Unicredit</value>
+    </property>
+
+    <property key="AccountingPayWithPayPal">
+        <value xml:lang="it">Paga con PayPal</value>
+        <value xml:lang="en">Pay With PayPal</value>
+    </property>
+
+    <property key="OrderContinueToFinalOrderReview">
+        <value xml:lang="it">Passa alla revisione finale ordine</value>
+        <value xml:lang="en">Continue to Final Order Review</value>
+    </property>
+
+    <property key="CommonSelect">
+        <value xml:lang="it">Seleziona</value>
+        <value xml:lang="en">Select</value>
+    </property>
+
+    <property key="OrderMoneyOrder">
+        <value xml:lang="it">Vaglia postale/Bonifico bancario</value>
+        <value xml:lang="en">Mail Check/Money Order</value>
+    </property>
 </resource>

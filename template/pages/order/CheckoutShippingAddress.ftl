@@ -36,15 +36,15 @@ under the License.
             <form method="post" name="checkoutInfoForm" style="margin:0;">
                 <input type="hidden" name="checkoutpage" value="shippingaddress"/>
                 <div class="card">
-                    <h4 class="card-header">
-                      1)&nbsp;${uiLabelMap.OrderWhereShallWeShipIt}?
+                    <h4 class="card-header upper">
+                      1)&nbsp;${SystemLabelMap.OrderWhereShallWeShipIt}?
                     </h4>
                     <div class="card-body">
                         <table class="table table-responsive-sm">
                           <tr>
                             <td colspan="2">
                               <#--<a href="<@ofbizUrl>splitship</@ofbizUrl>" class="buttontext">${uiLabelMap.OrderSplitShipment}</a>-->
-                              <a href="#" class="button button-small button-3d button-black m-0 js-submit" data-url="<@ofbizUrl>updateCheckoutOptions/editcontactmech?preContactMechTypeId=POSTAL_ADDRESS&contactMechPurposeTypeId=SHIPPING_LOCATION&DONE_PAGE=checkoutOptions</@ofbizUrl>">${uiLabelMap.PartyAddNewAddress}</a>
+                              <a href="#" class="button button-small button-3d button-black m-0 upper js-submit" data-url="<@ofbizUrl>updateCheckoutOptions/editcontactmech?preContactMechTypeId=POSTAL_ADDRESS&contactMechPurposeTypeId=SHIPPING_LOCATION&DONE_PAGE=checkoutOptions</@ofbizUrl>">${SystemLabelMap.PartyAddNewAddress}</a>
                               <#if (cart.getShipGroupSize() > 1)>
                                 <div style="color: red;">${uiLabelMap.OrderNOTEMultipleShipmentsExist}</div>
                               </#if>
@@ -59,15 +59,15 @@ under the License.
                                  <div class="form-check">
                                    <input type="radio" class="form-check-input" name="shipping_contact_mech_id" value="${shippingAddress.contactMechId}"<#if checkThisAddress> checked="checked"</#if> />
                                    <label>
-                                     <#if shippingAddress.toName?has_content><b>${uiLabelMap.CommonTo}:</b>&nbsp;${shippingAddress.toName}<br /></#if>
-                                     <#if shippingAddress.attnName?has_content><b>${uiLabelMap.PartyAddrAttnName}:</b>&nbsp;${shippingAddress.attnName}<br /></#if>
+                                     <#if shippingAddress.toName?has_content><b>${SystemLabelMap.CommonTo}:</b>&nbsp;${shippingAddress.toName}<br /></#if>
+                                     <#if shippingAddress.attnName?has_content><b>${SystemLabelMap.PartyAddrAttnName}:</b>&nbsp;${shippingAddress.attnName}<br /></#if>
                                      <#if shippingAddress.address1?has_content>${shippingAddress.address1},</#if>
                                      <#if shippingAddress.address2?has_content>${shippingAddress.address2}<br /></#if>
                                      <#if shippingAddress.city?has_content>${shippingAddress.city}</#if>
                                      <#if shippingAddress.stateProvinceGeoId?has_content>${shippingAddress.stateProvinceGeoId}</#if>
                                      <#if shippingAddress.postalCode?has_content><br />${shippingAddress.postalCode}</#if>
                                      <#if shippingAddress.countryGeoId?has_content><br />${shippingAddress.countryGeoId}</#if>
-                                     <a href="#" class="button button-small button-3d button-black m-0 js-submit" data-url="<@ofbizUrl>updateCheckoutOptions/editcontactmech?DONE_PAGE=checkoutOptions&contactMechId="${shippingAddress.contactMechId}"</@ofbizUrl>">${uiLabelMap.CommonUpdate}</a>
+                                     <a href="#" class="button button-small button-3d button-black m-0 upper js-submit" data-url="<@ofbizUrl>updateCheckoutOptions/editcontactmech?DONE_PAGE=checkoutOptions&contactMechId=${shippingAddress.contactMechId}</@ofbizUrl>">${SystemLabelMap.CommonUpdateAddress}</a>
                                    </label>
                                  </div>
                                  </td>
@@ -80,10 +80,10 @@ under the License.
             </form>
             <div class="row justify-content-end align-items-center py-2 col-mb-30 col-md-offset-4">
               <div class="col-auto mr-auto">
-                <a href="#" class="button button-small button-3d button-black m-0 js-submit" data-url="<@ofbizUrl>updateCheckoutOptions/showCart</@ofbizUrl>">${uiLabelMap.OrderBacktoShoppingCart}</a>
+                <a href="#" class="button button-small button-3d button-black m-0 upper js-submit" data-url="<@ofbizUrl>updateCheckoutOptions/showCart</@ofbizUrl>">${SystemLabelMap.OrderBacktoShoppingCart}</a>
               </div>
               <div class="col-auto">
-                <a href="#" class="button button-small button-3d button-black m-0 js-submit" data-url="<@ofbizUrl>checkoutOptions</@ofbizUrl>">${uiLabelMap.CommonNext}</a>
+                <a href="#" class="button button-small button-3d button-black m-0 upper js-submit" data-url="<@ofbizUrl>checkoutOptions</@ofbizUrl>">${SystemLabelMap.CommonNext}</a>
               </div>
             </div>
             </div>

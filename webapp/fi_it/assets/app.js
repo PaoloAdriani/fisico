@@ -12,16 +12,15 @@ JS_LIB_.cons = function() {
 
 };
 
-JS_LIB_.checkoutShippingAddress = function() {
+JS_LIB_.checkoutPayment = function() {
 
-	var checkoutShippingAddress_obj = this;
+	var checkoutPayment_obj = this;
 
 	this.init = function() {
 
-		checkoutShippingAddress_obj.submitForm();
+		checkoutPayment_obj.submitForm();
 
 	};
-
 
 	this.submitForm = function(){
 
@@ -42,10 +41,69 @@ JS_LIB_.checkoutShippingAddress = function() {
         });
 
 	}
+}
+
+JS_LIB_.checkoutShippingOptions = function() {
+
+	var checkoutShippingOptions_obj = this;
+
+	this.init = function() {
+
+		checkoutShippingOptions_obj.submitForm();
+
+	};
+
+	this.submitForm = function(){
+
+        document.addEventListener("click", function(e){
+
+            var el = e.target.closest(".js-submit");
+
+            if(!el) return;
+
+            e.preventDefault();
+
+            var form = document.forms["checkoutInfoForm"];
+
+            form.action = el.dataset.url;
+
+            form.submit();
+
+        });
+
+	}
+}
 
 
+JS_LIB_.checkoutShippingAddress = function() {
 
+	var checkoutShippingAddress_obj = this;
 
+	this.init = function() {
+
+		checkoutShippingAddress_obj.submitForm();
+
+	};
+
+	this.submitForm = function(){
+
+        document.addEventListener("click", function(e){
+
+            var el = e.target.closest(".js-submit");
+
+            if(!el) return;
+
+            e.preventDefault();
+
+            var form = document.forms["checkoutInfoForm"];
+
+            form.action = el.dataset.url;
+
+            form.submit();
+
+        });
+
+	}
 }
 
 
@@ -735,6 +793,20 @@ JS_LIB_.pageController = function() {
 
                 var checkoutShippingAddress = new JS_LIB_.checkoutShippingAddress();
                 checkoutShippingAddress.init();
+
+                break;
+
+            case 'checkoutShippingOptions':
+
+                var checkoutShippingOptions = new JS_LIB_.checkoutShippingOptions();
+                checkoutShippingOptions.init();
+
+                break;
+
+            case 'checkoutPayment':
+
+                var checkoutPayment = new JS_LIB_.checkoutPayment();
+                checkoutPayment.init();
 
                 break;
 

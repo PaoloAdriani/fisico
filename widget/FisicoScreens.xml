@@ -590,11 +590,11 @@ under the License.
             <actions>
                 <set field="templatename" value="productdetail"/>
                 <set field="productsummaryScreen" value="component://fisico/widget/FisicoScreens.xml#productsummary"/>
-                <set field="productAssocsummaryScreen"
-                     value="component://fisico/widget/FisicoScreens.xml#productAssocColorSummary"/>
+
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
 
                 <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/Category.groovy"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/product/ProductDetail.groovy"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/cart/ShowPromoText.groovy"/>
@@ -843,6 +843,32 @@ under the License.
         </section>
     </screen>
 
+    <screen name="breadcrumbs">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/SideDeepCategory.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific><html><html-template location="component://fisico/template/pages/breadCrumbs.ftl"/></html></platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="newbreadcrumbs">
+        <section>
+            <actions>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/AjaxBreadcrumbs.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html><html-template location="component://fisico/template/pages/ajaxBreadCrumbs.ftl"/></html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
     <screen name="miniCart">
         <section>
             <actions>
@@ -871,7 +897,7 @@ under the License.
     <screen name="showCart">
         <section>
             <actions>
-                <!--set field="MainColumnStyle" value="center"/-->
+                <!--set field="MainColumnStyle" value="center"/-->Cart
                 <!--set field="MainColumnStyle" value="leftonly"/-->
 
                 <!--set field="titleProperty" value="PageTitleShoppingCart"/>
@@ -908,7 +934,7 @@ under the License.
     <screen name="checkoutShippingAddress">
         <section>
             <actions>
-                <set field="templatename" value="showcart"/>
+                <set field="templatename" value="checkoutShippingAddress"/>
                 <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
                 <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
                 <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>

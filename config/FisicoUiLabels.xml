@@ -318,7 +318,7 @@ under the License.
     </property>
 
     <property key="ShoppingCartEmpty">
-        <value xml:lang="it">Il Carrello &grave; vuoto</value>
+        <value xml:lang="it">Il Carrello è vuoto</value>
         <value xml:lang="en">Shopping cart is empty</value>
     </property>
 

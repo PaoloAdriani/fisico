@@ -40,7 +40,7 @@
 
                                 <#assign availableLocales = Static["org.apache.ofbiz.base.util.UtilMisc"].availableLocales()/>
                                 <#list availableLocales as availableLocale>
-                                    <#if availableLocale?contains("it_IT") || availableLocale?contains("en_US")>
+                                    <#if (availableLocale == "it_IT") || (availableLocale == "en_US")>
 
                                         <#assign langAttr = availableLocale.toString()?replace("_", "-")>
                                         <#assign langDir = "ltr">
@@ -73,9 +73,24 @@
 
                     <!-- Top Login
                     ============================================= -->
-                    <div id="top-account" class="header-misc-icon px-3">
-                        <a href="#"><i class="bi-people" style="font-size: 20px;"></i></a>
-                    </div><!-- #top-search end -->
+                    <#if userLogin?has_content && userLogin.userLoginId != "anonymous">
+                        <div id="top-account" class="header-misc-icon px-3">
+                            <div class="dropdown mx-3 me-lg-0">
+                                <a href="#" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="uil uil-user"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu1">
+                                    <a class="dropdown-item text-start" href="<@ofbizUrl>viewprofile</@ofbizUrl>">Profile</a>
+                                    <a class="dropdown-item text-start" href="<@ofbizUrl>ListRequests</@ofbizUrl>">Returns</a>
+                                    <a class="dropdown-item text-start" href="<@ofbizUrl>orderhistory</@ofbizUrl>">Order History</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-start" href="<@ofbizUrl>logout</@ofbizUrl>">Logout <i class="bi-box-arrow-left"></i></a>
+                                </ul>
+                            </div>
+                        </div>
+                    <#else>
+                        <div id="top-account" class="header-misc-icon px-3">
+                            <a href="<@ofbizUrl>${checkLoginUrl}</@ofbizUrl>"><i class="bi-people" style="font-size: 20px;"></i></a>
+                        </div><!-- #top-search end -->
+                    </#if>
 
                     <div id="miniCartContainer">
                        <#include "cart/miniCart.ftl" />

@@ -1,4 +1,4 @@
-<#include "base.ftl" />
+<#include "../base.ftl" />
 
 <#macro page_head_title>
 

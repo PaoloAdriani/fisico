@@ -12,6 +12,10 @@
 
     <style type="text/css">
 
+        /* ================================
+           PAGINATION
+        ================================ */
+
         .canvas-pagination {
           display: flex;
           align-items: center;
@@ -53,11 +57,17 @@
           pointer-events: none;
         }
 
-        body {
-          transition: opacity .15s ease;
+        .pagination-container {
+          position: sticky;
+          bottom: 0;
+          background: #fff;
+          padding: 12px 0;
+          border-top: 1px solid #eee;
+          z-index: 10;
         }
 
         @media (max-width: 768px) {
+
           .canvas-pagination {
             flex-direction: column;
             align-items: stretch;
@@ -76,160 +86,256 @@
             width: 100%;
             text-align: center;
           }
+
         }
 
-        .pagination-container {
-          position: sticky;
+
+        /* ================================
+           PRODUCT IMAGE + OVERLAY DESKTOP
+        ================================ */
+
+        .product-image {
+          position: relative;
+          overflow: visible;
+          padding-bottom: 10px;
+        }
+
+        .product-overlay-variants {
+
+          position: absolute;
           bottom: 0;
-          background: #fff;
-          padding: 12px 0;
-          border-top: 1px solid #eee;
-          z-index: 10;
+          left: 0;
+          right: 0;
+
+          background: rgba(255,255,255,0.95);
+
+          padding: 15px 10px;
+
+          opacity: 0;
+          transform: translateY(20px);
+
+          transition: all 0.3s ease;
+
+          pointer-events: none;
+
+          z-index: 5;
+
         }
 
-        /*
-        .product-colors {
-          height: 20px;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          gap: 10px;
-          margin-bottom: 15px;
-          margin-top: 2px;
+        /* hover desktop */
+        .product-image:hover .product-overlay-variants {
+
+          opacity: 1;
+          transform: translateY(0);
+
+          pointer-events: auto;
+
         }
 
-        .color-swatch img {
-          width: 45px;
-          height: 20px;
-          border-radius: 50%;
-          border: 2px solid #ddd;
-          transition: 0.2s;
-          cursor: pointer;
-        }
 
-        .color-swatch img:hover {
-          border-color: #000;
-          transform: scale(1.08);
-        }
+        /* colors */
 
-        .product-sizes {
+        .product-overlay-variants .product-colors {
+
           display: flex;
           justify-content: center;
           gap: 8px;
-        }
+          margin-bottom: 10px;
 
-        .size-btn {
-          padding: 1px 5px;
-          border: 1px solid #ccc;
-          text-decoration: none;
-          color: #333;
-          transition: 0.2s;
-        }
-
-        .size-btn:hover {
-          background: #000;
-          color: #fff;
-        }
-        */
-
-        /* Overlay contenente colori e taglie */
-        .product-overlay-variants {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 15px 10px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            pointer-events: none;
-            z-index: 5;
-        }
-
-        .product-image:hover .product-overlay-variants {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        /* Assicura che il contenitore abbia spazio per l'overlay */
-        .product-image {
-            position: relative;
-            overflow: visible;
-            padding-bottom: 10px;
-        }
-
-        /* Stili per colori nell'overlay */
-        .product-overlay-variants .product-colors {
-            height: auto;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 10px;
         }
 
         .product-overlay-variants .color-swatch img {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: 2px solid #ddd;
-            transition: 0.2s;
-            cursor: pointer;
+
+          width: 30px;
+          height: 30px;
+
+          border-radius: 50%;
+          border: 2px solid #ddd;
+
+          cursor: pointer;
+
+          transition: 0.2s;
+
         }
 
         .product-overlay-variants .color-swatch img:hover {
-            border-color: #000;
-            transform: scale(1.1);
+
+          border-color: #000;
+          transform: scale(1.1);
+
         }
 
-        /* Stili per taglie nell'overlay */
+
+        /* sizes */
+
         .product-overlay-variants .product-sizes {
-            display: flex;
-            justify-content: center;
-            gap: 6px;
-            flex-wrap: wrap;
+
+          display: flex;
+          justify-content: center;
+          gap: 6px;
+          flex-wrap: wrap;
+
         }
 
         .product-overlay-variants .size-btn {
-            padding: 4px 8px;
-            border: 1px solid #ccc;
-            text-decoration: none;
-            color: #333;
-            transition: 0.2s;
-            font-size: 12px;
-            background: #fff;
+
+          padding: 4px 8px;
+
+          border: 1px solid #ccc;
+
+          background: #fff;
+
+          font-size: 12px;
+
+          cursor: pointer;
+
+          transition: 0.2s;
+
         }
 
         .product-overlay-variants .size-btn:hover {
-            background: #000;
-            color: #fff;
-            border-color: #000;
+
+          background: #000;
+          color: #fff;
+          border-color: #000;
+
         }
 
-       @media (max-width: 768px) {
 
-           .product-overlay-variants {
-               position: static;
-               opacity: 1 !important;
-               transform: none !important;
-               pointer-events: auto !important;
-               background: #fff;
-               padding: 10px 0 0 0;
-           }
+        /* ================================
+           MOBILE BEHAVIOR
+        ================================ */
 
-           .product-image {
-               padding-bottom: 0;
-           }
+        /* hide overlay on mobile (we use modal instead) */
+        @media (max-width: 768px) {
 
-           .product-overlay-variants .color-swatch img {
+          .product-overlay-variants {
+            display: none;
+          }
 
-                       height: 15px;
+        }
 
-                   }
 
-       }
+        /* mobile select button */
+
+        .mobile-variants-btn {
+
+          display: none;
+
+        }
+
+        @media (max-width: 768px) {
+
+          .mobile-variants-btn {
+
+            display: block;
+
+            width: 100%;
+            padding: 10px;
+
+            border: 1px solid #000;
+
+            background: #fff;
+
+            font-size: 13px;
+
+            margin-top: 8px;
+
+          }
+
+        }
+
+
+        /* ================================
+           MOBILE MODAL
+        ================================ */
+
+        .mobile-modal {
+
+          display: none;
+
+          position: fixed;
+          inset: 0;
+
+          z-index: 999;
+
+        }
+
+        .mobile-modal.active {
+          display: block;
+        }
+
+
+        /* backdrop */
+
+        .mobile-modal-backdrop {
+
+          position: absolute;
+          inset: 0;
+
+          background: rgba(0,0,0,0.4);
+
+        }
+
+
+        /* modal panel */
+
+        .mobile-modal-content {
+
+          position: absolute;
+
+          bottom: 0;
+          left: 0;
+          right: 0;
+
+          background: #fff;
+
+          padding: 20px;
+
+          max-height: 70vh;
+
+          overflow-y: auto;
+
+          border-radius: 12px 12px 0 0;
+
+        }
+
+
+        /* ⭐ CRITICAL FIX:
+           show overlay inside modal
+        */
+
+        .mobile-modal-content .product-overlay-variants {
+
+          display: block !important;
+
+          position: static !important;
+
+          opacity: 1 !important;
+
+          transform: none !important;
+
+          pointer-events: auto !important;
+
+        }
+
+
+        /* close button */
+
+        .mobile-modal-close {
+
+          width: 100%;
+
+          padding: 12px;
+
+          border: 1px solid #000;
+
+          background: #fff;
+
+          margin-bottom: 15px;
+
+        }
+
 
     </style>
 
@@ -300,8 +406,8 @@
 			<div class="content-wrap pb-0">
 			    <div class="container-fluid mt-5">
                     <div class="row">
-                        <div class="col-md-12 portfolio-container">
-                                <div id="portfolio" class="row shop grid-container" data-layout="fitRows">
+                        <div class="col-md-12">
+                                <div class="row shop grid-container" data-layout="fitRows">
                                     <#if productCategoryMembers?has_content>
                                         <#list productCategoryMembers as productCategoryMember>
                                             ${setRequestAttribute("optProductId", productCategoryMember.productId)}

@@ -37,7 +37,7 @@ under the License.
       form.submit();
     } else if ("CS" == mode) {
       // continue shopping
-      form.action = "<@ofbizUrl>updateCheckoutOptions/showcart</@ofbizUrl>";
+      form.action = "<@ofbizUrl>updateCheckoutOptions/showCart</@ofbizUrl>";
       form.submit();
     } else if ("NA" == mode) {
       // new address

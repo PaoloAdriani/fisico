@@ -87,18 +87,6 @@
                                                 </td>
 
                                             </tr>
-
-                                            <tr class="cart_item">
-                                               <td colspan="8">
-                                                    <div class="row justify-content-end align-items-center py-2 col-mb-30 col-md-offset-4">
-
-                                                        <div class="col-lg-auto ps-lg-0">
-                                                            <button type="submit" class="button button-small button-3d m-0">Update Cart</button>
-                                                            <a href="<@ofbizUrl>checkoutOptions</@ofbizUrl>" class="button button-small button-3d mt-2 mt-sm-0 me-0 mb-0">Proceed to Checkout</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
                             </tbody>
                                         </#if>
                                    </#list>
@@ -106,6 +94,12 @@
 
 
                         <div class="row col-mb-30">
+
+                            <div class="mb-5" style="text-align: end";>
+                                <button type="submit" class="button button-small button-3d m-0">Update Cart</button>
+                                <a href="<@ofbizUrl>checkoutOptions</@ofbizUrl>" class="button button-small button-3d mt-2 mt-sm-0 me-0 mb-0">Proceed to Checkout</a>
+                            </div>
+
                     	    <div class="col-lg-7">
                                 <h4>Cart Totals</h4>
                                     <div class="table-responsive">
@@ -177,6 +171,10 @@
                                   </form>
                                 </div>
                             </div>
+                            <div class="mb-5" style="text-align: end";>
+                                <a href="<@ofbizUrl>main</@ofbizUrl>" class="button button-small button-3d mt-2 mt-sm-0 me-0 mb-0">Continua con lo shopping</a>
+                            </div>
+
                         </div>
                 <#else>
                     <div>

@@ -1,4 +1,6 @@
 <#--------------- HEAD SECTION MACROS --------------->
+<#import "common/commonMessages.ftl" as commonMsg>
+
 
 <#-- added header -->
 <#macro add_page_head> </#macro>
@@ -82,6 +84,10 @@
         <div id="wrapper">
 
 	      <#include "header.ftl" />
+
+	      <div class="container mt-3">
+            <@commonMsg.renderMessages/>
+          </div>
 
 	      <@page_body_common/>
 

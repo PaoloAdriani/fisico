@@ -79,6 +79,20 @@
                 </div><#-- end product-overlay-variants -->
             </div><#-- end product-image -->
 
+            <button class="mobile-variants-btn">Seleziona</button>
+
+            <div class="mobile-modal">
+
+                <div class="mobile-modal-backdrop"></div>
+
+                <div class="mobile-modal-content">
+
+                    <button class="mobile-modal-close">Chiudi</button>
+
+                </div>
+
+            </div>
+
             <div class="product-desc">
                 <div class="product-title">
                     <b><a class="upper" href="${productUrl}">${productName!}</a></b>

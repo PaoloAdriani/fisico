@@ -21,7 +21,7 @@ under the License.
   <select name="newLocale" class="form-select" onchange="submit()">
     <#assign availableLocales = Static["org.apache.ofbiz.base.util.UtilMisc"].availableLocales()/>
     <#list availableLocales as availableLocale>
-      <#if availableLocale?contains("it_IT") || availableLocale?contains("en_US") >
+      <#if (availableLocale == "it_IT") || (availableLocale == "en_US") >
         <#assign langAttr = availableLocale.toString()?replace("_", "-")>
         <#assign langDir = "ltr">
         <#if "ar.iw"?contains(langAttr?substring(0, 2))>

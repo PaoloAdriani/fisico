@@ -25,6 +25,7 @@ under the License.
          elements found in the common-controller.xml file. -->
     <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
     <include location="component://paypal/webapp/paypal/WEB-INF/controller.xml"/>
+    <include location="component://unicredit/webapp/unicredit/WEB-INF/controller.xml"/>
 
     <description>Fisico Component Site Configuration File</description>
 
@@ -443,6 +444,7 @@ under the License.
         <response name="offline" type="request" value="emailorder"/>
         <response name="worldpay" type="request" value="callWorldPay"/>
         <response name="paypal" type="request" value="callPayPalInterface"/>
+        <response name="unicredit" type="request" value="callUnicredit"/>
         <response name="billact" type="request" value="emailorder"/>
         <response name="cod" type="request" value="emailorder"/>
         <response name="error" type="view" value="checkoutreview"/>

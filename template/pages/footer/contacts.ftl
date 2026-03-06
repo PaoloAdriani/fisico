@@ -77,11 +77,11 @@
     						<abbr title="Phone Number"><strong>Phone:</strong></abbr> +39 037661890<br>
     						<abbr title="Email Address"><strong>Email:</strong></abbr> customercare@fisico.it
     						<div class="widget border-0 pt-0">
-    							<a href="#" class="social-icon si-small bg-dark h-bg-facebook">
+    							<a href="https://www.facebook.com/FisicoOfficial/" class="social-icon si-small bg-dark h-bg-facebook">
     								<i class="fa-brands fa-facebook-f"></i>
     								<i class="fa-brands fa-facebook-f"></i>
     							</a>
-    							<a href="#" class="social-icon si-small bg-dark h-bg-instagram">
+    							<a href="https://www.instagram.com/fisico_official/" class="social-icon si-small bg-dark h-bg-instagram">
     								<i class="bi-instagram"></i>
     								<i class="bi-instagram"></i>
     							</a>

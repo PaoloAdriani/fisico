@@ -91,3 +91,18 @@ select[name="newLocale"] {
      width: auto !important;
      height: 125px !important;  /* Aumenta da 110px a 150px */
  }
+
+ .ofbiz-alert {
+     border-radius: 8px;
+     margin-bottom: 20px;
+     font-size: 0.95rem;
+ }
+
+ .ofbiz-alert ul {
+     padding-left: 18px;
+ }
+
+ .ofbiz-alert i {
+     font-size: 1.2rem;
+     margin-top: 2px;
+ }

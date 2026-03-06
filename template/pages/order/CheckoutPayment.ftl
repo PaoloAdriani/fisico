@@ -38,7 +38,7 @@ function submitForm(form, mode, value) {
         form.submit();
     } else if ("CS" == mode) {
         // continue shopping
-        form.action="<@ofbizUrl>updateCheckoutOptions/showcart</@ofbizUrl>";
+        form.action="<@ofbizUrl>updateCheckoutOptions/showCart</@ofbizUrl>";
         form.submit();
     } else if ("NC" == mode) {
         // new credit card
@@ -116,6 +116,12 @@ function submitForm(form, mode, value) {
                   <input class="form-check-input" type="radio" id="checkOutPaymentId_PAYPAL" name="checkOutPaymentId" value="EXT_PAYPAL" <#if "EXT_PAYPAL" == checkOutPaymentId>checked="checked"</#if> />
                   <label for="checkOutPaymentId_PAYPAL">${uiLabelMap.AccountingPayWithPayPal}</label>
               </div>
+              </#if>
+              <#if productStorePaymentMethodTypeIdMap.EXT_UNICREDIT_CC??>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="checkOutPaymentId_PAYPAL" name="checkOutPaymentId" value="EXT_UNICREDIT_CC" <#if "EXT_UNICREDIT_CC" == checkOutPaymentId>checked="checked"</#if> />
+                    <label for="checkOutPaymentId_PAYPAL">${uiLabelMap.AccountingPayWithPayPal}</label>
+                </div>
               </#if>
 
               <#--

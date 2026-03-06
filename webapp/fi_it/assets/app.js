@@ -12,6 +12,42 @@ JS_LIB_.cons = function() {
 
 };
 
+JS_LIB_.checkoutShippingAddress = function() {
+
+	var checkoutShippingAddress_obj = this;
+
+	this.init = function() {
+
+		checkoutShippingAddress_obj.submitForm();
+
+	};
+
+
+	this.submitForm = function(){
+
+        document.addEventListener("click", function(e){
+
+            var el = e.target.closest(".js-submit");
+
+            if(!el) return;
+
+            e.preventDefault();
+
+            var form = document.forms["checkoutInfoForm"];
+
+            form.action = el.dataset.url;
+
+            form.submit();
+
+        });
+
+	}
+
+
+
+
+}
+
 
 JS_LIB_.newCustomer = function() {
 
@@ -211,6 +247,9 @@ JS_LIB_.categoryDetail = function() {
         category_obj.addItemFromCategory();
         category_obj.initMiniCart();
 
+        category_obj.showMobileVariants();
+        category_obj.closeMobileVariants();
+
     }
 
     this.addItemFromCategory = function(){
@@ -271,6 +310,71 @@ JS_LIB_.categoryDetail = function() {
 
        });
    }
+
+   this.showMobileVariants = function() {
+
+           document.querySelectorAll(".mobile-variants-btn").forEach(function(button){
+
+                   button.addEventListener("click", function(){
+
+                       const product = button.closest(".product");
+
+                       const modal = product.querySelector(".mobile-modal");
+
+                       const modalContent = modal.querySelector(".mobile-modal-content");
+
+                       const variants = product.querySelector(".product-overlay-variants");
+
+                       /* salva posizione originale */
+                       product._variantsOriginalParent = variants.parentNode;
+                       product._variantsNextSibling = variants.nextSibling;
+
+                       /* ⭐ FIX CRITICO: sposta modal nel body */
+                       document.body.appendChild(modal);
+
+                       /* sposta varianti nel modal */
+                       modalContent.appendChild(variants);
+
+                       modal.classList.add("active");
+
+                   });
+
+               });
+   }
+
+   this.closeMobileVariants = function() {
+
+      document.addEventListener("click", function(e){
+
+              if(
+                  e.target.classList.contains("mobile-modal-close") ||
+                  e.target.classList.contains("mobile-modal-backdrop")
+              ){
+
+                  const modal = e.target.closest(".mobile-modal");
+
+                  const variants = modal.querySelector(".product-overlay-variants");
+
+                  const product = document.querySelector(".product");
+
+                  /* ripristina varianti */
+                  if (product._variantsNextSibling)
+                      product._variantsOriginalParent.insertBefore(
+                          variants,
+                          product._variantsNextSibling
+                      );
+                  else
+                      product._variantsOriginalParent.appendChild(variants);
+
+                  modal.classList.remove("active");
+
+              }
+
+          });
+
+   }
+
+
 }
 
 
@@ -356,6 +460,8 @@ JS_LIB_.showCart = function() {
 
          });
     }
+
+
 };
 
 
@@ -597,7 +703,6 @@ JS_LIB_.pageController = function() {
 
 				break;/*product page*/
 
-
 			case 'productdetail':
 
 				var productDetail = new JS_LIB_.productDetail();
@@ -623,6 +728,13 @@ JS_LIB_.pageController = function() {
 
                 var newCustomer = new JS_LIB_.newCustomer();
                 newCustomer.init();
+
+                break;
+
+            case 'checkoutShippingAddress':
+
+                var checkoutShippingAddress = new JS_LIB_.checkoutShippingAddress();
+                checkoutShippingAddress.init();
 
                 break;
 

@@ -159,7 +159,7 @@
 
     <!-- Centered modal -->
     <div class="col-sm-6 mt-5">
-        <a class="me-2 upper" data-bs-toggle="modal" data-bs-target=".bs-example-modal-centered" style="cursor: pointer;">${SystemLabelMap.SizeGuide}</a>
+        <a class="me-2 upper" data-bs-toggle="modal" data-bs-target=".bs-example-modal-centered" style="cursor: pointer; text-decoration: underline !important;">${SystemLabelMap.SizeGuide}</a>
         <div class="modal fade text-start bs-example-modal-centered" tabindex="-1" role="dialog" aria-labelledby="centerModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
@@ -225,6 +225,17 @@
                         </div><!-- end class col-md-7-->
 
                         <div class="col-lg-6 col-md-5">
+
+                            <nav aria-label="breadcrumb" class="mb-5">
+                              <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/fi_it/control/main">Home</a></li>
+                                <#if productCategory?has_content>
+                                  <li class="breadcrumb-item">
+                                    <a href="<@ofbizCatalogAltUrl productCategoryId=categoryId/>">${title!}</a>
+                                  </li>
+                                </#if>
+                              </ol>
+                            </nav>
 
                             <!-- Product Single - Short Description
                             ============================================= -->
@@ -392,8 +403,8 @@
                                                 </div>
                                             </div>
                                         <#else>
-                                            <@showUnavailableVarients/>
-                                            <a name="addToCartDisabled" class="add-to-cart button m-0 upper" style="background-color: red;" disabled="disabled">${SystemLabelMap.OutOfStock}</a>
+                                            <#--<@showUnavailableVarients/>-->
+                                            <#--<a name="addToCartDisabled" class="add-to-cart button m-0 upper" style="background-color: red;" disabled="disabled">${SystemLabelMap.OutOfStock}</a>-->
                                         </#if><#-- end inStock -->
                                    </#if><#-- end if product.virtualVariantMethodEnum! != "VV_FEATURETREE -->
                                    </form>

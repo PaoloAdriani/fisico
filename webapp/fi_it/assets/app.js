@@ -12,98 +12,206 @@ JS_LIB_.cons = function() {
 
 };
 
+JS_LIB_.checkoutReview = function () {
+
+    let event;
+
+    this.init = function(){
+
+        event = new JS_LIB_.event();
+        event.sendOrder();
+
+    }
+}
+
+JS_LIB_.editContactMech = function () {
+
+    let countrySelect;
+    let stateSelect;
+    let util;
+
+    this.init = function () {
+
+        util = new JS_LIB_.util();
+
+        countrySelect =
+            document.getElementById("editcontactmechform_countryGeoId");
+
+        stateSelect =
+            document.getElementById("editcontactmechform_stateProvinceGeoId");
+
+        if (!countrySelect || !stateSelect)
+            return;
+
+        const selectedCountry =
+            countrySelect.dataset.selected;
+
+        if (selectedCountry)
+            countrySelect.value = selectedCountry;
+
+        countrySelect.addEventListener("change", function () {
+
+            loadStates(this.value);
+
+        });
+
+        if (countrySelect.value)
+            loadStates(countrySelect.value);
+
+    };
+
+    async function loadStates(countryGeoId) {
+
+        stateSelect.innerHTML =
+            '<option>Caricamento...</option>';
+
+        try {
+
+            const response =
+                await fetch(
+                    OFBIZ_URL_GET_STATES +
+                    "?countryGeoId=" +
+                    encodeURIComponent(countryGeoId)
+                );
+
+            const text =
+                await response.text();
+
+            const data =
+                util.parseOfbizJson(text);
+
+            renderStates(data);
+
+        }
+        catch (error) {
+
+            console.error(error);
+
+            stateSelect.innerHTML =
+                '<option>Errore caricamento</option>';
+        }
+    }
+
+    function renderStates(data) {
+
+        const selectedState =
+            stateSelect.dataset.selected;
+
+        stateSelect.innerHTML =
+            '<option value="">Seleziona una provincia</option>';
+
+        if (!data.stateList)
+            return;
+
+        data.stateList.forEach(function (stateString) {
+
+            const parts =
+                stateString.split(": ");
+
+            if (parts.length !== 2)
+                return;
+
+            const geoName = parts[0];
+            const geoId = parts[1];
+
+            const option =
+                document.createElement("option");
+
+            option.value = geoId;
+            option.textContent = geoName;
+
+            if (geoId === selectedState)
+                option.selected = true;
+
+            stateSelect.appendChild(option);
+
+        });
+    }
+
+};
+
 JS_LIB_.checkoutPayment = function() {
 
 	var checkoutPayment_obj = this;
+	//let event;
 
 	this.init = function() {
 
-		checkoutPayment_obj.submitForm();
+        checkoutPayment_obj.paymentMethodSelected();
+
+        //event = new JS_LIB_.event();
+        //event.submitForm();
 
 	};
 
-	this.submitForm = function(){
+	this.paymentMethodSelected = function(){
 
-        document.addEventListener("click", function(e){
+	    document.querySelectorAll(".js-submit").forEach(button => {
 
-            var el = e.target.closest(".js-submit");
+            button.addEventListener("click", function(e) {
 
-            if(!el) return;
+                const selectedPayment =
+                    document.querySelector('input[name="checkOutPaymentId"]:checked');
 
-            e.preventDefault();
+                if (!selectedPayment) {
 
-            var form = document.forms["checkoutInfoForm"];
+                    e.preventDefault();
 
-            form.action = el.dataset.url;
+                    document.getElementById("paymentError")
+                        .style.display = "block";
 
-            form.submit();
+                    return;
+                }
+
+                // submit normale
+                document.getElementById("checkoutInfoForm").submit();
+
+            });
+
+        });
+
+        document.querySelectorAll('input[name="checkOutPaymentId"]')
+        .forEach(radio => {
+
+            radio.addEventListener("change", () => {
+
+                document.getElementById("paymentError")
+                    .style.display = "none";
+
+            });
 
         });
 
 	}
+
+
 }
 
 JS_LIB_.checkoutShippingOptions = function() {
 
-	var checkoutShippingOptions_obj = this;
+	let event;
 
 	this.init = function() {
 
-		checkoutShippingOptions_obj.submitForm();
+		event = new JS_LIB_.event();
+        event.submitForm();
 
 	};
 
-	this.submitForm = function(){
-
-        document.addEventListener("click", function(e){
-
-            var el = e.target.closest(".js-submit");
-
-            if(!el) return;
-
-            e.preventDefault();
-
-            var form = document.forms["checkoutInfoForm"];
-
-            form.action = el.dataset.url;
-
-            form.submit();
-
-        });
-
-	}
 }
 
 
 JS_LIB_.checkoutShippingAddress = function() {
 
-	var checkoutShippingAddress_obj = this;
+	let event;
 
-	this.init = function() {
+    this.init = function() {
 
-		checkoutShippingAddress_obj.submitForm();
+        event = new JS_LIB_.event();
+        event.submitForm();
 
-	};
+    };
 
-	this.submitForm = function(){
-
-        document.addEventListener("click", function(e){
-
-            var el = e.target.closest(".js-submit");
-
-            if(!el) return;
-
-            e.preventDefault();
-
-            var form = document.forms["checkoutInfoForm"];
-
-            form.action = el.dataset.url;
-
-            form.submit();
-
-        });
-
-	}
 }
 
 
@@ -397,17 +505,14 @@ JS_LIB_.categoryDetail = function() {
 
                    });
 
-               });
+           });
    }
 
    this.closeMobileVariants = function() {
 
       document.addEventListener("click", function(e){
 
-              if(
-                  e.target.classList.contains("mobile-modal-close") ||
-                  e.target.classList.contains("mobile-modal-backdrop")
-              ){
+              if(e.target.classList.contains("mobile-modal-close") || e.target.classList.contains("mobile-modal-backdrop")){
 
                   const modal = e.target.closest(".mobile-modal");
 
@@ -427,12 +532,9 @@ JS_LIB_.categoryDetail = function() {
                   modal.classList.remove("active");
 
               }
-
-          });
+      });
 
    }
-
-
 }
 
 
@@ -684,6 +786,59 @@ JS_LIB_.event = function() {
 
 	var event = this;
 
+	this.submitForm = function(){
+
+        document.addEventListener("click", function(e){
+
+            var el = e.target.closest(".js-submit");
+
+            if(!el) return;
+
+            e.preventDefault();
+
+            var form = document.forms["checkoutInfoForm"];
+
+            form.action = el.dataset.url;
+
+            form.submit();
+
+        });
+
+    }
+
+    this.sendOrder = function(){
+
+        const form = document.getElementById("processOrderForm");
+        const button = document.getElementById("processOrderButton");
+
+        if(!form || !button) return;
+
+        let submitting = false;
+
+        form.addEventListener("submit", function(e) {
+
+            if (submitting) {
+
+              e.preventDefault();
+
+              showErrorAlert(
+                 OFBIZ_LABELS.commonError,
+                 OFBIZ_LABELS.orderProcessing
+              );
+
+              return;
+            }
+
+            submitting = true;
+
+            button.disabled = true;
+            button.innerText = OFBIZ_LABELS.submittingOrder;
+            button.classList.add("button-loading");
+
+        });
+
+    }
+
 };
 
 
@@ -803,10 +958,26 @@ JS_LIB_.pageController = function() {
 
                 break;
 
+
             case 'checkoutPayment':
 
                 var checkoutPayment = new JS_LIB_.checkoutPayment();
                 checkoutPayment.init();
+
+                break;
+
+
+            case 'editContactMech':
+
+                var editContactMech = new JS_LIB_.editContactMech();
+                editContactMech.init();
+
+                break;
+
+            case 'checkoutReview':
+
+                var checkoutReview = new JS_LIB_.checkoutReview();
+                checkoutReview.init();
 
                 break;
 

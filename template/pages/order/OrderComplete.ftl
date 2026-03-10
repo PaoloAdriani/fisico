@@ -28,15 +28,23 @@ under the License.
 
 <#macro page_body>
 
-<h2>${uiLabelMap.EcommerceOrderConfirmation}</h2>
-<#if !isDemoStore?? || isDemoStore><p>${uiLabelMap.OrderDemoFrontNote}.</p></#if>
-<#if orderHeader?has_content>
-  ${screens.render("component://fisico/widget/FisicoScreens.xml#orderheader")}
-  ${screens.render("component://fisico/widget/FisicoScreens.xml#orderitems")}
-  <a href="<@ofbizUrl>main</@ofbizUrl>" class="buttontextbig">${uiLabelMap.EcommerceContinueShopping}</a>
-<#else>
-  <h3>${uiLabelMap.OrderSpecifiedNotFound}.</h3>
-</#if>
-
+<section id="content">
+  <div class="content-wrap">
+    <div class="container">
+      <div class="card mb-0 upper">
+        <h2>${SystemLabelMap.EcommerceOrderConfirmation}</h2>
+        <#if orderHeader?has_content>
+          ${screens.render("component://fisico/widget/FisicoScreens.xml#orderheader")}
+          ${screens.render("component://fisico/widget/FisicoScreens.xml#orderitems")}
+          <div class="row justify-content-end align-items-center py-2 col-mb-30 col-md-offset-4">
+            <a href="<@ofbizUrl>main</@ofbizUrl>" class="button button-small button-3d button-black m-0 upper">${SystemLabelMap.EcommerceContinueShopping}</a>
+          </div>
+        <#else>
+          <h3>${uiLabelMap.OrderSpecifiedNotFound}.</h3>
+        </#if>
+      </div>
+    </div>
+  </div>
+</section>
 </#macro>
 <@display_page/>

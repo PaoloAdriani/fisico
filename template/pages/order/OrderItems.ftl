@@ -34,39 +34,39 @@ under the License.
         <input type="hidden" name="add_all" value="false" />    
             <input type="hidden" name="orderId" value="${orderHeader.orderId}" />
     </#if>
-  <div class="card-header">
+  <div class="card-header upper">
     <strong>
     <#assign numColumns = 8>
-    ${uiLabelMap.OrderOrderItems}
+    ${SystemLabelMap.OrderOrderItems}
     <#if "Y" == maySelectItems?default("N") && "PLACING_CUSTOMER" == roleTypeId!>
       <#assign numColumns = 11>
       <a href="javascript:document.addCommonToCartForm.add_all.value='true';document.addCommonToCartForm.submit()"
-          class="btn btn-sm float-right">${uiLabelMap.OrderAddAllToCart}</a>
+          class="btn btn-sm float-right">${SystemLabelMap.OrderAddAllToCart}</a>
       <a href="javascript:document.addCommonToCartForm.add_all.value='false';document.addCommonToCartForm.submit()"
-          class="btn btn-sm float-right">${uiLabelMap.OrderAddCheckedToCart}</a>
-      <button form="sendMeThisEveryMonthForm" class="btn btn-sm float-right" type="submit">${uiLabelMap.OrderSendMeThisEveryMonth}</button>
+          class="btn btn-sm float-right">${SystemLabelMap.OrderAddCheckedToCart}</a>
+      <button form="sendMeThisEveryMonthForm" class="btn btn-sm float-right" type="submit">${SystemLabelMap.OrderSendMeThisEveryMonth}</button>
     </#if>
     </strong>
   </div>
-  <div class="card-body">
+  <div class="card-body upper">
   <table class="table table-responsive-sm">
     <thead class="thead-light">
       <tr>
-        <th>${uiLabelMap.OrderProduct}</th>
+        <th>${SystemLabelMap.OrderProduct}</th>
         <#if "Y" == maySelectItems?default("N")>
-          <th>${uiLabelMap.OrderQtyOrdered}</th>
-          <th>${uiLabelMap.OrderQtyPicked}</th>
-          <th>${uiLabelMap.OrderQtyShipped}</th>
-          <th>${uiLabelMap.OrderQtyCanceled}</th>
+          <th>${SystemLabelMap.OrderQtyOrdered}</th>
+          <th>${SystemLabelMap.OrderQtyPicked}</th>
+          <th>${SystemLabelMap.OrderQtyShipped}</th>
+          <th>${SystemLabelMap.OrderQtyCanceled}</th>
         <#else>
           <th></th>
           <th></th>
           <th></th>
-          <th>${uiLabelMap.OrderQtyOrdered}</th>
+          <th>${SystemLabelMap.OrderQtyOrdered}</th>
         </#if>
-          <th class="amount">${uiLabelMap.EcommerceUnitPrice}</th>
-          <th class="amount">${uiLabelMap.OrderAdjustments}</th>
-          <th class="amount">${uiLabelMap.CommonSubtotal}</th>
+          <th class="amount">${SystemLabelMap.EcommerceUnitPrice}</th>
+          <th class="amount">${SystemLabelMap.OrderAdjustments}</th>
+          <th class="amount">${SystemLabelMap.CommonSubTotal}</th>
         <#if "Y" == maySelectItems?default("N") && "PLACING_CUSTOMER" == roleTypeId!>
           <th colspan="3"></th>
         </#if>
@@ -74,7 +74,7 @@ under the License.
     </thead>
     <tfoot>
       <tr>
-        <th colspan="7">${uiLabelMap.CommonSubtotal}</th>
+        <th colspan="7">${SystemLabelMap.CommonSubTotal}</th>
         <td class="amount"><@ofbizCurrency amount=orderSubTotal isoCode=currencyUomId/></td>
         <#if "Y" == maySelectItems?default("N")>
           <td colspan="3"></td>
@@ -90,7 +90,7 @@ under the License.
         </tr>
       </#list>
       <tr>
-        <th colspan="7">${uiLabelMap.OrderShippingAndHandling}</th>
+        <th colspan="7">${SystemLabelMap.OrderShippingAndHandling}</th>
         <td class="amount"><@ofbizCurrency amount=orderShippingTotal isoCode=currencyUomId/></td>
         <#if "Y" == maySelectItems?default("N")>
           <td colspan="3"></td>
@@ -115,7 +115,7 @@ under the License.
         </#if>
       </tr>
       <tr>
-        <th colspan="7">${uiLabelMap.OrderGrandTotal}</th>
+        <th colspan="7">${SystemLabelMap.OrderGrandTotal}</th>
         <td class="amount">
           <@ofbizCurrency amount=orderGrandTotal isoCode=currencyUomId/>
         </td>
@@ -294,28 +294,10 @@ under the License.
         <#list itemAdjustments as orderItemAdjustment>
           <tr>
             <td>
-            ${uiLabelMap.EcommerceAdjustment}
+            ${SystemLabelMap.EcommerceAdjustment}
               : ${StringUtil.wrapString(localOrderReadHelper.getAdjustmentType(orderItemAdjustment))}
               <#if orderItemAdjustment.description?has_content>
                 : ${StringUtil.wrapString(orderItemAdjustment.description)}</#if>
-              <#if "SALES_TAX" == orderItemAdjustment.orderAdjustmentTypeId>
-                <#if orderItemAdjustment.primaryGeoId?has_content>
-                  <#assign primaryGeo = orderItemAdjustment.getRelatedOne("PrimaryGeo", true)/>
-                  <#if primaryGeo.geoName?has_content>
-                  ${uiLabelMap.OrderJurisdiction}: ${primaryGeo.geoName} [${primaryGeo.abbreviation!}]
-                  </#if>
-                  <#if orderItemAdjustment.secondaryGeoId?has_content>
-                    <#assign secondaryGeo = orderItemAdjustment.getRelatedOne("SecondaryGeo", true)/>
-                    (${uiLabelMap.CommonIn}: ${secondaryGeo.geoName} [${secondaryGeo.abbreviation!}])
-                  </#if>
-                </#if>
-                <#if orderItemAdjustment.sourcePercentage??>${uiLabelMap.EcommerceRate}
-                  : ${orderItemAdjustment.sourcePercentage}</#if>
-                <#if orderItemAdjustment.customerReferenceId?has_content>${uiLabelMap.OrderCustomerTaxId}
-                  : ${orderItemAdjustment.customerReferenceId}</#if>
-                <#if orderItemAdjustment.exemptAmount??>${uiLabelMap.EcommerceExemptAmount}
-                  : ${orderItemAdjustment.exemptAmount}</#if>
-              </#if>
             </td>
             <td colspan="5"></td>
             <td class="amount">
@@ -335,7 +317,7 @@ under the License.
             <#assign shipGroupAddress = (shipGroup.getRelatedOne("PostalAddress", false))!>
             <tr>
               <td>
-              ${uiLabelMap.OrderShipGroup}: [${shipGroup.shipGroupSeqId}] ${shipGroupAddress.address1?default("N/A")}
+              ${SystemLabelMap.OrderShipGroup}: [${shipGroup.shipGroupSeqId}] ${shipGroupAddress.address1?default("N/A")}
               </td>
               <td>
               ${shipGroupAssoc.quantity?string.number}
@@ -347,7 +329,7 @@ under the License.
       </#list>
       <#if orderItems?size == 0 || !orderItems?has_content>
       <tr>
-        <td colspan="${numColumns}">${uiLabelMap.OrderSalesOrderLookupFailed}</td>
+        <td colspan="${numColumns}">${SystemLabelMap.OrderSalesOrderLookupFailed}</td>
       </tr>
       </#if>
       <tr>

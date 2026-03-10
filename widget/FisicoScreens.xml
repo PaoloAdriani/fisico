@@ -47,9 +47,6 @@ under the License.
     <screen name="login">
         <section>
             <actions>
-                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
-                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
-                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
 
                 <script location="component://fisico/src/main/groovy/ecommerce/EcommerceSetup.groovy"/>
@@ -937,7 +934,7 @@ under the License.
                 <set field="templatename" value="checkoutShippingAddress"/>
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
-                <script location="component://order/src/main/groovy/org/apache/ofbiz/order/entry/CheckoutShippingAddress.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/order/CheckoutShippingAddress.groovy"/>
             </actions>
             <widgets>
                 <platform-specific>
@@ -955,8 +952,7 @@ under the License.
                 <set field="templatename" value="checkoutShippingOptions"/>
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
-                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
-                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/order/CheckoutShippingOptions.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/order/CheckoutShippingOptions.groovy"/>
             </actions>
             <widgets>
                 <platform-specific>
@@ -974,9 +970,8 @@ under the License.
                 <set field="templatename" value="checkoutPayment"/>
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
-                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
-                <script location="component://order/src/main/groovy/org/apache/ofbiz/order/entry/CheckoutPayment.groovy"/>
-                <script location="component://order/src/main/groovy/org/apache/ofbiz/order/entry/StorePaymentOptions.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/order/CheckoutPayment.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/order/StorePaymentOptions.groovy"/>
             </actions>
             <widgets>
 
@@ -993,17 +988,12 @@ under the License.
     <screen name="checkoutreview">
         <section>
             <actions>
-
-                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
-                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
-                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
-                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
-                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="templatename" value="checkoutReview"/>
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
 
                 <set field="parameters.formNameValue" value="orderreview" global="true"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
-                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/order/CheckoutReview.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/order/CheckoutReview.groovy"/>
             </actions>
             <widgets>
                 <platform-specific>
@@ -1042,13 +1032,9 @@ under the License.
     <screen name="ordercomplete">
         <section>
             <actions>
-                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
-                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
-                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
-                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
-                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
-                <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/order/OrderStatus.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/order/OrderStatus.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
             </actions>
             <widgets>
                 <platform-specific>
@@ -1063,28 +1049,11 @@ under the License.
     <screen name="editcontactmech">
         <section>
             <actions>
-
+                <set field="templatename" value="editContactMech"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/EditContactMech.groovy"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <set field="reqName" from-field="requestName"/>
 
-                <set field="dependentForm" value="editcontactmechform"/>
-                <set field="paramKey" value="countryGeoId"/>
-                <set field="mainId" value="countryGeoId"/>
-                <set field="dependentId" value="stateProvinceGeoId"/>
-                <set field="requestName" value="getAssociatedStateList"/>
-                <set field="responseName" value="stateList"/>
-                <set field="dependentKeyName" value="geoId"/>
-                <set field="descName" value="geoName"/>
-                <set field="selectedDependentOption" from-field="selectedStateName" default-value="_none_"/>
-
-
-
-                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
-                <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true"/>
-                <property-map resource="ContentUiLabels" map-name="uiLabelMap" global="true"/>
-                <property-map resource="EcommerceUiLabels" map-name="uiLabelMap" global="true"/>
-                <property-map resource="ProductUiLabels" map-name="uiLabelMap" global="true"/>
                 <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
             </actions>
             <widgets>

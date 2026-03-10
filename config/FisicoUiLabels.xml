@@ -400,6 +400,11 @@ under the License.
         <value xml:lang="en">Country</value>
     </property>
 
+    <property key="CommonProvince">
+        <value xml:lang="it">Provincia</value>
+        <value xml:lang="en">Province</value>
+    </property>
+
     <property key="PartyPhoneNumber">
         <value xml:lang="it">Numero di telefono</value>
         <value xml:lang="en">Phone Number</value>
@@ -464,4 +469,354 @@ under the License.
         <value xml:lang="it">Vaglia postale/Bonifico bancario</value>
         <value xml:lang="en">Mail Check/Money Order</value>
     </property>
+
+    <property key="ProceedToCheckout">
+        <value xml:lang="it">Vai al checkout</value>
+        <value xml:lang="en">Proceed to Checkout</value>
+    </property>
+
+    <property key="UpdateCart">
+        <value xml:lang="it">Aggiorna il carrello</value>
+        <value xml:lang="en">Update cart</value>
+    </property>
+
+    <property key="OrderAddCode">
+        <value xml:lang="it">Aggiungi codice</value>
+        <value xml:lang="en">Add Code</value>
+    </property>
+
+    <property key="EnterCouponCode">
+        <value xml:lang="it">Inserisci un codice</value>
+        <value xml:lang="en">Enter Coupon Code</value>
+    </property>
+
+    <property key="Product">
+        <value xml:lang="it">Articolo</value>
+        <value xml:lang="en">Article</value>
+    </property>
+
+    <property key="Price">
+        <value xml:lang="it">Prezzo</value>
+        <value xml:lang="en">Price</value>
+    </property>
+
+    <property key="Adjustments">
+        <value xml:lang="it">Aggiustamenti</value>
+        <value xml:lang="en">Adjustments</value>
+    </property>
+
+    <property key="Quantity">
+        <value xml:lang="it">Quantità</value>
+        <value xml:lang="en">Quantity</value>
+    </property>
+
+    <property key="Total">
+        <value xml:lang="it">Totale</value>
+        <value xml:lang="en">Total</value>
+    </property>
+
+    <property key="CartTotal">
+        <value xml:lang="it">Totale Carrello</value>
+        <value xml:lang="en">Cart Total</value>
+    </property>
+
+    <property key="CartSubtotal">
+        <value xml:lang="it">Subtotale Carrello</value>
+        <value xml:lang="en">Cart Subtotal</value>
+    </property>
+
+    <property key="Total">
+        <value xml:lang="it">Totale</value>
+        <value xml:lang="en">Total</value>
+    </property>
+
+    <property key="EcommerceAdjustment">
+        <value xml:lang="it">Aggiustamento</value>
+        <value xml:lang="en">Adjustment</value>
+    </property>
+
+    <property key="CommonDetails">
+        <value xml:lang="it">Dettagli</value>
+        <value xml:lang="en">Details</value>
+    </property>
+
+    <property key="CommonGoBack">
+        <value xml:lang="it">Indietro</value>
+        <value xml:lang="en">Go Back</value>
+    </property>
+
+    <property key="CommonSave">
+        <value xml:lang="it">Salva</value>
+        <value xml:lang="en">Save</value>
+    </property>
+
+    <property key="ApplyCodes">
+        <value xml:lang="it">Applicati questi promocodes</value>
+        <value xml:lang="en">Apply these promocodes</value>
+    </property>
+
+    <property key="BackToShopping">
+        <value xml:lang="it">Continua con lo shopping</value>
+        <value xml:lang="en">Back to shopping</value>
+    </property>
+
+    <property key="CommonStateProvince">
+        <value xml:lang="it">Stato/Provincia</value>
+        <value xml:lang="en">State/Province</value>
+    </property>
+
+    <property key="OrderFinalCheckoutReview">
+        <value xml:lang="it">Revisione finale ordine</value>
+        <value xml:lang="en">Final Checkout Review</value>
+    </property>
+
+    <property key="OrderSubmitOrder">
+        <value xml:lang="it">Invia ordine</value>
+        <value xml:lang="en">Submit Order</value>
+    </property>
+
+    <property key="OrderErrorShoppingCartEmpty">
+        <value xml:lang="it">ERRORE: Il carrello è vuoto</value>
+        <value xml:lang="en">ERROR: Shopping cart empty, please start over</value>
+    </property>
+
+    <property key="OrderSubmittingOrder">
+        <value xml:lang="it">Attendere prego, elaborazione ordine...</value>
+        <value xml:lang="en">Please Wait, Processing Order...</value>
+    </property>
+
+    <property key="CommonErrorMessage2">
+        <value xml:lang="it">I seguenti campi obbligatori sono trovati vuoti</value>
+        <value xml:lang="en">The following required fields where found empty</value>
+    </property>
+
+    <property key="YoureOrderIsBeingProcessed">
+        <value xml:lang="it">Il tuo ordine è in fase di elaborazione</value>
+        <value xml:lang="en">Your order is being processed</value>
+    </property>
+
+    <property key="OrderOrder">
+        <value xml:lang="it">Ordine</value>
+        <value xml:lang="en">Order</value>
+    </property>
+
+    <property key="CommonNbr">
+        <value xml:lang="it">n°</value>
+        <value xml:lang="en">Nbr</value>
+    </property>
+
+    <property key="CommonInformation">
+        <value xml:lang="it">Informazione</value>
+        <value xml:lang="en">Information</value>
+    </property>
+
+    <property key="PartyName">
+        <value xml:lang="it">Nome</value>
+        <value xml:lang="en">Name</value>
+    </property>
+
+    <property key="CommonStatus">
+        <value xml:lang="it">Stato</value>
+        <value xml:lang="en">Status</value>
+    </property>
+
+    <property key="OrderNotYetOrdered">
+        <value xml:lang="it">Non ancora ordinato</value>
+        <value xml:lang="en">Not Yet Ordered</value>
+    </property>
+
+    <property key="CommonDate">
+        <value xml:lang="it">Data</value>
+        <value xml:lang="en">Date</value>
+    </property>
+
+    <property key="OrderDistributor">
+        <value xml:lang="it">Distributore</value>
+        <value xml:lang="en">Distributor</value>
+    </property>
+
+    <property key="AccountingPaymentInformation">
+        <value xml:lang="it">Informazione Pagamento</value>
+        <value xml:lang="en">Payment Information</value>
+    </property>
+
+    <property key="AccountingOfflinePayment">
+        <value xml:lang="it">Pagamento offline</value>
+        <value xml:lang="en">Offline Payment</value>
+    </property>
+
+    <property key="OrderSendPaymentTo">
+        <value xml:lang="it">Prego inviare pagamento a</value>
+        <value xml:lang="en">Please Send Payment To</value>
+    </property>
+
+    <property key="EcommerceBeSureToIncludeYourOrderNb">
+        <value xml:lang="it">Assicurati di specificare il tuo ordine n°</value>
+        <value xml:lang="en">Be sure to include your order #</value>
+    </property>
+
+    <property key="AccountingPaymentVia">
+        <value xml:lang="it">Con pagamento</value>
+        <value xml:lang="en">Payment Via</value>
+    </property>
+
+    <property key="AccountingBillingAccount">
+        <value xml:lang="it">Conto Fatturazione</value>
+        <value xml:lang="en">Billing Account</value>
+    </property>
+
+    <property key="OrderPurchaseOrderNumber">
+        <value xml:lang="it">N° ordine acquisto</value>
+        <value xml:lang="en">Purchase Order Number</value>
+    </property>
+
+    <property key="OrderShippingInformation">
+        <value xml:lang="it">Spedizione</value>
+        <value xml:lang="en">Shipping Information</value>
+    </property>
+
+    <property key="OrderDestination">
+        <value xml:lang="it">Destinazione</value>
+        <value xml:lang="en">Destination</value>
+    </property>
+
+    <property key="OrderMethod">
+        <value xml:lang="it">Metodo</value>
+        <value xml:lang="en">Method</value>
+    </property>
+
+    <property key="AccountingUseAccount">
+        <value xml:lang="it">Usa conto</value>
+        <value xml:lang="en">Use Account</value>
+    </property>
+
+    <property key="OrderOrderItems">
+        <value xml:lang="it">Articoli ordinati</value>
+        <value xml:lang="en">Order Items</value>
+    </property>
+
+    <property key="OrderAddAllToCart">
+        <value xml:lang="it">Aggiungi Tutto al Carrello</value>
+        <value xml:lang="en">Add All to Cart</value>
+    </property>
+
+    <property key="OrderAddCheckedToCart">
+        <value xml:lang="it">Aggiungi Scelte al Carrello</value>
+        <value xml:lang="en">Add Checked to Cart</value>
+    </property>
+
+    <property key="OrderProduct">
+        <value xml:lang="it">Prodotto</value>
+        <value xml:lang="en">Product</value>
+    </property>
+
+    <property key="OrderQtyOrdered">
+        <value xml:lang="it">Qnt ordinata</value>
+        <value xml:lang="en">Qty Ordered</value>
+    </property>
+
+    <property key="OrderQtyPicked">
+        <value xml:lang="it">Qnt scelta</value>
+        <value xml:lang="en">Qty Picked</value>
+    </property>
+
+    <property key="OrderQtyShipped">
+        <value xml:lang="it">Qnt spedita</value>
+        <value xml:lang="en">Qty Shipped</value>
+    </property>
+
+    <property key="OrderQtyCanceled">
+        <value xml:lang="it">Qnt annullata</value>
+        <value xml:lang="en">Qty Cancelled</value>
+    </property>
+
+    <property key="OrderQtyOrdered">
+        <value xml:lang="it">Qnt ordinata</value>
+        <value xml:lang="en">Qty Ordered</value>
+    </property>
+
+    <property key="EcommerceUnitPrice">
+        <value xml:lang="it">Prezzo unitario</value>
+        <value xml:lang="en">Unit Price</value>
+    </property>
+
+    <property key="OrderAdjustments">
+        <value xml:lang="it">Aggiustamenti</value>
+        <value xml:lang="en">Adjustments</value>
+    </property>
+
+    <property key="CommonSubTotal">
+        <value xml:lang="it">Sub-totale</value>
+        <value xml:lang="en">Sub Total</value>
+    </property>
+
+    <property key="OrderShippingAndHandling">
+        <value xml:lang="it">Spedizione ed imballaggio</value>
+        <value xml:lang="en">Shipping and Handling</value>
+    </property>
+
+    <property key="OrderGrandTotal">
+        <value xml:lang="it">Totale generale</value>
+        <value xml:lang="en">Grand Total</value>
+    </property>
+
+    <property key="OrderSalesOrderLookupFailed">
+        <value xml:lang="it">Ricerca ordini di vendita fallita</value>
+        <value xml:lang="en">Sales Order Lookup Failed</value>
+    </property>
+
+    <property key="SelectPaymentMethodType">
+        <value xml:lang="it">Selezionare un metodo di pagamento</value>
+        <value xml:lang="en">Select a payment method</value>
+    </property>
+
+    <property key="EcommerceOrderConfirmation">
+        <value xml:lang="it">Conferma ordine</value>
+        <value xml:lang="en">Order Confirmation</value>
+    </property>
+
+    <property key="EcommerceContinueShopping">
+        <value xml:lang="it">Continua acquisto</value>
+        <value xml:lang="en">Continue Shopping</value>
+    </property>
+
+    <property key="OrderSpecifiedNotFound">
+        <value xml:lang="it">L'ordine specificato non è stato trovato, riprovare prego</value>
+        <value xml:lang="en">The specified order was not found, please try again</value>
+    </property>
+
+
+    <!-- START LOGIN labels -->
+    <property key="WelcomeBack">
+        <value xml:lang="it">Benvenuto/a</value>
+        <value xml:lang="en">Welcome Back</value>
+    </property>
+
+    <property key="Username">
+        <value xml:lang="it">Username</value>
+        <value xml:lang="en">Username</value>
+    </property>
+
+    <property key="Password">
+        <value xml:lang="it">Password</value>
+        <value xml:lang="en">Password</value>
+    </property>
+
+    <property key="CommonForgotYourPassword">
+        <value xml:lang="it">Password dimenticata</value>
+        <value xml:lang="en">Forgot Your Password</value>
+    </property>
+
+    <property key="DontHaveAccount">
+        <value xml:lang="it">Non hai un account</value>
+        <value xml:lang="en">Don't have an account</value>
+    </property>
+
+    <property key="SignUp">
+        <value xml:lang="it">Iscriviti</value>
+        <value xml:lang="en">Sign up</value>
+    </property>
+
+
+
 </resource>

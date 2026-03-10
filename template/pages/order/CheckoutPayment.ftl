@@ -32,6 +32,9 @@ under the License.
 <section id="content">
     <div class="content-wrap">
         <div class="container">
+            <div class="alert alert-danger" id="paymentError" style="display:none; text-align: center;">
+                <i class="bi-x-circle-fill"></i><strong>${SystemLabelMap.AttentionMessage}!</strong>&nbsp;${SystemLabelMap.SelectPaymentMethodType}
+            </div>
             <div class="card mb-0">
             <#assign cart = shoppingCart! />
             <form method="post" id="checkoutInfoForm" action="">
@@ -50,7 +53,7 @@ under the License.
                           <#if productStorePaymentMethodTypeIdMap.EXT_OFFLINE??>
                           </div>
                           <div class="form-check">
-                              <input type="radio" class="form-check-input" id="checkOutPaymentId_OFFLINE" name="checkOutPaymentId" value="EXT_OFFLINE" <#if "EXT_OFFLINE" == checkOutPaymentId>checked="checked"</#if> />
+                              <input type="radio" class="form-check-input" id="checkOutPaymentId_OFFLINE" name="checkOutPaymentId" value="EXT_OFFLINE" <#if "EXT_OFFLINE" == checkOutPaymentId>checked="checked"</#if>/>
                               <label for="checkOutPaymentId_OFFLINE">${SystemLabelMap.OrderMoneyOrder}</label>
                           </div>
                           </#if>
@@ -66,125 +69,10 @@ under the License.
                                 <label for="checkOutPaymentId_UNICREDIT">${SystemLabelMap.AccountingPayWithUnicredit}</label>
                             </div>
                           </#if>
-
-                          <#--
-                          <hr>
-                          <#if !paymentMethodList?has_content>
-                          <div>
-                              <strong>${uiLabelMap.AccountingNoPaymentMethods}.</strong>
-                          </div>
-                        <#else>
-                          <#list paymentMethodList as paymentMethod>
-                            <#if "GIFT_CARD" == paymentMethod.paymentMethodTypeId>
-                             <#if productStorePaymentMethodTypeIdMap.GIFT_CARD??>
-                              <#assign giftCard = paymentMethod.getRelatedOne("GiftCard", false) />
-
-                              <#if giftCard?has_content && giftCard.cardNumber?has_content>
-                                <#assign giftCardNumber = "" />
-                                <#assign pcardNumber = giftCard.cardNumber />
-                                <#if pcardNumber?has_content>
-                                  <#assign psize = pcardNumber?length - 4 />
-                                  <#if 0 &lt; psize>
-                                    <#list 0 .. psize-1 as foo>
-                                      <#assign giftCardNumber = giftCardNumber + "*" />
-                                    </#list>
-                                    <#assign giftCardNumber = giftCardNumber + pcardNumber[psize .. psize + 3] />
-                                  <#else>
-                                    <#assign giftCardNumber = pcardNumber />
-                                  </#if>
-                                </#if>
-                              </#if>
-
-                              <div>
-                                  <input type="checkbox" id="checkOutPayment_${paymentMethod.paymentMethodId}" class="form-check-input" name="checkOutPaymentId" value="${paymentMethod.paymentMethodId}" <#if cart.isPaymentSelected(paymentMethod.paymentMethodId)>checked="checked"</#if> />
-                                  <label for="checkOutPayment_${paymentMethod.paymentMethodId}">${uiLabelMap.AccountingGift}:${giftCardNumber}
-                                    <#if paymentMethod.description?has_content>(${paymentMethod.description})</#if></label>
-                                    <a href="javascript:submitForm(document.getElementById('checkoutInfoForm'), 'EG', '${paymentMethod.paymentMethodId}');" class="button">${uiLabelMap.CommonUpdate}</a>
-                                    <strong>${uiLabelMap.OrderBillUpTo}:</strong> <input type="text" size="5" class="inputBox" name="amount_${paymentMethod.paymentMethodId}" value="<#if (cart.getPaymentAmount(paymentMethod.paymentMethodId)?default(0) > 0)><@ofbizAmount amount=cart.getPaymentAmount(paymentMethod.paymentMethodId)!/></#if>"/>
-                              </div>
-                             </#if>
-                            <#elseif "CREDIT_CARD" == paymentMethod.paymentMethodTypeId>
-                             <#if productStorePaymentMethodTypeIdMap.CREDIT_CARD??>
-                              <#assign creditCard = paymentMethod.getRelatedOne("CreditCard", false) />
-                              <div>
-                                  <input type="checkbox" id="checkOutPayment_${paymentMethod.paymentMethodId}" class="form-check-input" name="checkOutPaymentId" value="${paymentMethod.paymentMethodId}" <#if cart.isPaymentSelected(paymentMethod.paymentMethodId)>checked="checked"</#if> />
-                                  <label for="checkOutPayment_${paymentMethod.paymentMethodId}">CC:${Static["org.apache.ofbiz.party.contact.ContactHelper"].formatCreditCard(creditCard)}
-                                    <#if paymentMethod.description?has_content>(${paymentMethod.description})</#if></label>
-                                    <a href="javascript:submitForm(document.getElementById('checkoutInfoForm'), 'EC', '${paymentMethod.paymentMethodId}');" class="button">${uiLabelMap.CommonUpdate}</a>
-                                    <label for="amount_${paymentMethod.paymentMethodId}"><strong>${uiLabelMap.OrderBillUpTo}:</strong></label><input type="text" size="5" class="inputBox" id="amount_${paymentMethod.paymentMethodId}" name="amount_${paymentMethod.paymentMethodId}" value="<#if (cart.getPaymentAmount(paymentMethod.paymentMethodId)?default(0) > 0)><@ofbizAmount amount=cart.getPaymentAmount(paymentMethod.paymentMethodId)!/></#if>" />
-                              </div>
-                             </#if>
-                            <#elseif "EFT_ACCOUNT" == paymentMethod.paymentMethodTypeId>
-                             <#if productStorePaymentMethodTypeIdMap.EFT_ACCOUNT??>
-                              <#assign eftAccount = paymentMethod.getRelatedOne("EftAccount", false) />
-                              <div class="form-check">
-                                  <input type="radio" id="checkOutPayment_${paymentMethod.paymentMethodId}" class="form-check-input" name="checkOutPaymentId" value="${paymentMethod.paymentMethodId}" <#if paymentMethod.paymentMethodId == checkOutPaymentId>checked="checked"</#if> />
-                                  <label for="checkOutPayment_${paymentMethod.paymentMethodId}">${uiLabelMap.AccountingEFTAccount}:${eftAccount.bankName!}: ${eftAccount.accountNumber!}
-                                    <#if paymentMethod.description?has_content><p>(${paymentMethod.description})</p></#if></label>
-                                  <a href="javascript:submitForm(document.getElementById('checkoutInfoForm'), 'EE', '${paymentMethod.paymentMethodId}');" class="button">${uiLabelMap.CommonUpdate}</a>
-                              </div>
-                             </#if>
-                            </#if>
-                          </#list>
-                        </#if>
-                        -->
-
-                        <#-- special billing account functionality to allow use w/ a payment method -->
-                        <#--
-                        <#if productStorePaymentMethodTypeIdMap.EXT_BILLACT??>
-                          <#if billingAccountList?has_content>
-                            <div class="form-group">
-                                <select class="form-control" name="billingAccountId" id="billingAccountId">
-                                  <option value=""></option>
-                                    <#list billingAccountList as billingAccount>
-                                      <#assign availableAmount = billingAccount.accountBalance>
-                                      <#assign accountLimit = billingAccount.accountLimit>
-                                      <option value="${billingAccount.billingAccountId}" <#if billingAccount.billingAccountId == selectedBillingAccountId?default("")>selected="selected"</#if>>${billingAccount.description?default("")} [${billingAccount.billingAccountId}] ${uiLabelMap.EcommerceAvailable} <@ofbizCurrency amount=availableAmount isoCode=billingAccount.accountCurrencyUomId/> ${uiLabelMap.EcommerceLimit} <@ofbizCurrency amount=accountLimit isoCode=billingAccount.accountCurrencyUomId/></option>
-                                    </#list>
-                                </select>
-                                <label for="billingAccountId">${uiLabelMap.FormFieldTitle_billingAccountId}</label>
-                            </div>
-                            <div>
-                                <input type="text" size="5" id="billingAccountAmount" name="billingAccountAmount" value="" />
-                                <label for="billingAccountAmount">${uiLabelMap.OrderBillUpTo}</label>
-                            </div>
-                          </#if>
-                        </#if>
-                        -->
-                        <#-- end of special billing account functionality -->
-                        <#--
-                        <#if productStorePaymentMethodTypeIdMap.GIFT_CARD??>
-                          <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="addGiftCard" name="addGiftCard" value="Y" />
-                              <input type="hidden" name="singleUseGiftCard" value="Y" />
-                              <label class="form-check-label" for="addGiftCard">${uiLabelMap.AccountingUseGiftCardNotOnFile}</label>
-                          </div>
-                          <div>
-                              <label for="giftCardNumber">${uiLabelMap.AccountingNumber}</label>
-                              <input type="text" class="form-control" id="giftCardNumber" name="giftCardNumber" value="${(requestParameters.giftCardNumber)!}" onfocus="document.getElementById('addGiftCard').checked=true;" />
-                          </div>
-                          <#if cart.isPinRequiredForGC(delegator)>
-                          <div>
-                              <label for="giftCardPin">${uiLabelMap.AccountingPIN}</label>
-                              <input type="text" class="form-control" class="inputBox" id="giftCardPin" name="giftCardPin" value="${(requestParameters.giftCardPin)!}" onfocus="document.getElementById('addGiftCard').checked=true;" />
-                          </div>
-                          </#if>
-                          <div>
-                              <label for="giftCardAmount">${uiLabelMap.AccountingAmount}</label>
-                              <input type="text" size="6" class="form-control" id="giftCardAmount" name="giftCardAmount" value="${(requestParameters.giftCardAmount)!}" onfocus="document.getElementById('addGiftCard').checked=true;" />
-                          </div>
-                        </#if>
-
-                          <div>
-                                <#if productStorePaymentMethodTypeIdMap.CREDIT_CARD??><a href="<@ofbizUrl>setBilling?paymentMethodType=CC&amp;singleUsePayment=Y</@ofbizUrl>" class="button">${uiLabelMap.AccountingSingleUseCreditCard}</a></#if>
-                                <#if productStorePaymentMethodTypeIdMap.GIFT_CARD??><a href="<@ofbizUrl>setBilling?paymentMethodType=GC&amp;singleUsePayment=Y</@ofbizUrl>" class="button">${uiLabelMap.AccountingSingleUseGiftCard}</a></#if>
-                                <#if productStorePaymentMethodTypeIdMap.EFT_ACCOUNT??><a href="<@ofbizUrl>setBilling?paymentMethodType=EFT&amp;singleUsePayment=Y</@ofbizUrl>" class="button">${uiLabelMap.AccountingSingleUseEFTAccount}</a></#if>
-                          </div>
-                          -->
-                        <#-- End Payment Method Selection -->
                     </div>
                 </div>
             </form>
+
             <div class="row justify-content-end align-items-center py-2 col-mb-30 col-md-offset-4">
               <div class="col-auto mr-auto">
                 <a href="#" class="button button-small button-3d button-black m-0 upper js-submit" data-url="<@ofbizUrl>updateCheckoutOptions/showCart</@ofbizUrl>">${SystemLabelMap.OrderBacktoShoppingCart}</a>

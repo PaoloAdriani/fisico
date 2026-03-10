@@ -22,11 +22,11 @@
                                 <tr>
                                     <th class="cart-product-remove">&nbsp;</th>
                                     <th class="cart-product-thumbnail">&nbsp;</th>
-                                    <th class="cart-product-name">Product</th>
-                                    <th class="cart-product-price">Unit Price</th>
-                                    <th class="cart-product-price-adjustments">Aggiustamenti</th>
-                                    <th class="cart-product-quantity">Quantity</th>
-                                    <th class="cart-product-subtotal">Total</th>
+                                    <th class="cart-product-name upper">${SystemLabelMap.Product}</th>
+                                    <th class="cart-product-price upper">${SystemLabelMap.Price}</th>
+                                    <th class="cart-product-price-adjustments upper">${SystemLabelMap.Adjustments}</th>
+                                    <th class="cart-product-quantity upper">${SystemLabelMap.Quantity}</th>
+                                    <th class="cart-product-subtotal upper">${SystemLabelMap.Total}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -96,18 +96,18 @@
                         <div class="row col-mb-30">
 
                             <div class="mb-5" style="text-align: end";>
-                                <button type="submit" class="button button-small button-3d m-0">Update Cart</button>
-                                <a href="<@ofbizUrl>checkoutOptions</@ofbizUrl>" class="button button-small button-3d mt-2 mt-sm-0 me-0 mb-0">Proceed to Checkout</a>
+                                <button type="submit" class="button button-small button-3d m-0 upper">${SystemLabelMap.UpdateCart}</button>
+                                <a href="<@ofbizUrl>checkoutOptions</@ofbizUrl>" class="button button-small button-3d mt-2 mt-sm-0 me-0 mb-0 upper">${SystemLabelMap.ProceedToCheckout}</a>
                             </div>
 
                     	    <div class="col-lg-7">
-                                <h4>Cart Totals</h4>
+                                <h4 class="upper">${SystemLabelMap.CartTotal}</h4>
                                     <div class="table-responsive">
                                         <table class="table cart cart-totals">
                                             <tbody>
                                                 <tr class="cart_item">
-                                                    <td class="cart-product-name">
-                                                        <strong>Cart Subtotal</strong>
+                                                    <td class="cart-product-name upper">
+                                                        <strong>${SystemLabelMap.CartSubtotal}</strong>
                                                     </td>
 
                                                     <td class="cart-product-name">
@@ -119,10 +119,10 @@
                                                     <#assign adjustmentType = cartAdjustment.getRelatedOne("OrderAdjustmentType", true) />
                                                     <tr class="cart_item">
                                                         <td class="cart-product-name">
-                                                            <h5 class="mb-0">${uiLabelMap.EcommerceAdjustment} - ${adjustmentType.get("description",locale)!}</h5>
+                                                            <h5 class="mb-0">${SystemLabelMap.EcommerceAdjustment} - ${adjustmentType.get("description",locale)!}</h5>
                                                             <#if cartAdjustment.productPromoId?has_content>
                                                                 <a href="<@ofbizUrl>showPromotionDetails?productPromoId=${cartAdjustment.productPromoId}</@ofbizUrl>">
-                                                                    ${uiLabelMap.CommonDetails}
+                                                                    ${SystemLabelMap.CommonDetails}
                                                                 </a>
                                                             </#if>
                                                       </th>
@@ -135,8 +135,8 @@
                                                   </#list>
                                                 </#if>
                                                 <tr class="cart_item">
-                                                    <td class="cart-product-name">
-                                                        <strong>Total</strong>
+                                                    <td class="cart-product-name upper">
+                                                        <strong>${SystemLabelMap.Total}</strong>
                                                     </td>
 
                                                     <td class="cart-product-name">
@@ -153,15 +153,15 @@
                                 <div class="align-items-center">
                                   <form method="post" action="<@ofbizUrl>addPromoCode<#if requestAttributes._CURRENT_VIEW_?has_content>/${requestAttributes._CURRENT_VIEW_}</#if></@ofbizUrl>" name="addpromocodeform">
                                     <div class="input-group">
-                                      <input type="text" class="form-control text-center text-md-start" name="productPromoCodeId" value="" placeholder="Enter Coupon Code.."/>
+                                      <input type="text" class="form-control text-center text-md-start" name="productPromoCodeId" value="" placeholder="${SystemLabelMap.EnterCouponCode}.."/>
                                        &nbsp;&nbsp;&nbsp;
                                        <span class="input-group-btn">
-                                         <input type="submit" class="button button-small button-3d button-black m-0" value="${uiLabelMap.OrderAddCode}" />
+                                         <input type="submit" class="button button-small button-3d button-black m-0 upper" value="${SystemLabelMap.OrderAddCode}" />
                                        </span>
                                     </div>
                                       <#assign productPromoCodeIds = (shoppingCart.getProductPromoCodesEntered())! />
                                       <#if productPromoCodeIds?has_content>
-                                        Applicati i promocodes:
+                                        ${SystemLabelMap.ApplyCodes}:
                                         <ul>
                                           <#list productPromoCodeIds as productPromoCodeId>
                                             <li>${productPromoCodeId}</li>
@@ -172,7 +172,7 @@
                                 </div>
                             </div>
                             <div class="mb-5" style="text-align: end";>
-                                <a href="<@ofbizUrl>main</@ofbizUrl>" class="button button-small button-3d mt-2 mt-sm-0 me-0 mb-0">Continua con lo shopping</a>
+                                <a href="<@ofbizUrl>main</@ofbizUrl>" class="button button-small button-3d mt-2 mt-sm-0 me-0 mb-0 upper">${SystemLabelMap.BackToShopping}</a>
                             </div>
 
                         </div>

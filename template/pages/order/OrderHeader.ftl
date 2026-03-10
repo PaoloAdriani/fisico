@@ -31,13 +31,13 @@ under the License.
           <a href="<@ofbizUrl fullPath="true">makeReturn?orderId=${orderHeader.orderId}</@ofbizUrl>"
               class="submenutextright">${uiLabelMap.OrderRequestReturn}</a>
         </#if>
-        ${uiLabelMap.OrderOrder}
+        ${SystemLabelMap.OrderOrder}
         <#if orderHeader?has_content>
-          ${uiLabelMap.CommonNbr}
+          ${SystemLabelMap.CommonNbr}
           <a href="<@ofbizUrl fullPath="true">orderstatus?orderId=${orderHeader.orderId}</@ofbizUrl>"
               class="btn btn-sm">${orderHeader.orderId}</a>
         </#if>
-        ${uiLabelMap.CommonInformation}
+        ${SystemLabelMap.CommonInformation}
         <#if (orderHeader.orderId)??>
           ${externalOrder!} [ <a href="<@ofbizUrl fullPath="true">order.pdf?orderId=${(orderHeader.orderId)!}</@ofbizUrl>"
               target="_BLANK" class="btn btn-sm">PDF</a> ]
@@ -53,29 +53,29 @@ under the License.
               <#assign displayPartyNameResult = dispatcher.runSync("getPartyNameForDate", Static["org.apache.ofbiz.base.util.UtilMisc"].toMap("partyId", displayParty.partyId, "compareDate", orderHeader.orderDate, "userLogin", userLogin))/>
             </#if>
             <li>
-              ${uiLabelMap.PartyName} :
+              ${SystemLabelMap.PartyName} :
               ${(displayPartyNameResult.fullName)?default("[Name Not Found]")}
             </li>
           </#if>
           <#-- order status information -->
           <li>
-            ${uiLabelMap.CommonStatus} :
+            ${SystemLabelMap.CommonStatus} :
             <#if orderHeader?has_content>
               ${localOrderReadHelper.getStatusString(locale)}
             <#else>
-              ${uiLabelMap.OrderNotYetOrdered}
+              ${SystemLabelMap.OrderNotYetOrdered}
             </#if>
           </li>
           <#-- ordered date -->
           <#if orderHeader?has_content>
             <li>
-              ${uiLabelMap.CommonDate} :
+              ${SystemLabelMap.CommonDate} :
               ${orderHeader.orderDate.toString()}
             </li>
           </#if>
           <#if distributorId??>
             <li>
-              ${uiLabelMap.OrderDistributor} :
+              ${SystemLabelMap.OrderDistributor} :
               ${distributorId}
             </li>
           </#if>
@@ -87,7 +87,7 @@ under the License.
       <#if paymentMethods?has_content || paymentMethodType?has_content || billingAccount?has_content>
         <#-- order payment info -->
         <div class="card-header">
-          <strong>${uiLabelMap.AccountingPaymentInformation}</strong>
+          <strong>${SystemLabelMap.AccountingPaymentInformation}</strong>
         </div>
         <#-- offline payment address infomation :: change this to use Company's address -->
         <div class="card-body">
@@ -95,9 +95,9 @@ under the License.
             <#if !paymentMethod?has_content && paymentMethodType?has_content>
               <li>
                 <#if "EXT_OFFLINE" == paymentMethodType.paymentMethodTypeId>
-                  ${uiLabelMap.AccountingOfflinePayment}
+                  ${SystemLabelMap.AccountingOfflinePayment}
                   <#if orderHeader?has_content && paymentAddress?has_content>
-                    ${uiLabelMap.OrderSendPaymentTo}:
+                    ${SystemLabelMap.OrderSendPaymentTo}:
                     <#if paymentAddress.toName?has_content>${paymentAddress.toName}</#if>
                     <#if paymentAddress.attnName?has_content>
                       ${uiLabelMap.PartyAddrAttnName}  : ${paymentAddress.attnName}
@@ -110,11 +110,11 @@ under the License.
                     ${paymentAddress.postalCode!}
                     <#assign paymentCountryGeo = (delegator.findOne("Geo", {"geoId", paymentAddress.countryGeoId!}, false))! />
                     <#if paymentCountryGeo?has_content>${paymentCountryGeo.geoName!}</#if>
-                    ${uiLabelMap.EcommerceBeSureToIncludeYourOrderNb}
+                    ${SystemLabelMap.EcommerceBeSureToIncludeYourOrderNb}
                   </#if>
                 <#else>
                   <#assign outputted = true>
-                  ${uiLabelMap.AccountingPaymentVia} ${paymentMethodType.get("description",locale)}
+                  ${SystemLabelMap.AccountingPaymentVia} ${paymentMethodType.get("description",locale)}
                 </#if>
               </li>
             </#if>
@@ -226,13 +226,13 @@ under the License.
               <#if outputted?default(false)></#if>
               <#assign outputted = true>
               <li>
-                ${uiLabelMap.AccountingBillingAccount}
+                ${SystemLabelMap.AccountingBillingAccount}
                 #${billingAccount.billingAccountId!} - ${billingAccount.description!}
               </li>
             </#if>
             <#if (customerPoNumberSet?has_content)>
               <li>
-                ${uiLabelMap.OrderPurchaseOrderNumber}
+                ${SystemLabelMap.OrderPurchaseOrderNumber}
                 <#list customerPoNumberSet as customerPoNumber>
                   ${customerPoNumber!}
                 </#list>
@@ -246,7 +246,7 @@ under the License.
   <div class="card">
     <#if orderItemShipGroups?has_content>
       <div class="card-header">
-        <strong>${uiLabelMap.OrderShippingInformation}</strong>
+        <strong>${SystemLabelMap.OrderShippingInformation}</strong>
       </div>
       <div class="card-body">
       <#-- shipping address -->
@@ -264,12 +264,12 @@ under the License.
             <li>
               <ul class="list-unstyled">
                 <li>
-                  ${uiLabelMap.OrderDestination} [${groupNumber}]
-                  <#if shippingAddress.toName?has_content>${uiLabelMap.CommonTo}: ${shippingAddress.toName}</#if>
+                  ${SystemLabelMap.OrderDestination} [${groupNumber}]
+                  <#if shippingAddress.toName?has_content>${SystemLabelMap.CommonTo}: ${shippingAddress.toName}</#if>
                 </li>
                 <li>
                   <#if shippingAddress.attnName?has_content>
-                    ${uiLabelMap.PartyAddrAttnName}  : ${shippingAddress.attnName}
+                    ${SystemLabelMap.PartyAddrAttnName}  : ${shippingAddress.attnName}
                   </#if>
                 </li>
                 <li>
@@ -294,7 +294,7 @@ under the License.
           <li>
             <ul class="list-unstyled">
               <li>
-                ${uiLabelMap.OrderMethod}:
+                ${SystemLabelMap.OrderMethod}:
                 <#if orderHeader?has_content>
                   <#assign shipmentMethodType = shipGroup.getRelatedOne("ShipmentMethodType", false)!>
                   <#assign carrierPartyId = shipGroup.carrierPartyId!>
@@ -306,7 +306,7 @@ under the License.
                 ${(shipmentMethodType.description)?default("N/A")}
               </li>
               <li>
-                <#if shippingAccount??>${uiLabelMap.AccountingUseAccount}: ${shippingAccount}</#if>
+                <#if shippingAccount??>${SystemLabelMap.AccountingUseAccount}: ${shippingAccount}</#if>
               </li>
             </ul>
           </li>

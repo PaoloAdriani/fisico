@@ -26,12 +26,65 @@ under the License.
 
 </#macro>
 
+<#macro add_page_head_after_head_tag>
+
+    <script>
+
+        const OFBIZ_URL_GET_STATES =
+            "<@ofbizUrl>getAssociatedStateList</@ofbizUrl>";
+
+    </script>
+
+</#macro>
+
+<#macro geoSelect countryId stateId postalAddress={}>
+
+<#if (postalAddress??) && (postalAddress.countryGeoId??)>
+    <#assign defaultCountryGeoId = postalAddress.countryGeoId>
+<#else>
+    <#assign defaultCountryGeoId =
+    Static["org.apache.ofbiz.entity.util.EntityUtilProperties"]
+    .getPropertyValue("general","country.geo.id.default",delegator)>
+</#if>
+
+<div class="row">
+    <div class="col-sm-6">
+        <label>${SystemLabelMap.CommonCountry}</label>
+
+        <select id="${countryId}"
+                name="countryGeoId"
+                class="custom-select form-control"
+                data-selected="${defaultCountryGeoId}">
+
+            ${screens.render("component://common/widget/CommonScreens.xml#countries")}
+
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <label>${SystemLabelMap.CommonProvince}</label>
+
+        <select id="${stateId}"
+                name="stateProvinceGeoId"
+                class="custom-select form-control"
+                data-selected="${postalAddress.stateProvinceGeoId!}">
+
+            <option value="">Seleziona una provincia</option>
+
+        </select>
+    </div>
+</div>
+
+</#macro>
+
 <#macro page_body>
 
 <section id="content">
     <div class="content-wrap">
         <div class="container">
-            <div class="card mb-0">
+            <div class="card mb-0 upper">
                 <#if canNotView>
                     <h3>${SystemLabelMap.PartyContactInfoNotBelongToYou}.</h3>
                     <a href="<@ofbizUrl>${donePage}</@ofbizUrl>" class="btn btn-outline-secondary">${uiLabelMap.CommonBack}</a>
@@ -41,7 +94,7 @@ under the License.
                         <#if !requestParameters.preContactMechTypeId?? && !preContactMechTypeId??>
                             <h2>${SystemLabelMap.PartyCreateNewContactInfo}</h2>
                             <form method="post" class="form-inline" action='<@ofbizUrl>editcontactmechnosave</@ofbizUrl>' name="createcontactmechform">
-                                    <label class="mr-2">${uiLabelMap.PartySelectContactType}:</label>
+                                    <label class="mr-2">${SystemLabelMap.PartySelectContactType}:</label>
                                       <select name="preContactMechTypeId" class="form-control custom-select mr-2">
                                         <#list contactMechTypes as contactMechType>
                                           <option value='${contactMechType.contactMechTypeId}'>
@@ -49,7 +102,7 @@ under the License.
                                           </option>
                                         </#list>
                                       </select>
-                                      <a href="javascript:document.createcontactmechform.submit()" class="btn btn-outline-secondary">${uiLabelMap.CommonCreate}</a>
+                                      <a href="javascript:document.createcontactmechform.submit()" class="btn btn-outline-secondary">${SystemLabelMap.CommonCreate}</a>
                             </form>
                             <#-- <p><h3>ERROR: Contact information with ID "${contactMechId}" not found!</h3></p> -->
                         </#if>
@@ -58,24 +111,19 @@ under the License.
                 <#if contactMechTypeId??>
                     <#if !contactMech??>
                         <h2>${SystemLabelMap.PartyCreateNewContactInfo}</h2>
-
                         <table width="90%" border="0" cellpadding="2" cellspacing="0">
-                        <form method="post" action='<@ofbizUrl>${reqName}</@ofbizUrl>' name="editcontactmechform" id="editcontactmechform">
-                          <input type='hidden' name='contactMechTypeId' value='${contactMechTypeId}'/>
-                          <#--
-                          <#if contactMechPurposeType??>
-                            <div>(${uiLabelMap.PartyNewContactHavePurpose} "${contactMechPurposeType.get("description",locale)!}")</div>
-                          </#if>
-                          -->
-                          <#if cmNewPurposeTypeId?has_content>
-                            <input type='hidden' name='contactMechPurposeTypeId' value='${cmNewPurposeTypeId}'/>
-                          </#if>
-                          <#if preContactMechTypeId?has_content>
-                            <input type='hidden' name='preContactMechTypeId' value='${preContactMechTypeId}'/>
-                          </#if>
-                          <#if paymentMethodId?has_content>
-                            <input type='hidden' name='paymentMethodId' value='${paymentMethodId}'/>
-                          </#if>
+                            <form method="post" action='<@ofbizUrl>${reqName}</@ofbizUrl>' name="editcontactmechform" id="editcontactmechform">
+                              <input type='hidden' name='contactMechTypeId' value='${contactMechTypeId}'/>
+
+                              <#if cmNewPurposeTypeId?has_content>
+                                <input type='hidden' name='contactMechPurposeTypeId' value='${cmNewPurposeTypeId}'/>
+                              </#if>
+                              <#if preContactMechTypeId?has_content>
+                                <input type='hidden' name='preContactMechTypeId' value='${preContactMechTypeId}'/>
+                              </#if>
+                              <#if paymentMethodId?has_content>
+                                <input type='hidden' name='paymentMethodId' value='${paymentMethodId}'/>
+                              </#if>
                     <#else>
                             <h2>${SystemLabelMap.PartyEditContactInfo}</h2>
                             <#--
@@ -170,6 +218,7 @@ under the License.
                                       <input type="text" class="form-control" name="city" value="${postalAddressData.city!}"/>
                                     </div>
                                   </div>
+                                  <#--
                                   <div class="row">
                                     <div class="col-sm-6">
                                       <label class="my-2"> ${SystemLabelMap.PartyState}</label>
@@ -177,6 +226,10 @@ under the License.
                                       </select>
                                     </div>
                                   </div>
+                                  -->
+
+                                  <@geoSelect countryId="editcontactmechform_countryGeoId" stateId="editcontactmechform_stateProvinceGeoId" postalAddress=postalAddress />
+
                                   <div class="row">
                                     <div class="col-sm-6">
                                       <label class="my-2">${SystemLabelMap.PartyZipCode}</label>
@@ -184,6 +237,8 @@ under the License.
                                              value="${postalAddressData.postalCode!}"/>
                                     </div>
                                   </div>
+
+                                  <#--
                                   <div class="row">
                                     <div class="col-sm-6">
                                       <label class="my-2">${SystemLabelMap.CommonCountry}</label>
@@ -203,6 +258,7 @@ under the License.
                                       </select>
                                     </div>
                                   </div>
+                                  -->
                                 <#elseif contactMechTypeId = "TELECOM_NUMBER">
                                     <div class="form-group">
                                       <label class="my-2">${SystemLabelMap.PartyPhoneNumber}</label>
@@ -274,8 +330,10 @@ under the License.
                     <a href="<@ofbizUrl>${donePage}</@ofbizUrl>" class="button button-small button-3d button-black m-0 upper">${SystemLabelMap.CommonGoBack}</a>
                 </#if>
             </#if>
+            </div>
         </div>
     </div>
 </section>
 </#macro>
+
 <@display_page/>

@@ -516,6 +516,13 @@ under the License.
         <response name="success" type="view" value="orderhistory"/>
     </request-map>
 
+    <request-map uri="createPostalAddressAndPurpose">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createPartyPostalAddress"/>
+        <response name="success" type="view" value="editcontactmech"/>
+        <response name="error" type="view" value="editcontactmech"/>
+    </request-map>
+
     <!-- PDFs -->
     <request-map uri="order.pdf">
         <security https="true" auth="true"/>

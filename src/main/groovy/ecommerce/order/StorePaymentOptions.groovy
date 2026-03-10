@@ -18,23 +18,15 @@
 */
 package ecommerce
 
-/*
- * This script is also referenced by the ecommerce's screens and
- * should not contain order component's specific code.
- */
+import org.apache.ofbiz.product.store.ProductStoreWorker
 
-import org.apache.ofbiz.product.catalog.CatalogWorker
-import org.apache.ofbiz.product.category.CategoryWorker
+productStore = ProductStoreWorker.getProductStore(request)
 
-CategoryWorker.getRelatedCategories(request, 'topLevelList',
-        CatalogWorker.getCatalogTopCategoryId(request, CatalogWorker.getCurrentCatalogId(request)), true)
-curCategoryId = parameters.category_id ?: parameters.CATEGORY_ID ?: ''
-request.setAttribute('curCategoryId', curCategoryId)
-CategoryWorker.setTrail(request, curCategoryId)
-
-categoryList = request.getAttribute('topLevelList')
-if (categoryList) {
-    catContentWrappers = [:]
-    CategoryWorker.getCategoryContentWrappers(catContentWrappers, categoryList, request)
-    context.catContentWrappers = catContentWrappers
+productStorePaymentMethodTypeIdMap = [:]
+productStorePaymentSettingList = productStore.getRelated('ProductStorePaymentSetting', null, null, true)
+productStorePaymentSettingIter = productStorePaymentSettingList.iterator()
+while (productStorePaymentSettingIter.hasNext()) {
+    productStorePaymentSetting = productStorePaymentSettingIter.next()
+    productStorePaymentMethodTypeIdMap.put(productStorePaymentSetting.get('paymentMethodTypeId'), true)
 }
+context.put('productStorePaymentMethodTypeIdMap', productStorePaymentMethodTypeIdMap)

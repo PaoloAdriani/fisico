@@ -17,7 +17,7 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-<#include "base.ftl"/>
+<#include "../base.ftl"/>
 
 <#macro page_head_title>
 
@@ -32,67 +32,65 @@ under the License.
 <section id="content">
     <div class="content-wrap">
         <div class="container">
-            <div class="card mb-0">
-<div>
-  <div class="card">
-    <div class="card-header">
-      <strong>${uiLabelMap.OrderSalesHistory}</strong>
+            <div class="card mb-0 upper">
+                <div>
+                    <div class="card">
+                        <div class="card-header">
+                          <strong>${SystemLabelMap.OrderSalesHistory}</strong>
+                        </div>
+                        <div class="card-body">
+                          <table class="table table-responsive-sm" id="orderSalesHistory" summary="This table display order sales history.">
+                            <thead class="thead-light">
+                              <tr>
+                                <th>${SystemLabelMap.CommonDate}</th>
+                                <th>${SystemLabelMap.OrderOrder} ${SystemLabelMap.CommonNbr}</th>
+                                <th>${SystemLabelMap.CommonAmount}</th>
+                                <th>${SystemLabelMap.CommonStatus}</th>
+                                <th>${SystemLabelMap.OrderInvoices}</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <#if orderHeaderList?has_content>
+                                <#list orderHeaderList as orderHeader>
+                                  <#assign status = orderHeader.getRelatedOne("StatusItem", true) />
+                                  <tr>
+                                    <td>${orderHeader.orderDate.toString()}</td>
+                                    <td>${orderHeader.orderId}</td>
+                                    <td><@ofbizCurrency amount=orderHeader.grandTotal isoCode=orderHeader.currencyUom /></td>
+                                    <td>${status.get("description",locale)}</td>
+                                    <#-- invoices -->
+                                    <#assign invoices = EntityQuery.use(delegator).from("OrderItemBilling").where("orderId", orderHeader.orderId).orderBy("invoiceId").queryList()!/>
+                                    <#assign distinctInvoiceIds = Static["org.apache.ofbiz.entity.util.EntityUtil"].getFieldListFromEntityList(invoices, "invoiceId", true)>
+                                    <#if distinctInvoiceIds?has_content>
+                                      <td>
+                                        <#list distinctInvoiceIds as invoiceId>
+                                           <a href="<@ofbizUrl>invoice.pdf?invoiceId=${invoiceId}</@ofbizUrl>" class="buttontext">
+                                             (${invoiceId} ${SystemLabelMap.CommonPdf})
+                                           </a>
+                                        </#list>
+                                      </td>
+                                    <#else>
+                                      <td></td>
+                                    </#if>
+                                    <td>
+                                      <a href="<@ofbizUrl>orderstatus?orderId=${orderHeader.orderId}</@ofbizUrl>" class="button">
+                                        ${SystemLabelMap.CommonView}
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </#list>
+                              <#else>
+                                <tr><td colspan="6">${uiLabelMap.OrderNoOrderFound}</td></tr>
+                              </#if>
+                            </tbody>
+                          </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="card-body">
-      <table class="table table-responsive-sm" id="orderSalesHistory" summary="This table display order sales history.">
-        <thead class="thead-light">
-          <tr>
-            <th>${uiLabelMap.CommonDate}</th>
-            <th>${uiLabelMap.OrderOrder} ${uiLabelMap.CommonNbr}</th>
-            <th>${uiLabelMap.CommonAmount}</th>
-            <th>${uiLabelMap.CommonStatus}</th>
-            <th>${uiLabelMap.OrderInvoices}</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <#if orderHeaderList?has_content>
-            <#list orderHeaderList as orderHeader>
-              <#assign status = orderHeader.getRelatedOne("StatusItem", true) />
-              <tr>
-                <td>${orderHeader.orderDate.toString()}</td>
-                <td>${orderHeader.orderId}</td>
-                <td><@ofbizCurrency amount=orderHeader.grandTotal isoCode=orderHeader.currencyUom /></td>
-                <td>${status.get("description",locale)}</td>
-                <#-- invoices -->
-                <#assign invoices = EntityQuery.use(delegator).from("OrderItemBilling").where("orderId", orderHeader.orderId).orderBy("invoiceId").queryList()!/>
-                <#assign distinctInvoiceIds = Static["org.apache.ofbiz.entity.util.EntityUtil"].getFieldListFromEntityList(invoices, "invoiceId", true)>
-                <#if distinctInvoiceIds?has_content>
-                  <td>
-                    <#list distinctInvoiceIds as invoiceId>
-                       <a href="<@ofbizUrl>invoice.pdf?invoiceId=${invoiceId}</@ofbizUrl>" class="buttontext">
-                         (${invoiceId} ${uiLabelMap.CommonPdf})
-                       </a>
-                    </#list>
-                  </td>
-                <#else>
-                  <td></td>
-                </#if>
-                <td>
-                  <a href="<@ofbizUrl>orderstatus?orderId=${orderHeader.orderId}</@ofbizUrl>" class="button">
-                    ${uiLabelMap.CommonView}
-                  </a>
-                </td>
-              </tr>
-            </#list>
-          <#else>
-            <tr><td colspan="6">${uiLabelMap.OrderNoOrderFound}</td></tr>
-          </#if>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-
-</div>
-</div>
-</div>
-</div>
 </section>
 
 </#macro>

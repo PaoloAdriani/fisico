@@ -33,7 +33,7 @@ under the License.
 <section id="content">
     <div class="content-wrap">
         <div class="container">
-            <div class="card mb-0">
+            <div class="card mb-0 upper">
 
 <#if party??>
     <div class="d-flex justify-content-between">

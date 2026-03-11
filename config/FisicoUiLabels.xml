@@ -818,5 +818,97 @@ under the License.
     </property>
 
 
+    <!-- START PROFILE CUSTOMER -->
+    <property key="CommonProfile">
+        <value xml:lang="it">Profilo</value>
+        <value xml:lang="en">Profile</value>
+    </property>
+
+    <property key="CommonReturns">
+        <value xml:lang="it">Resi</value>
+        <value xml:lang="en">Returns</value>
+    </property>
+
+    <property key="OrderOrderHistory">
+        <value xml:lang="it">Storia ordine</value>
+        <value xml:lang="en">Order History</value>
+    </property>
+
+    <property key="CommonLogout">
+        <value xml:lang="it">Logout</value>
+        <value xml:lang="en">Logout</value>
+    </property>
+
+    <property key="OrderSalesHistory">
+        <value xml:lang="it">Storia ordini inseriti da te</value>
+        <value xml:lang="en">Order history for orders entered by you</value>
+    </property>
+
+    <property key="CommonAmount">
+        <value xml:lang="it">Importo</value>
+        <value xml:lang="en">Amount</value>
+    </property>
+
+    <property key="OrderInvoices">
+        <value xml:lang="it">Fatture</value>
+        <value xml:lang="en">Invoices</value>
+    </property>
+
+    <property key="CommonPdf">
+        <value xml:lang="it">PDF</value>
+        <value xml:lang="en">PDF</value>
+    </property>
+
+    <property key="CommonView">
+        <value xml:lang="it">Mostra</value>
+        <value xml:lang="en">View</value>
+    </property>
+
+    <property key="EcommerceRequestHistory">
+        <value xml:lang="it">Storia richieste</value>
+        <value xml:lang="en">Request History</value>
+    </property>
+
+    <property key="OrderRequest">
+        <value xml:lang="it">Richiesta</value>
+        <value xml:lang="en">Request</value>
+    </property>
+
+    <property key="CommonType">
+        <value xml:lang="it">Tipo</value>
+        <value xml:lang="en">Type</value>
+    </property>
+
+    <property key="CommonName">
+        <value xml:lang="pt">Nome</value>
+        <value xml:lang="en">Name</value>
+    </property>
+
+    <property key="CommonDescription">
+        <value xml:lang="it">Descrizione</value>
+        <value xml:lang="en">Description</value>
+    </property>
+
+    <property key="OrderRequestDate">
+        <value xml:lang="it">Data richiesta</value>
+        <value xml:lang="en">Request Date</value>
+    </property>
+
+    <property key="OrderRequestCreatedDate">
+        <value xml:lang="it">Data Creazione</value>
+        <value xml:lang="en">Created Date</value>
+    </property>
+
+    <property key="OrderRequestLastModifiedDate">
+        <value xml:lang="it">Data ultima modifica</value>
+        <value xml:lang="en">Last Modified Date</value>
+    </property>
+
+    <property key="OrderNoRequestFound">
+        <value xml:lang="it">Nessuna richiesta trovata</value>
+        <value xml:lang="en">No Request Found</value>
+    </property>
+
+
 
 </resource>

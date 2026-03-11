@@ -56,8 +56,7 @@
                   <input type="hidden" name="issuerId" value="${requestAttributes.issuerId}"/>
                 </#if>
 
-                <div class="row justify-content-end align-items-center py-2 col-mb-30 col-md-offset-4">
-                  <div class="col-auto">
+                <div class="row justify-content-center align-items-center py-2 col-mb-30">
 
                     <button
                       type="submit"
@@ -69,7 +68,7 @@
 
                     </button>
 
-                  </div>
+
                 </div>
 
               </form>

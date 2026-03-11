@@ -78,11 +78,11 @@
                             <div class="dropdown mx-3 me-lg-0">
                                 <a href="#" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="uil uil-user"></i></a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu1">
-                                    <a class="dropdown-item text-start" href="<@ofbizUrl>viewprofile</@ofbizUrl>">Profile</a>
-                                    <a class="dropdown-item text-start" href="<@ofbizUrl>ListRequests</@ofbizUrl>">Returns</a>
-                                    <a class="dropdown-item text-start" href="<@ofbizUrl>orderhistory</@ofbizUrl>">Order History</a>
+                                    <a class="dropdown-item text-start" href="<@ofbizUrl>viewprofile</@ofbizUrl>">${SystemLabelMap.CommonProfile}</a>
+                                    <a class="dropdown-item text-start" href="<@ofbizUrl>ListRequests</@ofbizUrl>">${SystemLabelMap.CommonReturns}</a>
+                                    <a class="dropdown-item text-start" href="<@ofbizUrl>orderhistory</@ofbizUrl>">${SystemLabelMap.OrderOrderHistory}</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item text-start" href="<@ofbizUrl>logout</@ofbizUrl>">Logout <i class="bi-box-arrow-left"></i></a>
+                                    <a class="dropdown-item text-start" href="<@ofbizUrl>logout</@ofbizUrl>">${SystemLabelMap.CommonLogout}<i class="bi-box-arrow-left"></i></a>
                                 </ul>
                             </div>
                         </div>

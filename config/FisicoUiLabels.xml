@@ -910,5 +910,10 @@ under the License.
     </property>
 
 
+    <!-- GEOLOCATION -->
+    <property key="ShipTo">
+        <value xml:lang="it">Spedisci in</value>
+        <value xml:lang="en">Ship to</value>
+    </property>
 
 </resource>

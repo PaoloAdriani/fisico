@@ -4,9 +4,12 @@
 	<div class="container-fluid">
 		<div class="row justify-content-between align-items-center">
 			<div class="col-md-2">
-				Copyrights &copy; 2026 All Rights Reserved by Mpstyle S.r.l.<br>
+					Copyrights &copy; 2026 All Rights Reserved by Mpstyle S.r.l.<br>
 				<br>
-				<#include "footer/language.ftl" />
+				<div class="d-flex align-items-center gap-2">
+					<#include "footer/language.ftl" />
+					<#include "footer/country.ftl" />
+				</div>
 			</div>
 			<div class="col-md-6 d-md-flex flex-md-column align-items-md-end mt-4 mt-md-0">
 				<ul class="list-unstyled d-flex flex-row mb-2">

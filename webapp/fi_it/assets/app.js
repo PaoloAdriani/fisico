@@ -896,6 +896,23 @@ JS_LIB_.pageController = function() {
 
 		console.log('%c FRONT_CONTROLLER : ' + util.getPage(), consologstyle);
 
+		// global: country selector (header)
+		document.querySelectorAll('[data-shipping-country]').forEach(function(el) {
+			el.addEventListener('click', function(e) {
+				e.preventDefault();
+				document.getElementById('shippingCountryGeoIdInput').value = this.dataset.shippingCountry;
+				document.getElementById('chooseShippingCountryForm').submit();
+			});
+		});
+
+		// global: language selector (header)
+		document.querySelectorAll('[data-locale]').forEach(function(el) {
+			el.addEventListener('click', function(e) {
+				e.preventDefault();
+				document.getElementById('newLocaleInput').value = this.dataset.locale;
+				document.getElementById('chooseLanguageForm').submit();
+			});
+		});
 
 		/* page controller */
 

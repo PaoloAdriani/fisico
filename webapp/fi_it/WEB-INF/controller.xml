@@ -261,6 +261,13 @@ under the License.
         <response name="error" type="view" value="main"/>
     </request-map>
 
+    <request-map uri="setShippingCountry">
+        <security https="false" auth="false"/>
+        <event type="groovy" path="component://fisico/src/main/groovy/ecommerce/SetShippingCountry.groovy"/>
+        <response name="success" type="view-last" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+
     <request-map uri="product">
         <security https="false" auth="false"/>
         <response name="success" type="view" value="product" save-current-view="true"/>

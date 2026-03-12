@@ -26,6 +26,15 @@
                         <input type="hidden" name="newLocale" id="newLocaleInput" />
                     </form>
 
+                    <form method="post"
+                          name="chooseShippingCountry"
+                          action="<@ofbizUrl>setShippingCountry</@ofbizUrl>"
+                          id="chooseShippingCountryForm">
+                        <input type="hidden" name="shippingCountryGeoId" id="shippingCountryGeoIdInput" />
+                    </form>
+
+                    <#include "common/shippingCountries.ftl" />
+
                     <ul class="menu-container">
                         <li class="menu-item">
 
@@ -63,6 +72,29 @@
                                     </#if>
                                 </#list>
 
+                            </ul>
+                        </li>
+
+                        <!-- Nazione spedizione attuale visibile -->
+                        <li class="menu-item">
+                            <a class="menu-link upper" href="#">
+                                <div>
+                                    ${getCurrentCountryCode()}
+                                </div>
+                            </a>
+
+                            <ul class="sub-menu-container">
+                                <#list shippingCountries as country>
+                                    <li class="menu-item">
+                                        <a class="menu-link <#if currentShippingCountry == country.geoId>current</#if> upper"
+                                           href="#"
+                                           data-shipping-country="${country.geoId}">
+                                            <div>
+                                                ${country.code} - ${getCountryName(country)}
+                                            </div>
+                                        </a>
+                                    </li>
+                                </#list>
                             </ul>
                         </li>
                     </ul>

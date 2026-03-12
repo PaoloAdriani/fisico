@@ -644,10 +644,11 @@ JS_LIB_.productDetail = function() {
              console.log("data: "+data);
 
             $.ajax({
-                    url: action,
+                    url: "/fi_it/control/ajaxAddItem",
                     type: "POST",
                     data: data,
-
+                    dataType: "text",
+                    /*
                     success: function(){
                         product_obj.refreshMiniCart();
                     },
@@ -656,6 +657,31 @@ JS_LIB_.productDetail = function() {
                         console.log('%c data : ' + data, consologstyle);
                         util.showUnavailableProductMessage();
                     }
+                    */
+                        success: function(responseText) {
+
+                            //console.log("tipo:", typeof responseText);
+                            //console.log("valore:", responseText);
+
+                            var json = util.parseOfbizJson(responseText);
+
+                            if (json._ERROR_MESSAGE_ || json._ERROR_MESSAGE_LIST_) {
+                                // Mostra l'errore all'utente
+                                var errorMsg = json._ERROR_MESSAGE_
+                                    || json._ERROR_MESSAGE_LIST_.join(", ");
+
+                                util.showUnavailableProductMessage(errorMsg);
+
+                                setTimeout(function(){ util.closeUnavailableProductMessage()},3000);
+
+                            } else {
+                                product_obj.refreshMiniCart();
+                            }
+                        },
+
+                        error: function(xhr) {
+                            console.log("Errore HTTP:", xhr);
+                        }
             });
 
          });
@@ -877,6 +903,8 @@ JS_LIB_.util = function() {
 
     this.parseOfbizJson = function(text){
 
+        console.log("text: "+text);
+
         return JSON.parse(
                 text.startsWith("//")
                     ? text.substring(2)
@@ -884,8 +912,14 @@ JS_LIB_.util = function() {
             );
     }
 
-    this.showUnavailableProductMessage = function(){
+    this.showUnavailableProductMessage = function(errorText){
         $('#productError').show();
+        $('#messageText').html(errorText);
+
+    }
+
+    this.closeUnavailableProductMessage = function(){
+        $('#productError').hide();
     }
 
 };

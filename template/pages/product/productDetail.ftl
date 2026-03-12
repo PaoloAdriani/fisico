@@ -215,9 +215,9 @@
     <div class="content-wrap">
 	    <div class="container">
 
-	        <div class="alert alert-danger" id="productError" style="display:none; text-align: center;">
-              <i class="bi-x-circle-fill"></i><strong>${SystemLabelMap.AttentionMessage}!</strong>&nbsp;Non è più disponibile l'articolo.
-            </div>
+	        <div class="alert alert-dismissible alert-danger mb-0 mb-5" id="productError" style="display:none; text-align: center;">
+	            <p id="messageText"></p>
+	        </div>
 
 			<div class="single-product">
 				<div class="product">

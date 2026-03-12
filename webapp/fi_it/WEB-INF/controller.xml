@@ -284,6 +284,13 @@ under the License.
         <response name="error" type="view" value="showCart"/>
     </request-map>
 
+    <request-map uri="ajaxAddItem">
+        <security https="false" auth="false"/>
+        <event type="java" path="org.apache.ofbiz.order.shoppingcart.ShoppingCartEvents" invoke="addToCart"/>
+        <response name="success" type="request" value="json"/>
+        <response name="error" type="request" value="json"/>
+    </request-map>
+
     <request-map uri="ajaxMiniCart">
         <response name="success" type="view" value="miniCart"/>
     </request-map>

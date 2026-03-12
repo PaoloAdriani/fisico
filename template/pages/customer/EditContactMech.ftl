@@ -263,6 +263,7 @@ under the License.
                                     <div class="form-group">
                                       <label class="my-2">${SystemLabelMap.PartyPhoneNumber}</label>
                                       <div class="row">
+                                        <#--
                                         <div class="col-sm-2">
                                           <input type="text" class="form-control" name="countryCode"
                                               value="${telecomNumberData.countryCode!}" placeholder="${uiLabelMap.CommonCountryCode}"/>
@@ -272,16 +273,19 @@ under the License.
                                           <input type="text" class="form-control" name="areaCode"
                                               value="${telecomNumberData.areaCode!}" placeholder="${uiLabelMap.PartyAreaCode}"/>
                                         </div>
+                                        -->
                                         <label class="my-2">-</label>
                                         <div class="col-sm-2">
                                           <input type="text" class="form-control" name="contactNumber"
-                                              value="${telecomNumberData.contactNumber!}" placeholder="${uiLabelMap.PartyContactNumber}"/>
+                                              value="${telecomNumberData.contactNumber!}" placeholder="${SystemLabelMap.PartyContactNumber}"/>
                                         </div>
+                                        <#--
                                         <label class="my-2">-</label>
                                         <div class="col-sm-2">
                                           <input type="text" class="form-control"
                                               name="extension" value="${partyContactMechData.extension!}" placeholder="${uiLabelMap.PartyExtension}"/>
                                         </div>
+                                        -->
                                       </div>
                                     </div>
                                 <#elseif contactMechTypeId = "EMAIL_ADDRESS">

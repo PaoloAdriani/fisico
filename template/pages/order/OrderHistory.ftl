@@ -74,9 +74,10 @@ under the License.
                                       <td></td>
                                     </#if>
                                     <td>
+                                      <#--
                                       <a href="<@ofbizUrl>orderstatus?orderId=${orderHeader.orderId}</@ofbizUrl>" class="button">
                                         ${SystemLabelMap.CommonView}
-                                      </a>
+                                      </a>-->
                                     </td>
                                   </tr>
                                 </#list>

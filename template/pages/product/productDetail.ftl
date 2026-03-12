@@ -29,69 +29,80 @@
             }
 
             .product-colors {
-                      height: 20px;
-                      display: flex;
-                      flex-direction: row;
-                      justify-content: center;
-                      gap: 10px;
-                      margin-bottom: 15px;
-                      margin-top: 2px;
-                    }
+              height: 20px;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              gap: 10px;
+              margin-bottom: 15px;
+              margin-top: 2px;
+            }
 
-                    .color-swatch img {
-                      width: 45px;
-                      height: 20px;
-                      border-radius: 50%;
-                      border: 2px solid #ddd;
-                      transition: 0.2s;
-                      cursor: pointer;
-                    }
+            .color-swatch img {
+              width: 45px;
+              height: 20px;
+              border-radius: 50%;
+              border: 2px solid #ddd;
+              transition: 0.2s;
+              cursor: pointer;
+            }
 
-                    .color-swatch img:hover {
-                      border-color: #000;
-                      transform: scale(1.08);
-                    }
+            .color-swatch img:hover {
+              border-color: #000;
+              transform: scale(1.08);
+            }
 
              .product-sizes {
-                      display: flex;
-                      justify-content: center;
-                      gap: 8px;
-                    }
+               display: flex;
+               justify-content: center;
+               gap: 8px;
+             }
 
-                    .size-btn {
-                      padding: 1px 5px;
-                      border: 1px solid #ccc;
-                      text-decoration: none;
-                      color: #333;
-                      transition: 0.2s;
-                    }
+            .size-btn {
+              padding: 1px 5px;
+              border: 1px solid #ccc;
+              text-decoration: none;
+              color: #333;
+              transition: 0.2s;
+            }
 
-                    .size-btn:hover {
-                      background: #000;
-                      color: #fff;
-                    }
+            .size-btn:hover {
+              background: #000;
+              color: #fff;
+            }
 
-                    .product .color-swatch img,
-                    .product .color-dot img {
-                        width: 20px !important;
-                        height: 20px !important;
-                        object-fit: cover;
-                    }
+            .product .color-swatch img,
+            .product .color-dot img {
+                width: 20px !important;
+                height: 20px !important;
+                object-fit: cover;
+            }
 
 
-                .also-bought-products .product {
-                    font-size: 0.9rem;
-                }
+            .also-bought-products .product {
+                font-size: 0.9rem;
+            }
 
-                .also-bought-products .product-image {
-                    max-height: 150px;
-                }
+            .also-bought-products .product-image {
+                max-height: 150px;
+            }
 
-                .also-bought-products h4 {
-                    font-size: 1.1rem;
-                    margin-bottom: 15px;
-                }
+            .also-bought-products h4 {
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+            }
 
+            /* mobile select button */
+
+            .mobile-variants-btn {
+
+              display: none;
+
+            }
+
+            .mobile-modal-close{
+                display: none;
+            }
 
      </style>
 
@@ -203,6 +214,11 @@
 <section id="content">
     <div class="content-wrap">
 	    <div class="container">
+
+	        <div class="alert alert-danger" id="productError" style="display:none; text-align: center;">
+              <i class="bi-x-circle-fill"></i><strong>${SystemLabelMap.AttentionMessage}!</strong>&nbsp;Non è più disponibile l'articolo.
+            </div>
+
 			<div class="single-product">
 				<div class="product">
 					<div class="row gutter-40">

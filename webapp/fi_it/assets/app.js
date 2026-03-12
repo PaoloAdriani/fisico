@@ -407,14 +407,17 @@ JS_LIB_.newCustomer = function() {
 JS_LIB_.categoryDetail = function() {
 
     var category_obj = this;
+    let event;
 
     this.init = function(){
+
+        event = new JS_LIB_.event();
 
         category_obj.addItemFromCategory();
         category_obj.initMiniCart();
 
-        category_obj.showMobileVariants();
-        category_obj.closeMobileVariants();
+        event.showMobileVariants();
+        event.closeMobileVariants();
 
     }
 
@@ -477,64 +480,7 @@ JS_LIB_.categoryDetail = function() {
        });
    }
 
-   this.showMobileVariants = function() {
 
-           document.querySelectorAll(".mobile-variants-btn").forEach(function(button){
-
-                   button.addEventListener("click", function(){
-
-                       const product = button.closest(".product");
-
-                       const modal = product.querySelector(".mobile-modal");
-
-                       const modalContent = modal.querySelector(".mobile-modal-content");
-
-                       const variants = product.querySelector(".product-overlay-variants");
-
-                       /* salva posizione originale */
-                       product._variantsOriginalParent = variants.parentNode;
-                       product._variantsNextSibling = variants.nextSibling;
-
-                       /* ⭐ FIX CRITICO: sposta modal nel body */
-                       document.body.appendChild(modal);
-
-                       /* sposta varianti nel modal */
-                       modalContent.appendChild(variants);
-
-                       modal.classList.add("active");
-
-                   });
-
-           });
-   }
-
-   this.closeMobileVariants = function() {
-
-      document.addEventListener("click", function(e){
-
-              if(e.target.classList.contains("mobile-modal-close") || e.target.classList.contains("mobile-modal-backdrop")){
-
-                  const modal = e.target.closest(".mobile-modal");
-
-                  const variants = modal.querySelector(".product-overlay-variants");
-
-                  const product = document.querySelector(".product");
-
-                  /* ripristina varianti */
-                  if (product._variantsNextSibling)
-                      product._variantsOriginalParent.insertBefore(
-                          variants,
-                          product._variantsNextSibling
-                      );
-                  else
-                      product._variantsOriginalParent.appendChild(variants);
-
-                  modal.classList.remove("active");
-
-              }
-      });
-
-   }
 }
 
 
@@ -630,16 +576,22 @@ JS_LIB_.productDetail = function() {
 	var product_obj = this;
 
 	let util;
+	//let event;
 
 	this.init = function() {
 
 		util = new JS_LIB_.util();
+
+		event = new JS_LIB_.event();
 
         util.hideProductDetailPageAlert();
 
 		product_obj.addItem();
 
 		product_obj.setupThumbs();
+
+		//event.showMobileVariants();
+        //event.closeMobileVariants();
 
 	};
 
@@ -701,7 +653,8 @@ JS_LIB_.productDetail = function() {
                     },
 
                     error: function(data){
-                        console.log(data);
+                        console.log('%c data : ' + data, consologstyle);
+                        util.showUnavailableProductMessage();
                     }
             });
 
@@ -839,6 +792,65 @@ JS_LIB_.event = function() {
 
     }
 
+    this.showMobileVariants = function() {
+
+       document.querySelectorAll(".mobile-variants-btn").forEach(function(button){
+
+           button.addEventListener("click", function(){
+
+               const product = button.closest(".product");
+
+               const modal = product.querySelector(".mobile-modal");
+
+               const modalContent = modal.querySelector(".mobile-modal-content");
+
+               const variants = product.querySelector(".product-overlay-variants");
+
+               /* salva posizione originale */
+               product._variantsOriginalParent = variants.parentNode;
+               product._variantsNextSibling = variants.nextSibling;
+
+               /* ⭐ FIX CRITICO: sposta modal nel body */
+               document.body.appendChild(modal);
+
+               /* sposta varianti nel modal */
+               modalContent.appendChild(variants);
+
+               modal.classList.add("active");
+
+           });
+
+       });
+    }
+
+   this.closeMobileVariants = function() {
+
+      document.addEventListener("click", function(e){
+
+          if(e.target.classList.contains("mobile-modal-close") || e.target.classList.contains("mobile-modal-backdrop")){
+
+              const modal = e.target.closest(".mobile-modal");
+
+              const variants = modal.querySelector(".product-overlay-variants");
+
+              const product = document.querySelector(".product");
+
+              /* ripristina varianti */
+              if (product._variantsNextSibling)
+                  product._variantsOriginalParent.insertBefore(
+                      variants,
+                      product._variantsNextSibling
+                  );
+              else
+                  product._variantsOriginalParent.appendChild(variants);
+
+              modal.classList.remove("active");
+
+          }
+      });
+
+   }
+
 };
 
 
@@ -870,6 +882,10 @@ JS_LIB_.util = function() {
                     ? text.substring(2)
                     : text
             );
+    }
+
+    this.showUnavailableProductMessage = function(){
+        $('#productError').show();
     }
 
 };

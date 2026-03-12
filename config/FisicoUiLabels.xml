@@ -839,6 +839,86 @@ under the License.
         <value xml:lang="en">Logout</value>
     </property>
 
+    <property key="PartyTheProfileOf">
+        <value xml:lang="it">Il profilo di</value>
+        <value xml:lang="en">The Profile of</value>
+    </property>
+
+    <property key="PartyNewUser">
+        <value xml:lang="it">Nuovo utente</value>
+        <value xml:lang="en">New User</value>
+    </property>
+
+    <property key="PartyPersonalInformation">
+        <value xml:lang="it">Informazioni personali</value>
+        <value xml:lang="en">Personal Information</value>
+    </property>
+
+    <property key="CommonCreate">
+        <value xml:lang="it">Creare</value>
+        <value xml:lang="en">Create</value>
+    </property>
+
+    <property key="PartyPersonalInformationNotFound">
+        <value xml:lang="it">Informazioni personali non trovate</value>
+        <value xml:lang="en">Personal Information Not Found</value>
+    </property>
+
+    <property key="PartyContactInformation">
+        <value xml:lang="it">Informazioni contatto</value>
+        <value xml:lang="en">Contact Information</value>
+    </property>
+
+    <property key="PartyContactType">
+        <value xml:lang="it">Tipo contatto</value>
+        <value xml:lang="en">Contact Type</value>
+    </property>
+
+    <property key="PartyNoContactInformation">
+        <value xml:lang="it">Nessuna informazione per contatto in archivio</value>
+        <value xml:lang="en">No contact information on file</value>
+    </property>
+
+    <property key="PartyPhoneNumberInfoNotFound">
+        <value xml:lang="it">Numeri di telefono non trovate</value>
+        <value xml:lang="en">Phone Number Information Not Found</value>
+    </property>
+
+    <property key="EcommerceDefaultShipmentMethod">
+        <value xml:lang="it">Metodo di spedizione di default</value>
+        <value xml:lang="en">Default Shipment Method</value>
+    </property>
+
+    <property key="CommonDelete">
+        <value xml:lang="it">Cancella</value>
+        <value xml:lang="en">Delete</value>
+    </property>
+
+    <property key="EcommerceSetDefault">
+        <value xml:lang="it">Imposta come predefinito</value>
+        <value xml:lang="en">Set Default</value>
+    </property>
+
+    <property key="EcommerceIsDefault">
+        <value xml:lang="it">E' predefinito</value>
+        <value xml:lang="en">Is Default</value>
+    </property>
+
+    <property key="PartyPurposeTypeNotFound">
+        <value xml:lang="it">Tipo funzione contatto non trovate con codice</value>
+        <value xml:lang="en">Contact Purpose Type Not Found with ID</value>
+    </property>
+
+    <property key="PartyContactNumber">
+        <value xml:lang="it">Contatto numero</value>
+        <value xml:lang="en">Contact Number</value>
+    </property>
+
+    <property key="CommonUpdate">
+        <value xml:lang="it">Aggiorna</value>
+        <value xml:lang="en">Update</value>
+    </property>
+
     <property key="OrderSalesHistory">
         <value xml:lang="it">Storia ordini inseriti da te</value>
         <value xml:lang="en">Order history for orders entered by you</value>

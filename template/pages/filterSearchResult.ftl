@@ -341,63 +341,6 @@
 
 </#macro>
 
-<#macro paginationControlsNoAjax>
-  <#local viewIndexMax = Static["java.lang.Math"]
-      .ceil((listSize)?double / viewSize?double) />
-
-  <#if viewIndexMax?int gt 1>
-    <div class="row justify-content-end">
-      <div class="col-auto">
-        <div class="canvas-pagination">
-
-          <!-- SELECT PAGINA -->
-          <select class="canvas-page-select"
-                  onchange="location.href='?viewIndex=' + this.value + '&viewSize=${viewSize}'">
-            <#list 0..viewIndexMax-1 as i>
-              <option value="${i}" <#if i == viewIndex>selected</#if>>
-                ${uiLabelMap.CommonPage} ${i + 1}
-              </option>
-            </#list>
-          </select>
-
-          <!-- INFO RANGE -->
-          <span class="canvas-pagination-info">
-            <strong>${lowIndex}–${highIndex}</strong>
-            <span class="text-muted">
-              ${uiLabelMap.CommonOf} ${listSize}
-            </span>
-          </span>
-
-          <!-- PREV -->
-          <#if viewIndex?int gt 0>
-            <a class="canvas-page-btn"
-               href="?viewIndex=${viewIndex-1}&viewSize=${viewSize}">
-              ${uiLabelMap.CommonPrevious}
-            </a>
-          <#else>
-            <span class="canvas-page-btn disabled">
-              ${uiLabelMap.CommonPrevious}
-            </span>
-          </#if>
-
-          <!-- NEXT -->
-          <#if highIndex?int lt listSize?int>
-            <a class="canvas-page-btn"
-               href="?viewIndex=${viewIndex+1}&viewSize=${viewSize}">
-              ${uiLabelMap.CommonNext}
-            </a>
-          <#else>
-            <span class="canvas-page-btn disabled">
-              ${uiLabelMap.CommonNext}
-            </span>
-          </#if>
-
-        </div>
-      </div>
-    </div>
-  </#if>
-</#macro>
-
 <#macro page_body>
 
 <!-- Content
@@ -408,35 +351,33 @@
                     <div class="row">
                         <#-- test filtri -->
                         <div class="col-md-2">
-                            <#if filterMap?? && (filterMap?size > 0)>
-                                <form action="<@ofbizUrl>filterSearch</@ofbizUrl>" method="POST">
-                                    <input type="hidden" name="fromProductCategoryId" value="${productCategoryId!}">
-                                    <#list filterMap.entrySet() as filterEntry>
-                                        <div class="mb-4">
-                                            <h5>${filterEntry.getKey()}</h5>
-                                            <#list filterEntry.getValue().entrySet() as filterValueEntry>
-                                                <div>
-                                                    <label>
-                                                        <input type="checkbox" name="SRC_${filterEntry.key}" value="${filterValueEntry.key}">
-                                                        ${filterValueEntry.value}
-                                                    </label>
-                                                </div>
-                                            </#list>
-                                        </div>
-                                    </#list>
-                                    <button class="btn btn-secondary" type="submit">Apply filter</button>
-                                </form>
-                            <#else>
+                            <a class="btn btn-info" href="<@ofbizCatalogAltUrl productCategoryId="${fromProductCategoryId!}"/>">Remove filters</a>
+                            <#if appliedFiltersByFeatureType??>
+                                <#list appliedFiltersByFeatureType.entrySet() as appliedFilterEntry>
                                 <div>
-                                    <p>Nessun filtro disponibile</p>
+                                    <h5>${appliedFilterEntry.getKey()}</h5>
+                                    <#list appliedFilterEntry.getValue() as appliedFeatureFilter>
+                                        <ul>
+                                            <li>${appliedFeatureFilter}</li>
+                                        </ul>
+                                    </#list>
+                                </div>
+                                </#list>
+                            </#if>
+                            <#if fromProductCategoryId??>
+                                <div>
+                                    <h5>Category</h5>
+                                    <ul>
+                                        <li>${fromProductCategoryId!}</li>
+                                    </ul>
                                 </div>
                             </#if>
                         </div>
 
                         <div class="col-md-10">
                                 <div class="row shop grid-container" data-layout="fitRows">
-                                    <#if productCategoryMembers?has_content>
-                                        <#list productCategoryMembers as productCategoryMember>
+                                    <#if productCategoryFilteredMembers?has_content>
+                                        <#list productCategoryFilteredMembers as productCategoryMember>
                                             ${setRequestAttribute("optProductId", productCategoryMember.productId)}
                                             ${setRequestAttribute("productCategoryMember", productCategoryMember)}
                                             ${setRequestAttribute("listIndex", productCategoryMember_index)}
@@ -449,9 +390,7 @@
                                         </div>
                                     </#if>
                                 </div>
-                            <div class="pagination-container mt-5">
-                                <@paginationControlsNoAjax />
-                            </div>
+
                         </div>
                     </div>
                 </div>

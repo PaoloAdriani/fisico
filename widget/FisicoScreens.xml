@@ -446,6 +446,7 @@ under the License.
                 <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/cart/ShowCart.groovy"/>
                 <script location="component://fisico/src/main/groovy/ecommerce/cart/ShowPromoText.groovy"/>
+                <script location="component://mpstyle/src/main/groovy/ecommerce/catalog/ProductCategoryFilters.groovy"/>
                 <!-- Open this commented section for the demo of Layered Navigation, navigate through Gizmo and Widgets categories to see it in action.
                 <script location="component://ecommerce/src/main/groovy/org/apache/ofbiz/ecommerce/catalog/LayeredNavigation.groovy"/>
                 <set field="detailScreen" value="LayeredCategoryDetail"/>
@@ -513,6 +514,27 @@ under the License.
                 <platform-specific>
                     <html>
                         <html-template location="component://fisico/template/pages/listing.ftl"/>
+                    </html>
+                </platform-specific>
+            </widgets>
+        </section>
+    </screen>
+
+    <!-- @mpstyle Filter search result screen -->
+    <screen name="filterSearchResult">
+        <section>
+            <actions>
+                <property-map resource="FisicoUiLabels" map-name="SystemLabelMap" global="true"/>
+                <set field="productsummaryScreen" value="component://fisico/widget/FisicoScreens.xml#productsummary"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/DynamicMenu.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/cart/ShowCart.groovy"/>
+                <script location="component://fisico/src/main/groovy/ecommerce/cart/ShowPromoText.groovy"/>
+                <script location="component://mpstyle/src/main/groovy/ecommerce/catalog/PerformFilterSearch.groovy"/>
+            </actions>
+            <widgets>
+                <platform-specific>
+                    <html>
+                        <html-template location="component://fisico/template/pages/filterSearchResult.ftl"/>
                     </html>
                 </platform-specific>
             </widgets>

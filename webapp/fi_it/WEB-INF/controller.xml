@@ -265,6 +265,13 @@ under the License.
         <security https="false" auth="false"/>
         <response name="success" type="view" value="product" save-current-view="true"/>
     </request-map>
+
+    <!-- @mpstyle Filter search results -->
+    <request-map uri="filterSearch">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="filterSearchResult" save-current-view="true"/>
+    </request-map>
+
     <!-- ======================= End Listing requests ======================= -->
 
     <request-map uri="addItem">
@@ -579,6 +586,8 @@ under the License.
     <view-map name="productCategoryList" type="screen" page="component://fisico/widget/FisicoScreens.xml#productCategoryList" auth="false"/>
 
     <view-map name="product" type="screen" page="component://fisico/widget/FisicoScreens.xml#product" auth="false"/>
+    <!-- @mpstyle test filtering search results -->
+    <view-map name="filterSearchResult" type="screen" page="component://fisico/widget/FisicoScreens.xml#filterSearchResult" auth="false"/>
 
 
     <!-- New Customer -->
